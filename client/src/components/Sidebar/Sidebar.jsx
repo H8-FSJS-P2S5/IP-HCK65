@@ -3,12 +3,12 @@ import { FiSearch } from "react-icons/fi";
 import { FaPlus } from "react-icons/fa";
 import { LuLibrary } from "react-icons/lu";
 import { TfiWorld } from "react-icons/tfi";
-import Signup from "./Signup";
+import Footer from "./Footer";
 
 export default function Sidebar() {
     return (
         <>
-            <div className="w-1/4 sidebar">
+            <div className="w-1/4 fixed left-0 top-0 sidebar">
             {/* Nav Home & Search */}
             <div id="home" className="secondaryBg rounded-lg p-6">
                 <div className="flex items-center gap-4">
@@ -32,8 +32,7 @@ export default function Sidebar() {
                     </button>
                 </div>
                 {/* Playlists bar */}
-                <div className="overflow-y-scroll h-72">
-
+                <div id="sidebar-overflow" className="overflow-y-scroll h-72">
                 <div className="leading-7 tertiaryBg rounded-lg p-6">
                     <p className="font-bold">Create your first playlist</p>
                     <p className="font-semibold">It's easy, we'll help you</p>
@@ -61,7 +60,7 @@ export default function Sidebar() {
                 <span className="font-bold">Language</span>
             </button>
             </div>
-            <Signup />
+            <Footer />
             {/*  */}
 
 
