@@ -26,7 +26,9 @@ export default function Login() {
 
     return (
         <>
+        <div className="flex w-screen h-screen justify-center items-center">
             <a href={`${AUTH_ENDPOINT}?client_id=${SPOTIFY_CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${scopes_encoded}&show_dialog=true`}><LoginBtn /></a>
+        </div>
         </>
     )
 }

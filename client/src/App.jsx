@@ -1,11 +1,12 @@
-import { useState } from 'react'
+import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
-
+const code = new URLSearchParams(window.location.search).get('code')
+// console.log(code);
 function App() {
 
   return (
     <>
-      <Login/>
+      {code ? <Dashboard code={code} /> : <Login/>}
     </>
   )
 }
