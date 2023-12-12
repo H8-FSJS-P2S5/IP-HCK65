@@ -1,13 +1,19 @@
+import { BrowserRouter as Router,Routes, Route } from 'react-router-dom'
 import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
+import Home from './components/Home/Home'
+
 const code = new URLSearchParams(window.location.search).get('code')
 // console.log(code);
 function App() {
 
   return (
-    <>
-      {code ? <Dashboard code={code} /> : <Login/>}
-    </>
+    <Router>
+      <Routes>
+        <Route path='/' element={<Home/>}>
+        </Route>
+      </Routes>
+    </Router>
   )
 }
 

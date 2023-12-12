@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    scroll-behavior: smooth;
+    padding: 10px;
+}
+
+:root {
+--secondaryBg: #121212;
+--tertiaryBg: #242424;
+}
+
+.secondaryBg {
+    background: var(--secondaryBg)
+}
+
+.tertiaryBg {
+    background: var(--tertiaryBg)
+}

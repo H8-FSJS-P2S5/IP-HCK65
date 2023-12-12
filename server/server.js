@@ -1,16 +1,16 @@
 const express = require('express');
-const SpotifyWebApi = require('spotify-web-api-node');
 const cors = require('cors');
+const SpotifyWebApi = require('spotify-web-api-node');
 
 const app = express();
 app.use(cors())
-app.use(express.json()); 
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.post('/login', async (req, res) => {
     try {
         const code = req.body.code;
-        console.log(code, "<<<<<");
+        // console.log(code, "<<<<<");
         const spotifyApi = new SpotifyWebApi({
             redirectUri: 'http://localhost:5173/callback',
             clientId: 'd86db55895ca45319957a258fac15a79',
@@ -18,7 +18,7 @@ app.post('/login', async (req, res) => {
         });
 
         const data = await spotifyApi.authorizationCodeGrant(code);
-        console.log(data, "<-- data ");
+        // console.log(data, "<-- data ");
         res.json({
             accessToken: data.body.access_token,
             refreshToken: data.body.refresh_token,
