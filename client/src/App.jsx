@@ -1,8 +1,15 @@
-function App() {
+import {RouterProvider} from "react-router-dom";
+import {router} from "./router.jsx";
 
+import {ToastContainer} from "react-toastify";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css'
+
+function App() {
     return (
         <>
-            ini app
+            <ToastContainer/>
+            <RouterProvider router={router}/>
         </>
     )
 }
