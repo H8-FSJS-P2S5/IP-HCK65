@@ -15,7 +15,8 @@ class controllerAnimes {
   static async getAnime(req, res, next) {
     try {
       let animeId = req.params.id;
-      //   console.log(animeId);
+        // console.log(animeId);
+        // console.log(animeId);
       let instance = await MyAnime.getAnime(+animeId);
       res.status(200).json(instance);
     } catch (error) {
