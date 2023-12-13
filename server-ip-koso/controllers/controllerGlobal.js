@@ -3,11 +3,22 @@ const axios = require("axios");
 // const { CreateInvoiceRequest, Invoice } = require("xendit-node/invoice/models");
 const { Transaction, User } = require("../models");
 const stripe = require("stripe")(process.env.SECRET_STRIPE_KEY);
+// const { nanoid } = require("nanoid");
 
 class ControllerGlobal {
   static async getLaid(req, res, next) {
     try {
       let instance = { mukidi: "WKWKWKW" };
+      res.status(200).json(instance);
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async registerUser(req, res, next) {
+    try {
+      const data = req.body;
+      let instance = await User.registerUser(data);
       res.status(201).json(instance);
     } catch (error) {
       next(error);
@@ -16,10 +27,7 @@ class ControllerGlobal {
 
   static async postPay(req, res, next) {
     try {
-      // console.log("MASUK");
-
-      //   const UserId = req.user.id;
-      const UserId = 1; //dari req.user.id
+      const UserId = req.user.id;
 
       const findUser = await User.findByPk(UserId, {
         include: [Transaction],
@@ -29,11 +37,13 @@ class ControllerGlobal {
       const formattedDate = `${now.getFullYear()}${(now.getMonth() + 1)
         .toString()
         .padStart(2, "0")}${now.getDate().toString().padStart(2, "0")}`;
-      const transaction_id = `TRX-UACC-asde44zdf24-${formattedDate}`;
+      // const trxId = nanoid();
+      const transaction_id = `TRX-UACC-warg48-${formattedDate}`;
       if (!findUser) throw { name: "notFound" };
       // console.log(findUser.Transactions[0], "ENIH");
 
-      if (findUser.status === "Premium") throw { name: "notFound" }; //GANTI KE ALERT UDAH PREMIUM, GABAKAL SIH
+      if (findUser.status === "Premium")
+        throw { name: "isPremium", message: "your tier is already Premium" }; //GANTI KE ALERT UDAH PREMIUM, GABAKAL SIH
 
       if (findUser.Transactions.length > 0) {
         const checkSession = await stripe.checkout.sessions.retrieve(
@@ -55,23 +65,22 @@ class ControllerGlobal {
         }
       } else {
         const session = await stripe.checkout.sessions.create({
-          success_url: "http://localhost:5000/", //balikkan ke url client atau endpoint mengakses home
-          cancel_url: "http://localhost:5000/", //balikkan ke url client atau endpoint mengakses home
+          success_url: "http://localhost:5000/sucess", //balikkan ke url client atau endpoint mengakses home
+          cancel_url: "http://localhost:5000/fail", //balikkan ke url client atau endpoint mengakses home
           line_items: [
-            //NANTI REQ.BODY, PASTIKAN DIKIRM KE REQ.BODY
             {
               price_data: {
                 currency: "idr",
                 product_data: {
                   name: "Upgrade Account to Premium chuni",
                 },
-                unit_amount: 15_000_00, //NGITUNG DARI SEN, RP 150.000,00
+                unit_amount: 150_000_00, //NGITUNG DARI SEN, RP 150.000,00
               },
-              quantity: 1, //CUMA UPGRADE DOANG
+              quantity: 1,
             },
           ],
           mode: "payment",
-          customer_email: findUser.email, //GANTI DENGAN EMAIL USER DARI FINDUSER
+          customer_email: findUser.email,
         });
 
         const payment_gateway_id = session.id;
@@ -93,13 +102,20 @@ class ControllerGlobal {
 
   static async upgradeAcc(req, res, next) {
     try {
-      const UserId = 1; //dari req.user.id
+      const UserId = req.user.id;
       const findUser = await User.findByPk(UserId, {
         include: [Transaction],
       });
 
-      if (!findUser) throw { name: "notFound" };
-      if (findUser.status === "Premium") throw { name: "notFound" }; //GANTI KE ALERT UDAH PREMIUM, GABAKAL SIH
+      if (!findUser)
+        throw {
+          name: "Unauthorized",
+          message: "You are not authorized to upgrade",
+        };
+        
+      if (findUser.status === "Premium")
+        throw { name: "isPremium", message: "your tier is already Premium" }; //GANTI KE ALERT UDAH PREMIUM, GABAKAL SIH
+
       if (findUser.Transactions[0].status === "unpaid") {
         const checkSession = await stripe.checkout.sessions.retrieve(
           findUser.Transactions[0].payment_gateway_id
