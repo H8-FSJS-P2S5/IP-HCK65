@@ -62,8 +62,23 @@
 }
 
 .side-right {
-    padding-top: 65px;
-    font-size: 13px;
+    margin-top: 20px;
+    margin-right: 10px;
+    /*font-size: 13px;*/
+}
+
+.w-95 {
+    width: 95%;
+}
+
+.nav-link-custom {
+    color: var(--bs-navbar-color);
+    text-decoration: none;
+}
+
+
+.color-blue-theme {
+    color: #00aeef;
 }
 
 #text-obli {
