@@ -1,4 +1,5 @@
 const express = require('express');
+const { User } = require('../models');
 const SpotifyWebApi = require('spotify-web-api-node');
 const querystring = require('querystring');
 
@@ -65,10 +66,10 @@ class ControllerAuth {
         }
     }
 
-    static async authSpotifyCallback (req, res, next) {
+    static async authSpotifyCallback(req, res, next) {
         try {
             // console.log(req.query, "<<query");
-            const {code} = req.query;
+            const { code } = req.query;
             const clientId = process.env.SPOTIFY_CLIENT_ID
             const clientSecret = process.env.SPOTIFY_CLIENT_SECRET
             const redirectUri = 'http://localhost:3000/auth/spotify/callback'
@@ -80,13 +81,63 @@ class ControllerAuth {
             })
 
             const data = await spotifyApi.authorizationCodeGrant(code);
+            const access_token = data.body.access_token // ACCESS TOKEN
             console.log(data, "<------ data");
-            res.redirect('http://localhost:5173/login?access_token=access_token&message=success&status=success')
-            // res.status(200).json({
-            //     accessToken: data.body.access_token,
-            //     refreshToken: data.body.refresh_token,
-            //     expiresIn: data.body.expires_in
-            // })
+            spotifyApi.setAccessToken(access_token)
+            const userData = await spotifyApi.getMe();
+            console.log(userData.body);
+            let password = toString(Math.random())
+            console.log(password);
+            const profileData = await User.create({
+                email: userData.body.email,
+                name: userData.body.display_name,
+                imageUrl: userData.body.images[1].url,
+                profileUrl: userData.body.external_urls.spotify,
+                access_token: data.body.access_token,
+                refresh_token: data.body.refresh_token,
+                password: 'password'
+            })
+
+
+            res.redirect(`http://localhost:5173/login?access_token=${access_token}&message=success&status=success`)
+            
+            res.status(201).json({
+                profileData
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    static async refreshToken(req, res, next) {
+        try {
+            const refresh_token = req.query.refresh_token
+            const clientId = process.env.SPOTIFY_CLIENT_ID
+            const clientSecret = process.env.SPOTIFY_CLIENT_SECRET
+            const authOptions = {
+                url: 'https://accounts.spotify.com/api/token',
+                headers: {
+                    'content-type': 'application/x-www-form-urlencoded',
+                    'Authorization': 'Basic ' + (new Buffer.from(clientId + ':' + clientSecret).toString('base64'))
+                },
+                form: {
+                    grant_type: 'refresh_token',
+                    refresh_token: refresh_token
+                },
+                json: true
+            }
+
+            request.post(authOptions, function (error, response, body) {
+                if (!error && response.statusCode === 200) {
+                    var access_token = body.access_token,
+                        refresh_token = body.refresh_token;
+                    res.send({
+                        'access_token': access_token,
+                        'refresh_token': refresh_token
+                    });
+                }
+            });
+
         } catch (error) {
             console.log(error);
         }

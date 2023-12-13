@@ -44,8 +44,8 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     imageUrl: DataTypes.STRING,
     profileUrl: DataTypes.STRING,
-    access_token: DataTypes.STRING,
-    refresh_token: DataTypes.STRING
+    access_token: DataTypes.TEXT,
+    refresh_token: DataTypes.TEXT
   }, {
     sequelize,
     modelName: 'User',

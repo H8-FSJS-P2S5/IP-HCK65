@@ -1,7 +1,12 @@
 import { FaPlay } from 'react-icons/fa'
 import './card.css'
+import Axios from "axios"
+import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
+
 
 export default function Card() {
+    // const [profile, setProfile] 
     return (
         <div className="card col-span-1 p-4 rounded-lg">
             <div className='relative'>

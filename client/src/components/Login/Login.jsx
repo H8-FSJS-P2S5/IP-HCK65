@@ -6,10 +6,9 @@ export default function Login() {
     const navigate = useNavigate()
     const [searchParams] = useSearchParams()
     useEffect(() => {
-        console.log(searchParams.get('status'));
+        console.log(searchParams.get('access_token'));
         if(searchParams.get('status') === 'success') {
             localStorage.access_token = searchParams.get('access_token');
-
             navigate('/')
         }
     }, [])
@@ -88,21 +87,6 @@ export default function Login() {
                                     font-semibold hover:font-bold 
                                     text-center rounded-full
                                     outline-none'>Login</a>
-                            {/* <input
-                                type="type"
-                                placeholder='Password'
-                                value='Login'
-                                className='bg-primary
-                                    block 
-                                    w-full
-                                    p-3
-                                    hover:scale-105
-                                    translate-all 
-                                    duration-300 
-                                    text-black 
-                                    font-semibold hover:font-bold 
-                                    text-center rounded-full
-                                    outline-none' /> */}
                         </div>
                         {/* forgot */}
                         <div className='w-full text-center py-4'>

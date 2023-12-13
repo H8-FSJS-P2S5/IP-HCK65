@@ -12,6 +12,9 @@ module.exports = {
       email: {
         type: Sequelize.STRING
       },
+      password: {
+        type: Sequelize.STRING
+      },
       name: {
         type: Sequelize.STRING
       },
@@ -22,10 +25,10 @@ module.exports = {
         type: Sequelize.STRING
       },
       access_token: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       refresh_token: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       createdAt: {
         allowNull: false,
