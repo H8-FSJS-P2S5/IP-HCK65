@@ -7,6 +7,7 @@ import MyPage from "./views/page-my";
 import MyEditPage from "./views/page-my-edit";
 import RootLayout from "./layouts/rootlayout";
 import FourOFourPage from "./views/404-page";
+import DetailAnimePage from "./views/page-detailAnime";
 
 const router = createBrowserRouter([
   {
@@ -28,12 +29,30 @@ const router = createBrowserRouter([
     ],
   }, //CHECKED, OK
   {
+    path: "/anime/:id",
+    element: <RootLayout />,
+    loader: () => {
+      const isLoggedIn = localStorage.getItem("access_token");
+      if (!isLoggedIn) {
+        throw redirect("/login");
+      } else {
+        return null;
+      }
+    },
+    children: [
+      {
+        path: "",
+        element: <DetailAnimePage />,
+      },
+    ],
+  }, //CHECKED, OK
+  {
     path: "/login",
     element: <LoginPage />,
     loader: () => {
       const isLoggedIn = localStorage.getItem("access_token");
       if (isLoggedIn) {
-        throw redirect("/");   
+        throw redirect("/");
       } else {
         return null;
       }

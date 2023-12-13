@@ -8,8 +8,7 @@ async function isLoggedIn(req, res, next) {
     if (!token) throw { name: "TokenNotFound" };
     let splitToken = token.split(" ");
     // console.log(splitToken[0])
-    if (splitToken[0] !== "Bearer" || splitToken[0] !== "google-token")
-      throw { name: "InvalidToken" };
+    if (splitToken[0] !== "Bearer") throw { name: "InvalidToken" };
     token = splitToken[1];
     let payload = verifyToken(token);
     // console.log(payload);

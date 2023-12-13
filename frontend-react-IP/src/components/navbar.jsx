@@ -1,7 +1,9 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import LoginBtn from "./btn-login";
 import LogoutBtn from "./btn-logout";
+import Axios from "../helpers/axios";
 import { useEffect } from "react";
+import { useState } from "react";
 
 export default function NavBar() {
   let location = useLocation().pathname;
@@ -10,6 +12,7 @@ export default function NavBar() {
   let token = localStorage.getItem("access_token");
   let pageLocation;
   if (location === "/") pageLocation = false;
+  const [user, setUser] = useState({});
 
   const handleToHome = (event) => {
     if (!token) {
@@ -20,12 +23,32 @@ export default function NavBar() {
   };
 
   const handleToMyPage = () => {
-    navigate("/myAnimes");
+    navigate(`my/`);
   };
 
   const handleUpgradeAcc = () => {
     navigate("/");
   };
+
+  const fetchDataUser = async () => {
+    try {
+      let { data } = await Axios.get("users/checkuser/", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+        },
+      });
+      // console.log(data, "????????????????????");
+      setUser(data.findUser);
+    } catch (error) {
+      errorHandler(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchDataUser();
+  }, []);
+
+  console.log(user);
 
   return (
     <>
@@ -36,7 +59,9 @@ export default function NavBar() {
           </button>
         </div>
         <div className="flex-1 justify-center text-center">
-          <h1 className="text-white text-2xl drop-shadow-xl">Welcome Me</h1>
+          <h1 className="text-white text-2xl drop-shadow-xl">
+            Welcome {user.username}
+          </h1>
         </div>
         <div className="flex" id="btn-add-upgrade">
           <button className="btn btn-ghost text-md" onClick={handleUpgradeAcc}>
