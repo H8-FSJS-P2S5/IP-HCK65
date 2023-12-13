@@ -4,26 +4,26 @@ import './signup.css'
 export default function Signup () {
     return (
         <>
-            <header className="px-12">
+            <header className="px-12 bg-white">
                 <div className="logo">
                 <Link to='/'>
-                    <img src="/src/assets/logowhite.png" width={120} alt="Pitch+" />
+                    <img src="/src/assets/logo.png" width={120} alt="Pitch+" />
                 </Link>
                 </div>
             </header>
-            <div className='py-10'>
-                <div className='bg-black text-center w-1/2 mx-auto'>
-                    <h1 className='text-5xl font-semibold my-12'>Sign up to start listening</h1>
+            <div className='bg-white py-10'>
+                <div className='text-center w-1/2 mx-auto'>
+                    <h1 className='text-5xl font-semibold my-12 text-black'>Sign up to start using Pitch+</h1>
 
                     <div className='border-b border-gray-400 w-3/4 my-4 mx-auto'>
                     </div>
                     <form className='text-center mx-auto w-1/2'>
                         {/* email */}
                         <div className='w-full text-left py-4'>
-                            <label htmlFor="email" className='mb-2 inline-block'>Email or username</label>
+                            <label htmlFor="email" className='mb-2 inline-block text-black'>Email address</label>
                             <input
                                 type="email"
-                                placeholder='Email or username'
+                                placeholder='name@domain.com'
                                 id='email'
                                 name='email'
                                 className='bg-[#121212]
@@ -43,7 +43,7 @@ export default function Signup () {
                         </div>
                         {/* password */}
                         <div className='w-full text-left py-4'>
-                            <label htmlFor="password" className='mb-2 inline-block'>Password</label>
+                            <label htmlFor="password" className='mb-2 inline-block text-black'>Password</label>
                             <input
                                 type="password"
                                 placeholder='Password'
@@ -68,7 +68,7 @@ export default function Signup () {
                             <input
                                 type="type"
                                 placeholder='Password'
-                                value='Log in'
+                                value='Sign up'
                                 className='bg-primary
                                     block 
                                     w-full
@@ -83,16 +83,16 @@ export default function Signup () {
                         </div>
                         {/* forgot */}
                         <div className='w-full text-center py-4'>
-                            <Link to='/password/forget' className='text-white font-semibold underline mx-auto'>Forgot your password?</Link>
+                            <Link to='/password/forget' className='text-black font-semibold underline mx-auto'>Forgot your password?</Link>
                         </div>
                     </form>
 
-                    <div className='border-t border-gray-400 w-3/4 my-4 mx-auto'>
+                    <div className='border-t border-gray-400 w-3/4 my-4 mx-auto h-full'>
                         <p className=' pt-8'>
                             <spa className='text-gray-400'>
-                            Don't have an account? 
+                            Already have an account? 
                             </spa>
-                            <Link to='/signup' className='text-white hover:text-primary font-semibold underline mx-auto'> Sign up for Pitch+</Link>
+                            <Link to='/login' className='text-black hover:text-primary font-semibold underline mx-auto'> Log in to your account</Link>
                         </p>
                     </div>
                 </div>

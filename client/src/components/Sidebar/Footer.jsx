@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import './signup.css';
+import './footer.css';
 
 export default function Footer() {
     return (

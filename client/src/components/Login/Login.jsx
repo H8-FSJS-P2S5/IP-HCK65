@@ -1,10 +1,21 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import './login.css'
+import { useEffect } from 'react'
 
 export default function Login() {
+    const navigate = useNavigate()
+    const [searchParams] = useSearchParams()
+    useEffect(() => {
+        console.log(searchParams.get('status'));
+        if(searchParams.get('status') === 'success') {
+            localStorage.access_token = searchParams.get('access_token');
+
+            navigate('/')
+        }
+    }, [])
     return (
         <>
-            <header className="px-12">
+            <header className="px-12 header bg-black">
                 <div className="logo">
                     <Link to='/'>
                     <img src="/src/assets/logowhite.png" width={120} alt="Pitch+" />
@@ -65,10 +76,22 @@ export default function Login() {
                         </div>
                         {/* login btn */}
                         <div className='w-full text-left py-4'>
-                            <input
+                            <a href="http://localhost:3000/auth/spotify/sign-in" 
+                            className='bg-primary
+                                    block 
+                                    w-full
+                                    p-3
+                                    hover:scale-105
+                                    translate-all 
+                                    duration-300 
+                                    text-black 
+                                    font-semibold hover:font-bold 
+                                    text-center rounded-full
+                                    outline-none'>Login</a>
+                            {/* <input
                                 type="type"
                                 placeholder='Password'
-                                value='Log in'
+                                value='Login'
                                 className='bg-primary
                                     block 
                                     w-full
@@ -79,7 +102,7 @@ export default function Login() {
                                     text-black 
                                     font-semibold hover:font-bold 
                                     text-center rounded-full
-                                    outline-none' />
+                                    outline-none' /> */}
                         </div>
                         {/* forgot */}
                         <div className='w-full text-center py-4'>

@@ -1,8 +1,7 @@
-header {
-    background-color: #000;
+body {
+    background-color: #fff;
 }
 
-.container {
-    background-color: #121212;
-    min-height: 100vh;
+header {
+    background-color: #fff;
 }
