@@ -2,6 +2,9 @@ const express = require('express');
 const { User } = require('../models');
 const SpotifyWebApi = require('spotify-web-api-node');
 const querystring = require('querystring');
+const { signToken } = require('../helpers/jwt');
+const {OAuth2Client} = require('google-auth-library')
+const client = new OAuth2Client()
 
 class ControllerAuth {
     static async authTokenSpotify(req, res, next) {
@@ -138,6 +141,38 @@ class ControllerAuth {
                 }
             });
 
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    static async googleLogin(req, res, next) {
+        try {
+            const { google_token } = req.body
+            const ticket = await client.verifyIdToken({
+                idToken: google_token,
+                audience: process.env.GOOGLE_CLIENT_ID
+            });
+            const payload = ticket.getPayload()
+
+            const [user, created] = await User.findOrCreate({
+                where: { email: payload.email },
+                defaults: {
+                    name: payload.name,
+                    email: payload.email,
+                    password: Math.random().toString()
+                }
+            })
+
+            const access_token = signToken({ id: user.id })
+
+            res.status(created ? 201 : 200).json({
+                "message": `User ${user.email} found`,
+                "access_token": access_token,
+                "user": {
+                    "name": user.name
+                }
+            })
         } catch (error) {
             console.log(error);
         }
