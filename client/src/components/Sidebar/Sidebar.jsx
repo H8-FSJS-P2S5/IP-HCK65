@@ -60,7 +60,8 @@ export default function Sidebar() {
                 <span className="font-bold">Language</span>
             </button>
             </div>
-            <Footer />
+            {localStorage.access_token ? '' : <Footer /> }
+            
             {/*  */}
 
 

@@ -85,9 +85,9 @@ class ControllerAuth {
             console.log(data, "<------ data");
             spotifyApi.setAccessToken(access_token)
             const userData = await spotifyApi.getMe();
-            console.log(userData.body);
-            let password = toString(Math.random())
-            console.log(password);
+            console.log(userData.body, "<<< user data");
+            // let password = toString(Math.random())
+            // console.log(password);
             const profileData = await User.create({
                 email: userData.body.email,
                 name: userData.body.display_name,

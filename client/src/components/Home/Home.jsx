@@ -30,26 +30,12 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-5 gap-6">
                 <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
             </div>
         <div className="flex justify-between items-center my-4">
                 <span className="text-xl font-bold hover:underline duration-300 cursor-pointer">Playlist</span>
                 <span>Show all</span>
             </div>
             <div className="grid grid-cols-5 gap-6">
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
                 <Card />
             </div>
         </div>
