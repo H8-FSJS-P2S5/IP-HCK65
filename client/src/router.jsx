@@ -3,21 +3,26 @@ import Register from "./views/Register.jsx";
 import Login from "./views/Login.jsx";
 import Layout from "./layouts/Layout.jsx";
 import ListCampaign from "./views/ListCampaign.jsx";
+import BalanceHistory from "./views/BalanceHistory.jsx";
 
 export const router = createBrowserRouter([
     {
         path: "/",
         element: <Layout/>,
-        loader: () => {
-            // if (!localStorage.getItem("access_token")) {
-            //     throw redirect("/login")
-            // }
-            return null
-        },
+        // loader: () => {
+        //     if (!localStorage.getItem("access_token")) {
+        //         throw redirect("/login")
+        //     }
+        //     return null
+        // },
         children: [
             {
                 path: "",
                 element: <ListCampaign/>,
+            },
+            {
+                path: "balance-histories",
+                element: <BalanceHistory/>,
             },
         ]
     },
