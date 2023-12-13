@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Transaction extends Model {
     /**
@@ -13,14 +11,50 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  Transaction.init({
-    UserId: DataTypes.INTEGER,
-    transaction_id: DataTypes.STRING,
-    payment_gateway_id: DataTypes.STRING,
-    status: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'Transaction',
-  });
+  Transaction.init(
+    {
+      UserId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: "UserId is required",
+          },
+          notEmpty: {
+            msg: "UserId is required",
+          },
+        },
+      },
+      transaction_id: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: "transaction_id is required",
+          },
+          notEmpty: {
+            msg: "transaction_id is required",
+          },
+        },
+      },
+      payment_gateway_id: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: "payment_gateway_id is required",
+          },
+          notEmpty: {
+            msg: "payment_gateway_id is required",
+          },
+        },
+      },
+      status: { type: DataTypes.STRING, defaultValue: "PENDING" },
+    },
+    {
+      sequelize,
+      modelName: "Transaction",
+    }
+  );
   return Transaction;
 };
