@@ -3,7 +3,9 @@ import Axios from "../helpers/axios";
 import { errorHandler } from "../helpers/errorHandler";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useEffect } from "react";
 
 export default function LoginPage() {
   let navigate = useNavigate("");
@@ -28,7 +30,9 @@ export default function LoginPage() {
     try {
       const { data } = await Axios.post("/login", form);
       localStorage.setItem("access_token", data.access_token);
-
+      toast(`Login succeeded!`, {
+        theme: "dark",
+      });
       navigate("/");
     } catch (error) {
       // console.error(error);
@@ -39,6 +43,41 @@ export default function LoginPage() {
   function handleNavToRegister(event) {
     navigate("/register");
   }
+
+  async function handleCredentialResponse(response) {
+    // console.log("Encoded JWT ID token: " + response.credential);
+    try {
+      const { data } = await Axios.post(
+        "/login/google",
+        {},
+        {
+          headers: {
+            ["google-token"]: response.credential,
+          },
+        }
+      );
+      
+      localStorage.setItem("access_token", data.access_token);
+      toast(`Login succeeded with google`, {
+        theme: "dark",
+      });
+      navigate("/");
+    } catch (error) {
+      errorHandler(error);
+    }
+  }
+
+  useEffect(() => {
+    google.accounts.id.initialize({
+      client_id:
+        "954459036268-ek1eaqqd57mk1at9r09o63466foer3sb.apps.googleusercontent.com",
+      callback: handleCredentialResponse,
+    });
+    google.accounts.id.renderButton(
+      document.getElementById("buttonDiv"),
+      { theme: "outline", size: "large" } // customization attributes
+    );
+  }, []);
 
   return (
     <>
@@ -90,10 +129,12 @@ export default function LoginPage() {
                     </span>
                   </label>
                 </div>
-                <div className="form-control mt-6">
-                  <button className="btn btn-primary" type="submit">
+                <div className="form-control mt-6 flex justify-center items-center">
+                  <button className="btn btn-primary w-full" type="submit">
                     Login
                   </button>
+                  <p>OR</p>
+                  <div id="buttonDiv"></div>
                 </div>
               </form>
             </div>

@@ -12,6 +12,7 @@ const { isLoggedIn } = require("../middleware/authentication");
 router.get("/", ControllerGlobal.getLaid);
 router.post("/register", ControllerGlobal.registerUser);
 router.post("/login", ControllerUser.login);
+router.post("/login/google", ControllerUser.loginGoogle);
 
 router.use("/users", isLoggedIn, user);
 router.use("/myanime", isLoggedIn, myanime);

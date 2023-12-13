@@ -22,9 +22,10 @@ export default function NavBar() {
   const handleToMyPage = () => {
     navigate("/myAnimes");
   };
-  useEffect(() => {
-    themeChange(false);
-  });
+
+  const handleUpgradeAcc = () => {
+    navigate("/");
+  };
 
   return (
     <>
@@ -37,7 +38,12 @@ export default function NavBar() {
         <div className="flex-1 justify-center text-center">
           <h1 className="text-white text-2xl drop-shadow-xl">Welcome Me</h1>
         </div>
-        <div className="flex" id="btn-add-user-admin">
+        <div className="flex" id="btn-add-upgrade">
+          <button className="btn btn-ghost text-md" onClick={handleUpgradeAcc}>
+            <span>Upgrade</span>
+          </button>
+        </div>
+        <div className="flex" id="btn-add-my-animes">
           <button className="btn btn-ghost text-md" onClick={handleToMyPage}>
             <span>My Animes</span>
           </button>
