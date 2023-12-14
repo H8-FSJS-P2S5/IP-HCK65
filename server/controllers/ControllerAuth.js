@@ -21,7 +21,7 @@ class ControllerAuth {
             })
 
             const data = await spotifyApi.authorizationCodeGrant(code);
-            console.log(data);
+            // console.log(data);
             res.status(200).json({
                 accessToken: data.body.access_token,
                 refreshToken: data.body.refresh_token,
@@ -52,9 +52,7 @@ class ControllerAuth {
                 'playlist-modify-private',
                 'user-top-read'
             ].join(',');
-            // let scopes_encoded = scopes.replace(' ', '%20');
-            // let state = generateRandomString(16);
-
+            
             res.redirect('https://accounts.spotify.com/authorize?' +
                 querystring.stringify({
                     client_id: clientId,
@@ -71,7 +69,6 @@ class ControllerAuth {
 
     static async authSpotifyCallback(req, res, next) {
         try {
-            // console.log(req.query, "<<query");
             const { code } = req.query;
             const clientId = process.env.SPOTIFY_CLIENT_ID
             const clientSecret = process.env.SPOTIFY_CLIENT_SECRET
@@ -85,28 +82,10 @@ class ControllerAuth {
 
             const data = await spotifyApi.authorizationCodeGrant(code);
             const access_token = data.body.access_token // ACCESS TOKEN
-            console.log(data, "<------ data");
             spotifyApi.setAccessToken(access_token)
-            const userData = await spotifyApi.getMe();
-            console.log(userData.body, "<<< user data");
-            // let password = toString(Math.random())
-            // console.log(password);
-            const profileData = await User.create({
-                email: userData.body.email,
-                name: userData.body.display_name,
-                imageUrl: userData.body.images[1].url,
-                profileUrl: userData.body.external_urls.spotify,
-                access_token: data.body.access_token,
-                refresh_token: data.body.refresh_token,
-                password: 'password'
-            })
-
 
             res.redirect(`http://localhost:5173/login?access_token=${access_token}&message=success&status=success`)
             
-            res.status(201).json({
-                profileData
-            })
         } catch (error) {
             console.log(error);
         }

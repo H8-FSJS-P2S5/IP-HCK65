@@ -6,7 +6,7 @@ export default function Login() {
     const navigate = useNavigate()
     const [searchParams] = useSearchParams()
     useEffect(() => {
-        console.log(searchParams.get('access_token'));
+        // console.log(searchParams.get('access_token'));
         if(searchParams.get('status') === 'success') {
             localStorage.access_token = searchParams.get('access_token');
             navigate('/')
