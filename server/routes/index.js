@@ -4,7 +4,7 @@ const router = express.Router();
 const InvoiceController = require('../controllers/authController');
 const invoiceController = new InvoiceController();
 const {Invoice: InvoiceClient, Payout: PayoutClient} = require('xendit-node')
-const AuthContoller = require('../controllers/authController')
+const AuthController = require('../controllers/authController')
 const CampaignController = require('../controllers/campaignController')
 
 const authentication = require('../middlewares/authentication')
@@ -13,12 +13,12 @@ const usersRouter = require("./users");
 const balancehistoriesRouter = require("./balancehistories");
 
 
-router.post('/callback/invoice', AuthContoller.createDepositInvoice);
+router.post('/callback/invoice', AuthController.createDepositInvoice);
 
 
-router.post('/login', AuthContoller.postLogin);
-router.post('/register', AuthContoller.postRegister);
-router.post('/google-login', AuthContoller.googleLogin);
+router.post('/login', AuthController.postLogin);
+router.post('/register', AuthController.postRegister);
+router.post('/google-login', AuthController.googleLogin);
 
 router.use(authentication)
 
@@ -30,8 +30,8 @@ router.delete('/campaigns/:id', CampaignController.deleteCampaign);
 router.post('/campaigns/:campaign_id/transaction', CampaignController.postCreateTransaction);
 
 
-router.post('/invoice', AuthContoller.createInvoice);
-router.get('/user-information', AuthContoller.userInformation);
+router.post('/invoice', AuthController.createInvoice);
+router.get('/user-information', AuthController.userInformation);
 
 router.use('/users', usersRouter);
 router.use('/balance-histories', balancehistoriesRouter);
