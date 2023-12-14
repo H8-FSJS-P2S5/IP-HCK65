@@ -87,7 +87,7 @@ class AuthController {
                 "description": "Invoice Deposit Saldo",
                 "currency": "IDR",
                 "reminderTime": 1,
-                "successRedirectUrl": "http://localhost:5173/balance-histories",
+                "successRedirectUrl": "https://phase2-gema-ip.web.app/balance-histories",
             }
 
             data = await xenditInvoiceClient.createInvoice({
