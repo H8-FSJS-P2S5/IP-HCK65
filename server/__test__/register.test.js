@@ -55,6 +55,17 @@ describe('POST /register', () => {
     describe('failed condition', () => {
         describe('login with Admin', () => {
             test('show error null email validation', async () => {
+                USER_STAFF.email = "testingggg@gmail.com"
+                let {status, body} = await request(app)
+                    .post(ROUTE)
+                    .send(USER_STAFF)
+
+                expect(status).toBe(201);
+                expect(body.fullName).toEqual('Gema Staff');
+                expect(body.email).toEqual('testingggg@gmail.com');
+            });
+
+            test('show error null email validation', async () => {
                 delete USER_STAFF.email
                 let {status, body} = await request(app)
                     .post(ROUTE)
