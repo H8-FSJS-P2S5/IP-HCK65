@@ -7,7 +7,7 @@ export default function Signup () {
             <header className="px-12 bg-white">
                 <div className="logo">
                 <Link to='/'>
-                    <img src="/src/assets/logo.png" width={120} alt="Pitch+" />
+                    <img src="https://i.ibb.co/3fgM9W2/logo.png" width={120} alt="Pitch+" />
                 </Link>
                 </div>
             </header>

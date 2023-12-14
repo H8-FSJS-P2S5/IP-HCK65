@@ -17,7 +17,7 @@ export default function Login() {
             <header className="px-12 header bg-black">
                 <div className="logo">
                     <Link to='/'>
-                    <img src="/src/assets/logowhite.png" width={120} alt="Pitch+" />
+                    <img src="https://i.ibb.co/k3HYSg2/logowhite.png" width={120} alt="Pitch+" />
                     </Link>
                 </div>
             </header>
