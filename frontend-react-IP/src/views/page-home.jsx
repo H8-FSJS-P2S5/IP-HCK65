@@ -52,7 +52,6 @@ export default function HomePage() {
     }
   };
 
-
   const handleStatus = (e) => {
     setReqParams((prevValue) => ({
       ...prevValue,
@@ -101,9 +100,31 @@ export default function HomePage() {
     }
   };
 
-  const handleShowDetail = async () => {
+  const handleShowDetail = async (event) => {
     try {
       navigate(`anime/${event.target.value}`);
+    } catch (error) {
+      errorHandler(error);
+    }
+  };
+  const handleToAddFav = async (rating) => {
+    try {
+      // console.log(rating,">>>>>>>>>>>>>>>>")
+      let { data } = await Axios({
+        url: `myanime/addfav/${rating}`,
+        method: "post",
+        data: {},
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+        },
+      });
+      const customId = `toast-anime-id-${data.MALId}`;
+
+      toast.success(`succeeded adding anime :${data.title} to your favorite`, {
+        theme: "dark",
+        toastId: customId,
+      });
+      // console.log(data, "aaaaaaaaa");
     } catch (error) {
       errorHandler(error);
     }
@@ -114,10 +135,11 @@ export default function HomePage() {
     dispatch(fetchAnimesRdx());
   }, [reqParams]);
 
-  console.log(animesList);
+  // console.log(animesList);
 
   return (
     <>
+      <ToastContainer />
       <div className="flex flex-wrap gap-8 justify-left ml-4 mr-4 mt-8">
         {animesList.map((anime) => {
           return (
@@ -125,6 +147,7 @@ export default function HomePage() {
               key={anime.mal_id}
               anime={anime}
               handleShowDetail={handleShowDetail}
+              handleToAddFav={handleToAddFav}
             />
           );
         })}

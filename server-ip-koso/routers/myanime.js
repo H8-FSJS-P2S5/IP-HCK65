@@ -3,6 +3,6 @@ const controllerMyAnime = require("../controllers/controllerMyAnime");
 const myanime = express.Router();
 
 myanime.get("/", controllerMyAnime.getMyAnime);
-myanime.post("/addFav/:id", controllerMyAnime.addFav);
+myanime.post("/addfav/:id", controllerMyAnime.addFav);
 
 module.exports = myanime;

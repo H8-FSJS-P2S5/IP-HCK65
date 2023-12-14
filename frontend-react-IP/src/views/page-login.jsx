@@ -30,7 +30,8 @@ export default function LoginPage() {
     try {
       const { data } = await Axios.post("/login", form);
       localStorage.setItem("access_token", data.access_token);
-      toast(`Login succeeded!`, {
+
+      toast.success(`Login succeeded!`, {
         theme: "dark",
       });
       navigate("/");
@@ -56,9 +57,9 @@ export default function LoginPage() {
           },
         }
       );
-      
+
       localStorage.setItem("access_token", data.access_token);
-      toast(`Login succeeded with google`, {
+      toast.success(`Login succeeded with google`, {
         theme: "dark",
       });
       navigate("/");
@@ -87,9 +88,16 @@ export default function LoginPage() {
             <div className="text-center lg:text-left">
               <h1 className="text-5xl font-bold">Login now!</h1>
               <p className="py-6">
-                Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                assumenda excepturi exercitationem quasi. In deleniti eaque aut
-                repudiandae et a id nisi.
+                Welcome to Weebify, the anime aficionado's haven in the digital
+                cosmos! Dive into a realm adorned with over 20,000 captivating
+                anime titles, where every click unveils a gateway to a new
+                adventure. Weebify isn't just a recommendation hub; it's an
+                immersive playground for both the die-hard fans and the curious
+                souls yearning to explore the diverse tapestry of anime
+                landscapes. From timeless classics to the latest sensations,
+                Weebify is your trusty guide through this vibrant universe,
+                ensuring that every visit sparks excitement and leads to your
+                next unforgettable anime journey.
               </p>
             </div>
             <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -136,11 +144,11 @@ export default function LoginPage() {
                   <p>OR</p>
                   <div id="buttonDiv"></div>
                 </div>
+                <ToastContainer />
               </form>
             </div>
           </div>
         </div>
-        <ToastContainer />
       </section>
     </>
   );

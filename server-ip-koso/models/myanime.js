@@ -65,10 +65,24 @@ module.exports = (sequelize, DataTypes) => {
         });
         const anime = findAnimeAxios.data.data;
 
+        let findAnimeByUserId = await MyAnime.findAll({
+          where: {
+            UserId: id,
+          },
+        });
+
+        let filterAnime = findAnimeByUserId.filter((el) => {
+          return el.MALId === animeId;
+        });
+        // console.log(filterAnime, "FILTER");
+
+        if (filterAnime.length !== 0)
+          throw { name: "Already Exists", message: "Anime already favorited" };
+
         let instance = await MyAnime.create({
           UserId: id,
           MALId: animeId,
-          title: anime.title_english,
+          title: anime.title,
           titleJap: anime.title_japanese,
           imgUrl: anime.images.jpg.large_image_url,
           episodes: anime.episodes,

@@ -28,6 +28,12 @@ class ControllerGlobal {
   static async postPay(req, res, next) {
     try {
       const UserId = req.user.id;
+      const {
+        product_data_name,
+        product_data_unit_amount,
+        product_data_currency,
+        product_data_quantity,
+      } = req.body;
 
       const findUser = await User.findByPk(UserId, {
         include: [Transaction],
@@ -60,23 +66,24 @@ class ControllerGlobal {
           await findUser.update({ status: "Premium" });
           await findUser.Transactions[0].update({ status: "paid" });
           res.status(200).json({
-            url: "UDAH BAYAR BALIKIN LANGSUNG KE HOMEPAGE, UBAH STATUS JADI PREMIUM",
+            message: "Payment successful, redirecting to your page",
+            url: "http://localhost:5173/",
           });
         }
       } else {
         const session = await stripe.checkout.sessions.create({
-          success_url: "http://localhost:5000/sucess", //balikkan ke url client atau endpoint mengakses home
-          cancel_url: "http://localhost:5000/fail", //balikkan ke url client atau endpoint mengakses home
+          success_url: "http://localhost:5173/success", //balikkan ke url client atau endpoint mengakses home
+          cancel_url: "http://localhost:5173/fail", //balikkan ke url client atau endpoint mengakses home
           line_items: [
             {
               price_data: {
-                currency: "idr",
+                currency: product_data_currency,
                 product_data: {
-                  name: "Upgrade Account to Premium chuni",
+                  name: product_data_name,
                 },
-                unit_amount: 150_000_00, //NGITUNG DARI SEN, RP 150.000,00
+                unit_amount: product_data_unit_amount,
               },
-              quantity: 1,
+              quantity: product_data_quantity,
             },
           ],
           mode: "payment",
@@ -112,7 +119,7 @@ class ControllerGlobal {
           name: "Unauthorized",
           message: "You are not authorized to upgrade",
         };
-        
+
       if (findUser.status === "Premium")
         throw { name: "isPremium", message: "your tier is already Premium" }; //GANTI KE ALERT UDAH PREMIUM, GABAKAL SIH
 
@@ -131,7 +138,7 @@ class ControllerGlobal {
           await findUser.update({ status: "Premium" });
           await findUser.Transactions[0].update({ status: "paid" });
           res.status(200).json({
-            url: "UDAH BAYAR BALIKIN LANGSUNG KE HOMEPAGE, UBAH STATUS JADI PREMIUM",
+            message: "Payment Successful, redirecting to your page",
           });
         }
       } else {

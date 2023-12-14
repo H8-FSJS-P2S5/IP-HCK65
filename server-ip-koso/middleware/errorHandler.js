@@ -1,11 +1,11 @@
 module.exports = (error, req, res, next) => {
-  console.log(
-    error,
-    error.name,
-    error.message,
-    "ErrorHandler",
-    "HEHEHEHHEHEHEHEHEHEEHHEHEHEEHEHEHEHEHE"
-  );
+  // console.log(
+  //   error,
+  //   error.name,
+  //   error.message,
+  //   "ErrorHandler",
+  //   "HEHEHEHHEHEHEHEHEHEEHHEHEHEEHEHEHEHEHE"
+  // );
 
   let status = error.status || 500;
   let message = error.message || "Internal server error";
@@ -36,16 +36,13 @@ module.exports = (error, req, res, next) => {
     case "SequelizeForeignKeyConstraintError":
       (status = 400),
         (message =
-          "failed to update lodging because lodging type is not found");
+          "can't add the data, because another data as a foreign key is directly connected");
       break;
     case "notFound":
       (status = 404), (message = "Data not found");
       break;
-    case "notFoundLodging":
-      (status = 404), (message = "Lodging not found");
-      break;
-    case "notFoundType":
-      (status = 404), (message = "Lodging's type not found");
+    case "Already Exists":
+      (status = 400), (message = "Anime already favorited");
       break;
     case "TokenNotFound":
       (status = 401), (message = "Unauthorized Access, must log in first");

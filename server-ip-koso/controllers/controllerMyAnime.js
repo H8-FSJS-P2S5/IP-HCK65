@@ -18,6 +18,7 @@ class controllerMyAnime {
       //   console.log(animeId);
       const id = req.user.id;
       //   console.log(id);
+      //
       let instance = await MyAnime.addFav(+id, +animeId);
       res.status(201).json(instance);
     } catch (error) {

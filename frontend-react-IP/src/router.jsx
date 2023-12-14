@@ -8,6 +8,8 @@ import MyEditPage from "./views/page-my-edit";
 import RootLayout from "./layouts/rootlayout";
 import FourOFourPage from "./views/404-page";
 import DetailAnimePage from "./views/page-detailAnime";
+import SuccessPay from "./views/page-success-pay";
+import FailedPay from "./views/page-fail-pay";
 
 const router = createBrowserRouter([
   {
@@ -61,6 +63,14 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <RegisterPage />,
+  }, //CHECKED OK
+  {
+    path: "/success",
+    element: <SuccessPay />,
+  }, //CHECKED OK
+  {
+    path: "/fail",
+    element: <FailedPay />,
   }, //CHECKED OK
   {
     path: "/my/:id",

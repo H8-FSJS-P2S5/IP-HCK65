@@ -1,6 +1,7 @@
 import React from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+const customId = "custom-id-yes";
 
 export const errorHandler = async (error, options) => {
   // console.log(from, "ERROR HANDLER FROM");
@@ -17,5 +18,6 @@ export const errorHandler = async (error, options) => {
 
   toast.error(`Error ${status}: ${message}`, {
     theme: "dark",
+    toastId: customId,
   });
 };
