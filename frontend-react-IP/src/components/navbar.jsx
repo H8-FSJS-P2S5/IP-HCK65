@@ -3,7 +3,6 @@ import LoginBtn from "./btn-login";
 import LogoutBtn from "./btn-logout";
 import Axios from "../helpers/axios";
 import { useEffect } from "react";
-import { useState } from "react";
 import { ToastContainer } from "react-toastify";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -28,7 +27,8 @@ export default function NavBar() {
   };
 
   const handleToMyPage = (e) => {
-    navigate(`my/${e.target.value}}`);
+    // console.log(e.target);
+    navigate(`/my/${e.target.value}/`);
   };
 
   const handleUpgradeAcc = async () => {
@@ -50,7 +50,7 @@ export default function NavBar() {
     window.location = data.url;
   };
   const handleNavToProfile = (e) => {
-    navigate(`my/${e.target.value}/edit`);
+    navigate(`/my/${e.target.value}/edit`);
   };
 
   const dispatch = useDispatch();
@@ -93,7 +93,7 @@ export default function NavBar() {
             onClick={handleNavToProfile}
             value={user.id}
           >
-            <span>Profile</span>
+            Profile
           </button>
         </div>
         {isPremium ? (
@@ -109,15 +109,20 @@ export default function NavBar() {
             </button>
           </div>
         )}
-        <div className="flex" id="btn-add-my-animes">
-          <button
-            className="btn btn-ghost text-md"
-            onClick={handleToMyPage}
-            value={user.id}
-          >
-            <span>My Animes</span>
-          </button>
-        </div>
+        {isPremium ? (
+          <div className="flex" id="btn-add-my-animes">
+            <button
+              className="btn btn-ghost text-md"
+              onClick={handleToMyPage}
+              value={user.id}
+            >
+              My Animes
+            </button>
+          </div>
+        ) : (
+          ""
+        )}
+
         <div className="flex-none" id="btn-login/logout">
           {pageLocation ? <LoginBtn /> : <LogoutBtn />}
         </div>

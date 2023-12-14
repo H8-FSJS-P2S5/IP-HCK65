@@ -30,6 +30,10 @@ const router = createBrowserRouter([
       },
     ],
   }, //CHECKED, OK
+
+
+
+
   {
     path: "/anime/:id",
     element: <RootLayout />,
@@ -48,6 +52,8 @@ const router = createBrowserRouter([
       },
     ],
   }, //CHECKED, OK
+
+
   {
     path: "/login",
     element: <LoginPage />,
@@ -60,20 +66,28 @@ const router = createBrowserRouter([
       }
     },
   }, //CHECKED OK
+
+
   {
-    path: "/register",
+    path: "register",
     element: <RegisterPage />,
   }, //CHECKED OK
+
+
   {
-    path: "/success",
+    path: "success",
     element: <SuccessPay />,
   }, //CHECKED OK
+
+
   {
-    path: "/fail",
+    path: "fail",
     element: <FailedPay />,
   }, //CHECKED OK
+
+
   {
-    path: "/my/:id",
+    path: "my/:id",
     element: <RootLayout />,
     loader: () => {
       const isLoggedIn = localStorage.getItem("access_token");
@@ -88,12 +102,28 @@ const router = createBrowserRouter([
         path: "",
         element: <MyPage />,
       },
+    ],
+  }, //CHECKED 
+  
+
+  {
+    path: "my/:id/edit",
+    element: <RootLayout />,
+    loader: () => {
+      const isLoggedIn = localStorage.getItem("access_token");
+      if (isLoggedIn) {
+        return null;
+      } else {
+        throw redirect("/login");
+      }
+    },
+    children: [
       {
-        path: "/my/:id/edit",
+        path: "",
         element: <MyEditPage />,
       },
     ],
-  }, //CHECKED OK
+  },
   {
     path: "/*",
     element: <FourOFourPage />,

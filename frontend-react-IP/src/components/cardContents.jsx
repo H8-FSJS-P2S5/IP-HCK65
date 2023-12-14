@@ -28,14 +28,18 @@ export default function CardContents(props) {
         style={{ backgroundColor: "#211818" }}
         key={anime.mal_id}
       >
-        <figure>
-          <img src={anime.images.jpg.large_image_url} alt={anime.title} />
-        </figure>
         <div className="card-body">
+          <figure className="h-3/5 object-contain">
+            <img
+              src={anime.images.jpg.large_image_url}
+              alt={anime.title}
+              className="h-full rounded-xl"
+            />
+          </figure>
           <h2 className="card-title">{anime.title}</h2>
           <h2 className="card-title">{anime.title_japanese}</h2>
           <p className="limited-lines">{anime.synopsis}</p>
-          <div className="card-actions flex gap-4 justify-between">
+          <div className="card-actions flex gap-4 justify-between bottom-0">
             {isPremium && (
               <div
                 className="card-actions justify-start"

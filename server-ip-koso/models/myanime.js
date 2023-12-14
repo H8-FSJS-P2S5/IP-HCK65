@@ -21,6 +21,7 @@ module.exports = (sequelize, DataTypes) => {
           limit: parseInt(pageSize),
           offset: offset,
         });
+        if (!instance) throw { name: "badRequest" };
         const totalPages = Math.ceil(instance.count / pageSize);
         return {
           animes: instance.rows,
@@ -29,30 +30,6 @@ module.exports = (sequelize, DataTypes) => {
           currentPage: parseInt(page),
           totalPages,
         };
-
-        // let myAnimes = await Promise.all(
-        //   instance.map(async (el) => {
-        //     const data = await Axios({
-        //       url: `/anime/${el.MALId}`,
-        //       method: "get",
-        //     });
-        //     const anime = data.data.data;
-        //     // console.log(anime.title_english,">>>>>>>>>>>>>>>>>>>>>")
-
-        //     return {
-        //       title: anime.title_english,
-        //       titleJap: anime.title_japanese,
-        //       imgUrl: anime.images.jpg.large_image_url,
-        //       episodes: anime.episodes,
-        //       status: anime.status,
-        //       aired: anime.aired.string,
-        //       synopsis: anime.synopsis,
-        //       producers: anime.producers[0].name,
-        //       licensors: anime.licensors[0].name,
-        //       studios: anime.studios[0].name,
-        //     };
-        //   })
-        // );
       } catch (error) {
         throw error;
       }
@@ -74,7 +51,6 @@ module.exports = (sequelize, DataTypes) => {
         let filterAnime = findAnimeByUserId.filter((el) => {
           return el.MALId === animeId;
         });
-        // console.log(filterAnime, "FILTER");
 
         if (filterAnime.length !== 0)
           throw { name: "Already Exists", message: "Anime already favorited" };
@@ -89,9 +65,9 @@ module.exports = (sequelize, DataTypes) => {
           status: anime.status,
           aired: anime.aired.string,
           synopsis: anime.synopsis,
-          producers: anime.producers[0].name,
-          licensors: anime.licensors[0].name,
-          studios: anime.studios[0].name,
+          producers: anime.producers[0]?.name,
+          licensors: anime.licensors[0]?.name,
+          studios: anime.studios[0]?.name,
         });
         return instance;
       } catch (error) {
@@ -132,6 +108,7 @@ module.exports = (sequelize, DataTypes) => {
         });
 
         const animes = getAnimes.data;
+        if (!animes) throw { name: "notFound" };
         return animes;
       } catch (error) {
         throw error;
@@ -146,6 +123,8 @@ module.exports = (sequelize, DataTypes) => {
         });
         const anime = findAnimeAxios.data.data;
 
+        if (!anime) throw { name: "notFound" };
+
         // console.log(anime);
         const animeDetail = {
           MALId: anime.mal_id,
@@ -156,12 +135,24 @@ module.exports = (sequelize, DataTypes) => {
           status: anime.status,
           aired: anime.aired.string,
           synopsis: anime.synopsis,
-          producers: anime.producers[0].name,
-          licensors: anime.licensors[0].name,
-          studios: anime.studios[0].name,
+          producers: anime.producers[0]?.name,
+          licensors: anime.licensors[0]?.name,
+          studios: anime.studios[0]?.name,
         };
         return animeDetail;
         // return { message: "TES" };
+      } catch (error) {
+        throw error;
+      }
+    }
+
+    static async deleteMyAnime(animeId) {
+      try {
+        let findAnime = await MyAnime.findOne({ where: { MALId: animeId } });
+        console.log(findAnime);
+        if (!findAnime) throw { name: "badRequest" };
+        await findAnime.destroy({ where: { MALId: animeId } });
+        return findAnime;
       } catch (error) {
         throw error;
       }

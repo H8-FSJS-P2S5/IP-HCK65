@@ -31,7 +31,7 @@ module.exports = (error, req, res, next) => {
       status = 400;
       break;
     case "badRequest":
-      (status = 400), (message = "data is required");
+      (status = 400), (message = "bad request, wrong data is inputted");
       break;
     case "SequelizeForeignKeyConstraintError":
       (status = 400),

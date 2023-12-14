@@ -12,6 +12,19 @@ class controllerMyAnime {
       next(error);
     }
   }
+
+  static async deleteMyAnime(req, res, next) {
+    try {
+      const animeId = req.params.id;
+      // console.log(animeId)
+      let instance = await MyAnime.deleteMyAnime(+animeId);
+      res.status(200).json({
+        message: `Anime ${instance.title} has been deleted`,
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
   static async addFav(req, res, next) {
     try {
       const animeId = req.params.id;

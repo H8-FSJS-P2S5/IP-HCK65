@@ -8,7 +8,11 @@ import "react-toastify/dist/ReactToastify.css";
 import { errorHandler } from "../helpers/errorHandler";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAnimesRdx } from "../features/animes/asyncAction";
+
 import CardContents from "../components/cardContents";
+
+import { render } from "react-dom";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 export default function HomePage() {
   const dispatch = useDispatch();
@@ -76,33 +80,9 @@ export default function HomePage() {
     }));
   };
 
-  // const handleSearch = (e) => {
-  //   e.preventDefault();
-  //   setReqParams((prevValue) => ({
-  //     ...prevValue,
-  //     search: e.target.elements.search.value,
-  //   }));
-  // };
-
-  const handlePagination = async (e) => {
-    try {
-      setReqParams((prevValue) => ({
-        ...prevValue,
-        page_offset: (Number(e.target.value) - 1) * 10,
-      }));
-
-      setPagination((prevValue) => ({
-        ...prevValue,
-        currentPage: Number(e.target.value),
-      }));
-    } catch (error) {
-      errorHandler(error);
-    }
-  };
-
   const handleShowDetail = async (event) => {
     try {
-      navigate(`anime/${event.target.value}`);
+      navigate(`/anime/${event.target.value}`);
     } catch (error) {
       errorHandler(error);
     }
@@ -140,7 +120,7 @@ export default function HomePage() {
   return (
     <>
       <ToastContainer />
-      <div className="flex flex-wrap gap-8 justify-left ml-4 mr-4 mt-8">
+      <div className="flex flex-wrap gap-8 justify-left ml-4 mr-4 mt-8 mb-8">
         {animesList.map((anime) => {
           return (
             <CardContents
