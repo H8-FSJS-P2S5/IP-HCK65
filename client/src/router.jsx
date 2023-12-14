@@ -9,17 +9,18 @@ import CMSCreateCampaign from "./views/CMSCreateCampaign.jsx";
 import Checkout from "./views/Checkout.jsx";
 import CMSUpdateCampaign from "./views/CMSUpdateCampaign.jsx";
 import DetailCampaign from "./views/DetailCampaign.jsx";
+import Axios from "./helpers/axios.js";
 
 export const router = createBrowserRouter([
     {
         path: "/",
         element: <Layout/>,
-        // loader: () => {
-        //     if (!localStorage.getItem("access_token")) {
-        //         throw redirect("/login")
-        //     }
-        //     return null
-        // },
+        loader: () => {
+            if (!localStorage.getItem("access_token")) {
+                throw redirect("/login")
+            }
+            return null
+        },
         children: [
             {
                 path: "",
@@ -33,6 +34,34 @@ export const router = createBrowserRouter([
                 path: "balance-histories",
                 element: <BalanceHistory/>,
             },
+        ]
+    },
+
+    {
+        path: "/",
+        element: <Layout/>,
+        loader: async () =>  {
+            if (!localStorage.getItem("access_token")) {
+                throw redirect("/login")
+            }
+
+            if (localStorage.getItem("access_token")) {
+                let {data} = await Axios({
+                    method: "get",
+                    url: "/user-information",
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("access_token")}`
+                    }
+                })
+
+                if(data.data.role !== 'admin'){
+                    throw redirect("/")
+                }
+
+            }
+            return null
+        },
+        children: [
             {
                 path: "cms/campaigns",
                 element: <CMSListCampaign/>,

@@ -1,7 +1,8 @@
 const {validatePassword, signToken} = require('../helpers')
-const {User, BalanceHistory} = require('../models')
+const {User, BalanceHistory,Campaign} = require('../models')
 const {OAuth2Client} = require('google-auth-library');
 const {Invoice: InvoiceClient} = require("xendit-node");
+const sgMail = require("@sendgrid/mail");
 
 const transactionBalanceDeposit = 1;
 const transactionBalanceBuy = 2;
@@ -29,6 +30,19 @@ class AuthController {
             user = await User.create({
                 fullName, email, password
             });
+
+
+            sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+            const msg = {
+                to: 'dityaksm21@gmail.com', // Change to your recipient
+                from: 'gemaakbarkusuma@gmail.com', // Change to your verified sender
+                subject: 'Welcome new user',
+                text: 'Welcome to Yukbisa',
+                html: '<strong>Yukbisa adalah platform fundraising untuk berdonasi kepada yang membutuhkan</strong>',
+            }
+            await sgMail.send(msg)
+            console.log('Email sent')
+
 
             return res.status(201).json(user)
         } catch (error) {
@@ -83,7 +97,7 @@ class AuthController {
             let data = {
                 "amount": amount,
                 "invoiceDuration": 172800,
-                "externalId": req.user.id.toString(),
+                "externalId": `${req.user.id.toString()}`,
                 "description": "Invoice Deposit Saldo",
                 "currency": "IDR",
                 "reminderTime": 1,

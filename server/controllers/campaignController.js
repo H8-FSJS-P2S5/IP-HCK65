@@ -8,7 +8,12 @@ class CampaignController {
 
     static async getList(req, res, next) {
         try {
-            let campaigns = await Campaign.findAll()
+            let campaigns = await Campaign.findAll({
+                order: [
+                    // Will escape title and validate DESC against a list of valid direction parameters
+                    ['id', 'ASC'],
+                ]
+            })
 
             res.status(200).json({
                 data: campaigns
@@ -112,6 +117,7 @@ class CampaignController {
 
     static async postCreateTransaction(req, res, next) {
         try {
+            let {campaign_id} = req.params
             /*
                  1. validasi balancenya apakah cukup atau tidak
                  2. create transaction ke Table Transaction
@@ -149,6 +155,7 @@ class CampaignController {
 
                 // 3. kurangin balance di Table User
                 await User.increment({balance: -newTotal}, {where: {id: req.user.id}})
+                await Campaign.increment({remaining_balance: -newTotal}, {where: {id: campaign_id}})
 
                 tempObj = {
                     transaction_type: transactionBalanceBuy,

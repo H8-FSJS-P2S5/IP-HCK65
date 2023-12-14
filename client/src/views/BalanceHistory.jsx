@@ -32,7 +32,6 @@ function BalanceHistory() {
         }
     })
 
-
     const handlerSubmitDeposit = async (event) => {
         event.preventDefault()
         try {
@@ -66,6 +65,22 @@ function BalanceHistory() {
         } catch (error) {
             ErrorHandler(error)
         }
+    }
+
+
+
+    const formatDate = (date) => {
+        const options = {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+        };
+
+        date = date.toLocaleString("id-ID", options);
+        console.log(date)
+
+        return date;
     }
 
     const handlerChange = (e) => {
@@ -107,11 +122,11 @@ function BalanceHistory() {
                         </thead>
                         <tbody id="historySaldo">
                         {listBalanceHistory.map(item => (
-                            <tr className="table-<%= flag.lineClass %>" key={item.id}>
+                            <tr className={`table-${(item.transaction_type === 1) ? "success" : "danger"}`} key={item.id}>
                                 <td>{item.id}</td>
                                 <td>{item.total}</td>
-                                <td>{item.transaction_type}</td>
-                                <td>{item.createdAt}</td>
+                                <td>{(item.transaction_type === 1) ? "Deposit Saldo" : "Donasi"}</td>
+                                <td>{formatDate(item.createdAt)}</td>
                             </tr>
                         ))}
                         </tbody>

@@ -13,7 +13,10 @@ function CMSListCampaign() {
 
     let refetchCampaigns = useFetch({
         url: "/campaigns",
-        setter: setListCampaign
+        setter: setListCampaign,
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem("access_token")}`
+        }
     })
 
     const deleteCampaign = async (id) => {
@@ -92,25 +95,35 @@ function CMSListCampaign() {
                                             <div>
                                                 <div className="progress w-95 mb-2" id="progressBar">
                                                     <div className="progress-bar" role="progressbar"
-                                                         style={{"width": "10%"}} aria-valuenow="15"
+                                                         style={{"width": `${((item.total_fundraising - item.remaining_balance) / item.total_fundraising) * 100}%`}}
+                                                         aria-valuenow="15"
                                                          aria-valuemin="0" aria-valuemax="100"></div>
                                                 </div>
                                                 <span>
                                                     Sudah Terkumpul&nbsp;
-                                                    <span className="color-blue-theme fw-bold">Rp70.150.000</span>
+                                                    <span
+                                                        className="color-blue-theme fw-bold">{item.total_fundraising - item.remaining_balance}</span>
                                                 </span>
                                                 <div>
-                                                    <Link to={`/cms/campaigns/${item.id}`}>
-                                                        <button type="button" className="btn btn-primary w-100 mt-2">
-                                                            Edit
-                                                        </button>
-                                                    </Link>
-                                                    <button type="button" onClick={() => deleteCampaign(item.id)}
-                                                            className="btn btn-danger w-100 mt-2">
-                                                        {/*{(item.remaining_balance !== item.total_fundraising) && ('disabled') }*/}
+                                                    {
+                                                        item.remaining_balance === item.total_fundraising &&
+                                                        <Link to={`/cms/campaigns/${item.id}`}>
+                                                            <button type="button"
+                                                                    className="btn btn-primary w-100 mt-2">
+                                                                Edit
+                                                            </button>
+                                                        </Link>
+                                                    }
 
-                                                        Delete
-                                                    </button>
+                                                    {
+                                                        item.remaining_balance === item.total_fundraising &&
+                                                        <button type="button" onClick={() => deleteCampaign(item.id)}
+                                                                className="btn btn-danger w-100 mt-2">
+                                                            {/*{(item.remaining_balance !== item.total_fundraising) && ('disabled') }*/}
+
+                                                            Delete
+                                                        </button>
+                                                    }
                                                 </div>
                                             </div>
 

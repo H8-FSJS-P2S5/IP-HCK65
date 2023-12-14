@@ -1,11 +1,13 @@
 import {useState} from "react";
 import axios from "axios";
-import {ToastContainer} from "react-toastify";
+import {toast, ToastContainer} from "react-toastify";
 import {Link, useNavigate} from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 import Carousel from 'react-bootstrap/Carousel';
+import Axios from "../helpers/axios.js";
+import ErrorHandler from "../helpers/ErrorHandler.js";
 
 function Register() {
     const navigate = useNavigate()
@@ -14,6 +16,23 @@ function Register() {
         "email": "",
         "password": "",
     })
+
+    const handlerSubmitRegister = async (event) => {
+        event.preventDefault()
+        try {
+            let {data} = await Axios({
+                method: 'post',
+                url: '/register',
+                data: formRegister
+            });
+
+            let notify = () => toast("register berhasil");
+            notify()
+            navigate('/login')
+        } catch (error) {
+            ErrorHandler(error)
+        }
+    }
 
     const handlerChange = (e) => {
         setFormRegister({
@@ -28,9 +47,9 @@ function Register() {
             <ToastContainer/>
 
             <div className="col-lg-4 offset-4 mt-5">
-                <Form>
+                <Form onSubmit={handlerSubmitRegister}>
                     <Form.Group className="mb-3" controlId="formBasicFullName">
-                        <Form.Label>Email address</Form.Label>
+                        <Form.Label>Full Name</Form.Label>
                         <Form.Control type="fullName" name="fullName" onChange={handlerChange}
                                       value={formRegister.fullName}
                                       placeholder="Enter Full Name"/>

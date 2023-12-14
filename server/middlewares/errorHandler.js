@@ -10,7 +10,6 @@ module.exports = (err, req, res, next) => {
             break;
 
         case "Validation":
-            console.log(err)
             status = err.status || 400
             message = err.message || ["Validation error"]
             break;

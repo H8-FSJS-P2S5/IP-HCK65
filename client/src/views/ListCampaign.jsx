@@ -73,12 +73,14 @@ function ListCampaign() {
                                             <div>
                                                 <div className="progress w-95 mb-2" id="progressBar">
                                                     <div className="progress-bar" role="progressbar"
-                                                         style={{"width": "10%"}} aria-valuenow="15"
+                                                         style={{"width": `${((item.total_fundraising - item.remaining_balance) / item.total_fundraising) * 100}%`}}
+                                                         aria-valuenow="15"
                                                          aria-valuemin="0" aria-valuemax="100"></div>
                                                 </div>
                                                 <span>
                                                     Sudah Terkumpul&nbsp;
-                                                    <span className="color-blue-theme fw-bold">Rp70.150.000</span>
+                                                    <span
+                                                        className="color-blue-theme fw-bold">{item.total_fundraising - item.remaining_balance}</span>
                                                 </span>
                                                 <div>
 
