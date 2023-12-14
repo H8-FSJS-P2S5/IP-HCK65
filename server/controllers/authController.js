@@ -110,6 +110,8 @@ class AuthController {
                 total: paid_amount,
             });
 
+            await User.increment({balance: paid_amount}, {where: {id: external_id}})
+
             res.json({data: balanceHistories})
         } catch (error) {
             next(error)
