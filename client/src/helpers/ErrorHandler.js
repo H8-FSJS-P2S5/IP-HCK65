@@ -4,7 +4,7 @@ function ErrorHandler(error) {
     let {status, data} = error.response
     let message = ""
     if (status === 400) {
-        message = data.message
+        message = data.message[0]
     } else if (status === 401) {
         message = data.message
     } else if (status === 404) {

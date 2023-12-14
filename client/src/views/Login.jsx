@@ -1,9 +1,36 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import ErrorHandler from "../helpers/ErrorHandler";
+import Axios from "../helpers/axios"
+import {toast} from "react-toastify";
+import ButtonGoogle from "../components/ButtonGoogle.jsx";
+
 
 function Login() {
+    const navigate = useNavigate()
+
+    const handlerSubmitLogin = async (event) => {
+        event.preventDefault()
+        try {
+            let {data} = await Axios({
+                method: 'post',
+                url: '/login',
+                data: formLogin
+            });
+
+            localStorage.setItem("access_token", data.access_token)
+
+            let notify = () => toast("login berhasil");
+            notify()
+            navigate('/')
+        } catch (error) {
+            ErrorHandler(error)
+        }
+    }
+
+
     let [formLogin, setFormLogin] = useState({
         "email": "",
         "password": "",
@@ -17,10 +44,11 @@ function Login() {
     }
 
 
+
     return (
         <>
             <div className="col-lg-4 offset-4 mt-5">
-                <Form>
+                <Form onSubmit={handlerSubmitLogin}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
                         <Form.Control type="email" name="email" onChange={handlerChange} value={formLogin.email}
@@ -37,6 +65,7 @@ function Login() {
                         Login
                     </Button>
                     <Link to="/register" className="btn btn-link">Register</Link>
+                    <ButtonGoogle/>
                 </Form>
             </div>
         </>

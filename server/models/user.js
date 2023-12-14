@@ -51,40 +51,13 @@ module.exports = (sequelize, DataTypes) => {
         },
         password: {
             type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                notNull: {
-                    msg: "Password is required"
-                },
-                notEmpty: {
-                    msg: "Password is required"
-                },
-            }
         },
         role: {
-            allowNull: false,
             type: DataTypes.STRING,
-            validate: {
-                notNull: {
-                    msg: "Password is required"
-                },
-                notEmpty: {
-                    msg: "Password is required"
-                },
-            }
         },
 
         balance: {
-            allowNull: false,
-            type: DataTypes.INTEGER,
-            validate: {
-                notNull: {
-                    msg: "Password is required"
-                },
-                notEmpty: {
-                    msg: "Password is required"
-                },
-            }
+            type: DataTypes.INTEGER
         },
     }, {
         sequelize,
@@ -92,7 +65,9 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     User.beforeCreate(async (user, options) => {
-        user.password = generatePassword(user.password);
+        if (user.password) {
+            user.password = generatePassword(user.password)
+        }
     });
 
     return User;

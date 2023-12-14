@@ -19,7 +19,6 @@ module.exports = (sequelize, DataTypes) => {
   }
   BalanceHistory.init({
     transaction_type: DataTypes.INTEGER,
-    transaction_status: DataTypes.INTEGER,
     total: DataTypes.INTEGER,
     user_id: DataTypes.INTEGER
   }, {

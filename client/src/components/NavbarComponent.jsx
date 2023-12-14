@@ -6,9 +6,24 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import {useSelector} from "react-redux";
+import {useFetch} from "../hooks/useFetch.js";
+import {setUser} from "../features/campaign/userSlice.js";
 
 function NavbarComponent() {
     const navigate = useNavigate()
+    const user = useSelector((state) => state.user.user)
+
+    if (localStorage.getItem("access_token")) {
+        useFetch({
+            url: "/user-information",
+            setter: setUser,
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("access_token")}`
+            }
+        })
+
+    }
     const logout = async () => {
         try {
             localStorage.removeItem("access_token")
@@ -33,21 +48,25 @@ function NavbarComponent() {
                                 Home
                             </Link></Nav.Link>
 
-                            <NavDropdown title="CMS" id="navbarScrollingDropdown">
-                                <NavDropdown.Item><Link to="/cms/campaigns/create" className="nav-link-custom">
-                                    Create Campaign
-                                </Link></NavDropdown.Item>
-                                <NavDropdown.Item><Link to="/cms/campaigns" className="nav-link-custom">
-                                    List Campaign
-                                </Link></NavDropdown.Item>
-                            </NavDropdown>
+                            {(user.role === 'admin') &&
+                                <NavDropdown title="CMS" id="navbarScrollingDropdown">
+                                    <NavDropdown.Item><Link to="/cms/campaigns/create" className="nav-link-custom">
+                                        Create Campaign
+                                    </Link></NavDropdown.Item>
+                                    <NavDropdown.Item><Link to="/cms/campaigns" className="nav-link-custom">
+                                        List Campaign
+                                    </Link></NavDropdown.Item>
+                                </NavDropdown>
+                            }
+
+
                         </Nav>
                         <Form className="d-flex">
                             {(localStorage.getItem("access_token")) ?
                                 <div>
                                     <Link to="/balance-histories">
                                         <Button variant="outline-success">
-                                            Saldo: Rp. 150.000.000
+                                            Saldo: {user.balance}
                                         </Button>
                                     </Link>
                                     <Button className="ml-1 btn btn-danger" style={{"marginLeft": "5px"}}

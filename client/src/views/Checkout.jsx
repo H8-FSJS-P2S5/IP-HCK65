@@ -2,7 +2,6 @@ import axios from "axios";
 
 function Checkout() {
 
-
     const checkout = async () => {
         let invoiceUrl, invoiceData
         try {
@@ -12,7 +11,7 @@ function Checkout() {
             const invoiceData = {
                 currency,
                 amount,
-                redirect_url: `${window.location.origin}/try-checkout`
+                redirect_url: `${window.location.origin}/success`
             };
 
             const response = await axios({
@@ -26,7 +25,7 @@ function Checkout() {
 
             const {data} = response;
             if (response.status >= 200 && response.status <= 299) {
-                invoiceUrl = data.invoice_url;
+                invoiceUrl = data.invoiceUrl;
                 window.location.href = invoiceUrl
             } else {
                 alert(data.message)

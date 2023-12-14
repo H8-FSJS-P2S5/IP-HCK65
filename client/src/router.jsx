@@ -4,6 +4,11 @@ import Login from "./views/Login.jsx";
 import Layout from "./layouts/Layout.jsx";
 import ListCampaign from "./views/ListCampaign.jsx";
 import BalanceHistory from "./views/BalanceHistory.jsx";
+import CMSListCampaign from "./views/CMSListCampaign.jsx";
+import CMSCreateCampaign from "./views/CMSCreateCampaign.jsx";
+import Checkout from "./views/Checkout.jsx";
+import CMSUpdateCampaign from "./views/CMSUpdateCampaign.jsx";
+import DetailCampaign from "./views/DetailCampaign.jsx";
 
 export const router = createBrowserRouter([
     {
@@ -21,8 +26,24 @@ export const router = createBrowserRouter([
                 element: <ListCampaign/>,
             },
             {
+                path: "campaigns/:id",
+                element: <DetailCampaign/>,
+            },
+            {
                 path: "balance-histories",
                 element: <BalanceHistory/>,
+            },
+            {
+                path: "cms/campaigns",
+                element: <CMSListCampaign/>,
+            },
+            {
+                path: "cms/campaigns/:id",
+                element: <CMSUpdateCampaign/>,
+            },
+            {
+                path: "cms/campaigns/create",
+                element: <CMSCreateCampaign/>,
             },
         ]
     },
@@ -45,6 +66,10 @@ export const router = createBrowserRouter([
             return null
         },
         element: <Login/>
+    },
+    {
+        path: "checkout",
+        element: <Checkout/>
     },
 ]);
 

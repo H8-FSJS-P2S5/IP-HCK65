@@ -1,9 +1,41 @@
 const express = require('express');
 const sgMail = require("@sendgrid/mail");
 const router = express.Router();
-const InvoiceController = require('../controllers/controller');
+const InvoiceController = require('../controllers/authController');
 const invoiceController = new InvoiceController();
 const {Invoice: InvoiceClient, Payout: PayoutClient} = require('xendit-node')
+const AuthContoller = require('../controllers/authController')
+const CampaignController = require('../controllers/campaignController')
+
+const authentication = require('../middlewares/authentication')
+const {adminOnly} = require('../middlewares/authorization')
+const usersRouter = require("./users");
+const balancehistoriesRouter = require("./balancehistories");
+
+
+router.post('/callback/invoice', AuthContoller.createDepositInvoice);
+
+
+router.post('/login', AuthContoller.postLogin);
+router.post('/register', AuthContoller.postRegister);
+router.post('/google-login', AuthContoller.googleLogin);
+
+router.use(authentication)
+
+router.get('/campaigns', CampaignController.getList);
+router.post('/campaigns', CampaignController.postCampaign);
+router.get('/campaigns/:id', CampaignController.getDetailCampaign);
+router.put('/campaigns/:id', CampaignController.putCampaign);
+router.delete('/campaigns/:id', CampaignController.deleteCampaign);
+router.post('/campaigns/:campaign_id/transaction', CampaignController.postCreateTransaction);
+
+
+router.post('/invoice', AuthContoller.createInvoice);
+router.get('/user-information', AuthContoller.userInformation);
+
+router.use('/users', usersRouter);
+router.use('/balance-histories', balancehistoriesRouter);
+
 router.get('/', async function (req, res, next) {
     try {
         // sgMail.setApiKey(process.env.SENDGRID_API_KEY)
@@ -24,67 +56,5 @@ router.get('/', async function (req, res, next) {
     }
 });
 
-router.post('/api/invoice', async function (req, res, next) {
-    try {
-        const xenditInvoiceClient = new InvoiceClient({secretKey: process.env.API_KEY})
-
-        const xenditPayoutClient = new PayoutClient({secretKey: process.env.API_KEY})
-
-        let data = {
-            "amount": 10000,
-            "invoiceDuration": 172800,
-            "externalId": "test1234",
-            "description": "Test Invoice",
-            "currency": "IDR",
-            "reminderTime": 1,
-            "successRedirectUrl": "https://www.google.com/",
-        }
-
-        data = await xenditInvoiceClient.createInvoice({
-            data
-        })
-        res.json(data)
-
-
-        // https://checkout-staging.xendit.co/v2/65781dea4dc83903b0173f24
-        // https://checkout-staging.xendit.co/v2/65781ea1ea91e11f1abff324
-
-        // const response = await xenditInvoiceClient.getInvoiceById({
-        //     invoiceId: "65781dea4dc83903b0173f24"
-        // })
-        //
-        // res.json(response)
-
-
-        // const data = {
-        //     "amount" : 90000,
-        //     "channelProperties" : {
-        //         "accountNumber" : "000000",
-        //         "accountHolderName" : "John Doe"
-        //     },
-        //     "description" : "Test Bank Payout",
-        //     "currency" : "PHP",
-        //     "type" : "DIRECT_DISBURSEMENT",
-        //     "referenceId" : "DISB-001",
-        //     "channelCode" : "PH_BDO"
-        // }
-        //
-        // const response = await xenditPayoutClient.createPayout({
-        //     idempotencyKey: "DISB-1234",
-        //     data
-        // })
-
-
-        // const response = await xenditPayoutClient.getPayoutById({
-        //     id: "disb-73e94f43-ea76-4883-9dd1-c6ba9384eaad",
-        // })
-        //
-        // res.json(response)
-    } catch (e) {
-        console.log('error')
-        console.log(e)
-        return res.status(e.response.status).send(e.response.data);
-    }
-});
 
 module.exports = router;
