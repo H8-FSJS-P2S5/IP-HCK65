@@ -5,6 +5,7 @@ import Login from "./components/Login/Login";
 import Signup from "./components/Signup/Signup";
 import CardRecommendationTracks from "./components/Card/CardRecommendationTracks";
 import CardRecommendationArtists from "./components/Card/CardRecommendationArtists";
+import Profile from "./components/Profile/Profile";
 
 export const router = createBrowserRouter([
     {
@@ -46,6 +47,18 @@ export const router = createBrowserRouter([
             {
                 path: '/reccommend/by-artists',
                 element: <CardRecommendationArtists />,
+                loader: () => {
+                    const isLogin = localStorage.getItem('access_token')
+                    if(!isLogin) {
+                        throw redirect('/login')
+                    } else {
+                        return null
+                    }
+                }
+            },
+            {
+                path: '/profile',
+                element: <Profile />,
                 loader: () => {
                     const isLogin = localStorage.getItem('access_token')
                     if(!isLogin) {

@@ -1,5 +1,7 @@
 const express = require('express');
 const SpotifyWebApi = require('spotify-web-api-node');
+const { User } = require('../models');
+const axios = require('axios');
 
 class ControllerUser {
     static async getInfoCurrentUser(req, res, next) {
@@ -20,8 +22,20 @@ class ControllerUser {
 
             let data = await spotifyApi.getMe()
             // console.log(data.body, "<< data");
+            const [user, created] = await User.findOrCreate({
+                where: { email: data.body.email },
+                defaults: {
+                    email: data.body.email,
+                    name: data.body.display_name,
+                    imageUrl: data.body.images[1].url,
+                    profileUrl: data.body.external_urls.spotify,
+                    password: Math.random().toString(),
+                }
+            })
 
-            res.json(data)
+            res.status(created ? 201 : 200).json( created ?{
+                "message": `User ${user.email} found`
+            } : data)
             // let data = await User.find
         } catch (error) {
             console.log(error);
