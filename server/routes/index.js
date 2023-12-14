@@ -1,11 +1,6 @@
 const express = require('express');
-const sgMail = require("@sendgrid/mail");
+// const sgMail = require("@sendgrid/mail");
 const router = express.Router();
-
-router.get('/', async function (req, res, next) {
-    res.send('aaaaaa')
-});
-
 
 // const AuthController = require('../controllers/authController')
 // const CampaignController = require('../controllers/campaignController')

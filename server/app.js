@@ -9,8 +9,8 @@ const errorHandler = require('./middlewares/errorHandler')
 // const cookieParser = require('cookie-parser');
 // const logger = require('morgan');
 
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+// const indexRouter = require('./routes/index');
+// const usersRouter = require('./routes/users');
 
 const app = express();
 app.use(cors());
@@ -21,7 +21,12 @@ app.use(express.json());
 // app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.use('/', indexRouter);
+// app.use('/', indexRouter);
+
+
+app.get('/', async function (req, res, next) {
+    res.send('aaaaaa')
+});
 
 
 
