@@ -96,9 +96,9 @@ export default function Login() {
 
                     <div className='border-t border-gray-400 w-3/4 my-4 mx-auto'>
                         <p className=' pt-8'>
-                            <spa className='text-gray-400'>
+                            <span className='text-gray-400'>
                             Don't have an account? 
-                            </spa>
+                            </span>
                             <Link to='/signup' className='text-white hover:text-primary font-semibold underline mx-auto'> Sign up for Pitch+</Link>
                         </p>
                     </div>

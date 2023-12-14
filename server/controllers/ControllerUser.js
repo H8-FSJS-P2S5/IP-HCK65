@@ -26,7 +26,7 @@ class ControllerUser {
         } catch (error) {
             console.log(error);
             res.status(500).json({
-                message: 'Internal server error' 
+                message: 'Internal server error'
             })
         }
     }
@@ -44,6 +44,7 @@ class ControllerUser {
             })
 
             spotifyApi.setAccessToken(req.headers.authorization);
+            console.log(spotifyApi,"req tokennnn");
 
             let tracks = await spotifyApi.getMyTopTracks({ limit: 10, time_range: 'short_term' })
 
@@ -53,7 +54,7 @@ class ControllerUser {
         } catch (error) {
             console.log(error);
             res.status(500).json({
-                message: 'Internal server error' 
+                message: 'Internal server error'
             })
         }
     }
@@ -80,12 +81,12 @@ class ControllerUser {
         } catch (error) {
             console.log(error);
             res.status(500).json({
-                message: 'Internal server error' 
+                message: 'Internal server error'
             })
         }
     }
 
-    static async getReccomendationByTracks(req, res, next) {
+    static async getReccommendationByTracks(req, res, next) {
         try {
             const clientId = process.env.SPOTIFY_CLIENT_ID
             const clientSecret = process.env.SPOTIFY_CLIENT_SECRET
@@ -108,64 +109,110 @@ class ControllerUser {
                 seed_tracks.push(track.id)
             })
             // console.log(seed_artists);
-            let reccomendations = await spotifyApi.getRecommendations({
+            let reccommendations = await spotifyApi.getRecommendations({
                 limit: 10,
                 market: 'US',
                 seed_tracks
             })
 
-            reccomendations = reccomendations.body.tracks
+            reccommendations = reccommendations.body.tracks
 
-            res.json(reccomendations)
+            res.json(reccommendations)
 
             // console.log(tracks);
         } catch (error) {
             console.log(error);
             res.status(500).json({
-                message: 'Internal server error' 
+                message: 'Internal server error'
             })
         }
     }
 
-    static async getReccomendationByArtists(req, res, next) {
+    static async getReccommendationByArtists(req, res, next) {
         try {
             const clientId = process.env.SPOTIFY_CLIENT_ID
             const clientSecret = process.env.SPOTIFY_CLIENT_SECRET
             const redirectUri = 'http://localhost:3000/auth/spotify/callback'
             let seed_artists = []
+            let track_uris = []
 
+            console.log('11111')
             let spotifyApi = new SpotifyWebApi({
                 redirectUri,
                 clientId,
                 clientSecret
             })
-
+            // console.log('22222')
             spotifyApi.setAccessToken(req.headers.authorization);
-
+            // console.log('3333')
             let artists = await spotifyApi.getMyTopArtists({ limit: 5, time_range: 'short_term' })
+            // console.log('444444')
             artists = artists.body.items
-            // console.log(tracks), "<<<< tracks";
+            // // console.log(tracks), "<<<< tracks";
             artists.map((artist) => {
                 // console.log(track.id);
                 seed_artists.push(artist.id)
             })
+            console.log(seed_artists)
             // console.log(seed_artists);
-            let reccomendations = await spotifyApi.getRecommendations({
+            let reccommendations = await spotifyApi.getRecommendations({
                 limit: 10,
                 market: 'US',
                 seed_artists
             })
-
-            reccomendations = reccomendations.body.tracks
-
-            res.json(reccomendations)
+            console.log('6666')
+            reccommendations = reccommendations.body.tracks
+            reccommendations.map((track) => {
+                // console.log(track);
+                track_uris.push(track.uri)
+            })
+            // console.log(track_uris);
+            console.log('7777')
+            res.json(reccommendations)
 
             // console.log(tracks);
         } catch (error) {
             console.log(error);
             res.status(500).json({
-                message: 'Internal server error' 
+                message: 'Internal server error'
             })
+        }
+    }
+
+    static async addTracksToPlaylist(req, res, next) {
+        try {
+            const track_uris = req.body
+            if (track_uris) {
+                const clientId = process.env.SPOTIFY_CLIENT_ID
+                const clientSecret = process.env.SPOTIFY_CLIENT_SECRET
+                const redirectUri = 'http://localhost:3000/auth/spotify/callback'
+                let spotifyApi = new SpotifyWebApi({
+                    redirectUri,
+                    clientId,
+                    clientSecret
+                })
+
+                spotifyApi.setAccessToken(req.headers.authorization);
+
+                let reccommendations = await spotifyApi.createPlaylist(
+                    'Pitch+ Reccommendations', {
+                    'description': 'Playlist generated based on top tracks/artists from Pitch+',
+                    'public': true
+                })
+                let playlistId = reccommendations.body.id
+                let addTracks = await spotifyApi.addTracksToPlaylist(playlistId, track_uris)
+                // console.log(playlistId);
+                // console.log(reccommendations);
+                // console.log(addTracks);
+
+                res.json(addTracks)
+            } else {
+                throw { name: "BadRequest", message: "No tracks provided" }
+
+            }
+
+        } catch (error) {
+            console.log(error);
         }
     }
 }

@@ -19,27 +19,27 @@ export default function CardArtists() {
             console.log(error);
         }
     }
-    
+
     // console.log(artists);
-    useEffect (() => {
+    useEffect(() => {
         fetchArtists()
-    }, []) 
+    }, [])
     return (
         <>
-        {artists.map((artist) => (
-        <div key={artist.id} className="card col-span-1 p-4 rounded-lg">
-            <div className='relative'>
-            
-            <a href={artist.external_urls.spotify} target="_blank">
+            {artists.map((artist) => (
+                <div key={artist.id} className="card col-span-1 p-4 rounded-lg">
+                    
+                    <div className='relative'>
+                        <a href={artist.external_urls.spotify} target="_blank">
+                            <img className='h-52 w-56 object-cover ' src={artist.images[0].url} alt="" />
+                        </a>
+                    </div>
 
-            <img className='h-52 w-56 object-cover ' src={artist.images[0].url} alt="" />
-            </a>
-            
-            </div>
-            <h3 className="font-semibold my-2">{artist.name}</h3>
-            <p className='text-xs text-white/25 leading-4'>Artist</p>
-        </div>
-        ))}
+                    <h3 className="font-semibold my-2">{artist.name}</h3>
+                    <p className='text-xs text-white/25 leading-4'>Artist</p>
+                
+                </div>
+            ))}
         </>
     )
 }

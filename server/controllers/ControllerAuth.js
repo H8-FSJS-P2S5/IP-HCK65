@@ -2,7 +2,6 @@ const express = require('express');
 const { User } = require('../models');
 const SpotifyWebApi = require('spotify-web-api-node');
 const querystring = require('querystring');
-const { signToken } = require('../helpers/jwt');
 const {OAuth2Client} = require('google-auth-library')
 const client = new OAuth2Client()
 
@@ -63,7 +62,7 @@ class ControllerAuth {
                 }));
 
         } catch (error) {
-            console.log(error, "<< catch error");
+            // console.log(error, "<< catch error");
         }
     }
 

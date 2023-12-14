@@ -5,7 +5,8 @@ const users = express.Router()
 users.get('/my-profile', ControllerUser.getInfoCurrentUser)
 users.get('/topTracks', ControllerUser.getUserTopTracks)
 users.get('/topArtists', ControllerUser.getUserTopArtists)
-users.get('/reccomendByTracks', ControllerUser.getReccomendationByTracks)
-users.get('/reccomendByArtists', ControllerUser.getReccomendationByArtists)
+users.get('/reccommendByTracks', ControllerUser.getReccommendationByTracks)
+users.get('/reccommendByArtists', ControllerUser.getReccommendationByArtists)
+users.post('/addTracks', ControllerUser.addTracksToPlaylist)
 
 module.exports = users

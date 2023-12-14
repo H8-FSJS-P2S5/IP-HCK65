@@ -4,6 +4,7 @@ import { FaPlus } from "react-icons/fa";
 import { LuLibrary } from "react-icons/lu";
 import { TfiWorld } from "react-icons/tfi";
 import Footer from "./Footer";
+import { Link } from "react-router-dom";
 
 export default function Sidebar() {
     return (
@@ -11,17 +12,18 @@ export default function Sidebar() {
             <div className="w-1/4 fixed left-0 top-0 sidebar">
             {/* Nav Home & Search */}
             <div id="home" className="secondaryBg rounded-lg p-6">
-                <div className="flex items-center gap-4">
-                    <BiSolidHome className="font-bold text-xl" />
-                    <span className="hover:text-white text-white/50 font-bold duration-300">Home</span>
+                <div className="flex items-center gap-4 hover:text-white text-white/50 duration-300">
+                    <Link to='/'><BiSolidHome className="font-bold text-xl " /></Link>
+                    <Link to='/' className='font-bold'>Home</Link>
+                    {/* <span className="hover:text-white text-white/50 font-bold duration-300">Home</span> */}
                 </div>
-                <div className="flex mt-4 items-center gap-4">
+                <div className="flex mt-4 items-center gap-4 hover:text-white text-white/50 duration-300">
                     <FiSearch className="font-bold text-xl" />
                     <span className="hover:text-white text-white/50 font-bold duration-300">Search</span>
                 </div>
             </div>
             {/* Nav Your Lib */}
-            <div id="your-library" className="mt-2 secondaryBg rounded-lg px-6 py-2">
+            <div id="your-library" className="mt-4 secondaryBg rounded-lg px-6 py-2">
                 <div className="flex justify-between mb-4 items-center gap-4">
                     <div className="flex gap-4 items-center">
                         <LuLibrary className="font-bold text-xl" />
