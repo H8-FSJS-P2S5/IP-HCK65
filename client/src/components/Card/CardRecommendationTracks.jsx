@@ -10,7 +10,7 @@ export default function CardRecommendationTracks() {
 
     const fetchTracks = async () => {
         try {
-            const response = await Axios.get('http://localhost:3000/users/reccommendByTracks', {
+            const response = await Axios.get('http://34.142.225.177/users/reccommendByTracks', {
                 headers: {
                     Authorization: `${localStorage.getItem('access_token')}`
                 }
@@ -30,7 +30,7 @@ export default function CardRecommendationTracks() {
 
                 console.log(track_uris);
 
-                await Axios.post('http://localhost:3000/users/addTracks', track_uris, {
+                await Axios.post('http://34.142.225.177/users/addTracks', track_uris, {
                     headers: {
                         Authorization: `${localStorage.getItem('access_token')}`
                     }

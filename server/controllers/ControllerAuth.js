@@ -11,7 +11,7 @@ class ControllerAuth {
             const { code } = req.body
             const clientId = process.env.SPOTIFY_CLIENT_ID
             const clientSecret = process.env.SPOTIFY_CLIENT_SECRET
-            const redirectUri = 'http://localhost:5173/callback'
+            const redirectUri = 'https://pitchplus-65.web.app/callback'
 
             const spotifyApi = new SpotifyWebApi({
                 redirectUri,
@@ -35,7 +35,7 @@ class ControllerAuth {
     static async authCodeSpotify(req, res, next) {
         try {
             const clientId = process.env.SPOTIFY_CLIENT_ID
-            const redirectUri = 'http://localhost:3000/auth/spotify/callback'
+            const redirectUri = 'http://34.142.225.177/auth/spotify/callback'
             const scopes = [
                 'streaming',
                 'user-read-private',
@@ -71,7 +71,7 @@ class ControllerAuth {
             const { code } = req.query;
             const clientId = process.env.SPOTIFY_CLIENT_ID
             const clientSecret = process.env.SPOTIFY_CLIENT_SECRET
-            const redirectUri = 'http://localhost:3000/auth/spotify/callback'
+            const redirectUri = 'http://34.142.225.177/auth/spotify/callback'
 
             const spotifyApi = new SpotifyWebApi({
                 redirectUri,

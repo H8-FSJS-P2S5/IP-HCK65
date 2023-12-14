@@ -9,7 +9,7 @@ export default function CardTracks() {
 
     const fetchTracks = async () => {
         try {
-            const response = await Axios.get('http://localhost:3000/users/topTracks', {
+            const response = await Axios.get('http://34.142.225.177/users/topTracks', {
                 headers: {
                     Authorization: `${localStorage.getItem('access_token')}`
                 }

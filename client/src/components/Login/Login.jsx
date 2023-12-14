@@ -75,7 +75,7 @@ export default function Login() {
                         </div>
                         {/* login btn */}
                         <div className='w-full text-left py-4'>
-                            <a href="http://localhost:3000/auth/spotify/sign-in" 
+                            <a href="http://34.142.225.177/auth/spotify/sign-in" 
                             className='bg-primary
                                     block 
                                     w-full
