@@ -11,7 +11,6 @@ import { fetchAnimesRdx } from "../features/animes/asyncAction";
 
 import CardContents from "../components/cardContents";
 
-import { render } from "react-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 export default function HomePage() {
@@ -115,23 +114,46 @@ export default function HomePage() {
     dispatch(fetchAnimesRdx());
   }, [reqParams]);
 
-  // console.log(animesList);
+  const fetchMoreData = async () => {
+    try {
+      const nextPage = pagination.current_page + 1;
+      const { status, order_by, sort } = reqParams;
+      const { data } = await Axios.get("animes/", {
+        params: { page: nextPage, status, order_by, sort },
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+        },
+      });
+      setAnimesList([...animesList, ...data.data]);
+      setPagination(data.pagination);
+    } catch (error) {
+      errorHandler(error);
+    }
+  };
+  // console.log(animesList);  
 
   return (
     <>
       <ToastContainer />
-      <div className="flex flex-wrap gap-8 justify-left ml-4 mr-4 mt-8 mb-8">
-        {animesList.map((anime) => {
-          return (
-            <CardContents
-              key={anime.mal_id}
-              anime={anime}
-              handleShowDetail={handleShowDetail}
-              handleToAddFav={handleToAddFav}
-            />
-          );
-        })}
-      </div>
+      <InfiniteScroll
+        dataLength={animesList.length}
+        next={fetchMoreData}
+        hasMore={pagination.has_next_page}
+        loader={<p className="flex justify-center">Loading ......</p>}
+      >
+        <div className="flex flex-wrap gap-8 justify-left ml-4 mr-4 mt-8 mb-8">
+          {animesList.map((anime) => {
+            return (
+              <CardContents
+                key={anime.mal_id}
+                anime={anime}
+                handleShowDetail={handleShowDetail}
+                handleToAddFav={handleToAddFav}
+              />
+            );
+          })}
+        </div>
+      </InfiniteScroll>
     </>
   );
 }

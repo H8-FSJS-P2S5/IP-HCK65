@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Axios from "../helpers/axios";
 import { ToastContainer } from "react-toastify";
@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import { errorHandler } from "../helpers/errorHandler";
+import DisqusComments from "../components/disqusComp";
 
 export default function DetailAnimePage() {
   let navigate = useNavigate();
@@ -38,6 +39,12 @@ export default function DetailAnimePage() {
   }, []);
 
   // console.log(anime);
+  // let reqParams = useParams();
+  // let location = useLocation();
+  // console.log(reqParams, location);
+  // const yourPageUrl = "/anime/";
+  // const yourPageIdentifier = reqParams.id;
+  // const yourDisqusShortname = "http-localhost-5173-1";
 
   return (
     <>
@@ -67,6 +74,11 @@ export default function DetailAnimePage() {
           </div>
         </div>
       </div>
+      {/* <DisqusComments
+        shortname={yourDisqusShortname}
+        pageUrl={yourPageUrl}
+        pageIdentifier={yourPageIdentifier}
+      /> */}
     </>
   );
 }

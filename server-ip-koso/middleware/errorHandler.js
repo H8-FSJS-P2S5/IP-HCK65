@@ -51,6 +51,9 @@ module.exports = (error, req, res, next) => {
     case "InvalidToken":
       (status = 400), (message = "Invalid Token");
       break;
+    case "noPw":
+      (status = 400), (message = "password is required");
+      break;
     case "Forbidden":
       (status = 403), (message = "Forbidden, you are not authorized");
       break;

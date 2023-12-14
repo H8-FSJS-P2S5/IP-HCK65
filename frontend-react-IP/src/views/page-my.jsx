@@ -14,7 +14,7 @@ export default function MyPage() {
   const [animesList, setAnimesList] = useState([]);
   const [params, setParams] = useState({
     page: 1,
-    pageSize: 10,
+    pageSize: 5000,
   });
 
   const [pagination, setPagination] = useState({
@@ -36,26 +36,18 @@ export default function MyPage() {
       });
       setAnimesList(data.animes);
 
-      setPagination(data.pagination);
+      // console.log(data);
+      const pagination2 = {
+        totalCount: data.totalCount,
+        pageSize: data.pageSize,
+        currentPage: data.currentPage,
+        totalPages: data.totalPages,
+      };
+      setPagination(pagination2);
     } catch (error) {
       errorHandler(error);
       errorHandler;
     }
-  };
-
-  const handleRemoveFilter = (e) => {
-    setParams((prevValue) => ({
-      ...prevValue,
-      page: 1,
-      pageSize: 10,
-    }));
-  };
-
-  const handlePage = (e) => {
-    setParams((prevValue) => ({
-      ...prevValue,
-      page: e.target.value,
-    }));
   };
 
   const handleShowDetail = async (event) => {
@@ -86,7 +78,7 @@ export default function MyPage() {
 
   useEffect(() => {
     fetchDataMyAnime();
-  }, [params]);
+  }, []);
 
   // console.log(animesList,"ANILIST");
   // console.log(params,"PARAMS");
@@ -94,8 +86,9 @@ export default function MyPage() {
 
   return (
     <>
-      <section>
+      <section className="my-4">
         <h1 className="flex justify-center text-4xl my-4">My Anime</h1>
+
         <div className="flex flex-col gap-4 mx-4">
           {animesList.map((anime) => {
             return (

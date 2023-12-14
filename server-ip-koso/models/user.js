@@ -85,6 +85,8 @@ module.exports = (sequelize, DataTypes) => {
     static async editUser(data, userLoggedId) {
       try {
         const { username, email, password } = data;
+        console.log(password, "INI PASSWORD DARI EDIT")
+        if (!password) throw { name: "noPw" };
         const findUser = await User.findByPk(userLoggedId);
         // console.log(findUser)
         if (!findUser) throw { name: "notFound" };

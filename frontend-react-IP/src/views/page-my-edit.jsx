@@ -7,10 +7,6 @@ import "react-toastify/dist/ReactToastify.css";
 
 import { errorHandler } from "../helpers/errorHandler";
 
-import { useDispatch, useSelector } from "react-redux";
-import { fetchUserDataRdx } from "../features/user/asyncActionUser";
-import { setUser } from "../features/user/userSlice";
-
 export default function MyEditPage() {
   const { id } = useParams();
   let navigate = useNavigate();
@@ -23,26 +19,36 @@ export default function MyEditPage() {
     filter: "brightness(90%)",
   };
 
-  const dispatch = useDispatch();
-  let user = useSelector((state) => state.user.user);
-
-  useEffect(() => {
-    dispatch(fetchUserDataRdx());
-  }, []);
-
   let token = localStorage.getItem("access_token");
 
   const formRef = useRef(null);
 
+  const [input, setInput] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+
+  let fetchUserData = async () => {
+    try {
+      let response = await Axios.get(`/users/checkuser`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+        },
+      });
+      setInput(response.data.findUser);
+    } catch (error) {
+      errorHandler(error);
+    }
+  };
+
   const closePage = (data) => {
     formRef.current.reset();
-    dispatch(
-      setUser({
-        username: "",
-        email: "",
-        password: "",
-      })
-    );
+    setInput({
+      username: "",
+      email: "",
+      password: "",
+    });
     toast.success("Profile has been updated successfully");
     navigate(`/`);
   };
@@ -50,22 +56,18 @@ export default function MyEditPage() {
   const handleOnChange = (event) => {
     const { name, value } = event.target;
     // console.log(event.target, ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-
-    dispatch(
-      setUser((prevValue) => ({
-        ...prevValue,
-        [name]: value,
-      }))
-    );
+    setInput((prevValue) => ({
+      ...prevValue,
+      [name]: value,
+    }));
   };
 
   const handleEditProfile = async (event) => {
     event.preventDefault();
     try {
-      let { data } = await Axios.put(`/users/me`, user, {
+      let { data } = await Axios.put(`/users/me`, input, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      //   console.log(data);
       closePage(data);
     } catch (error) {
       errorHandler(error);
@@ -80,7 +82,11 @@ export default function MyEditPage() {
     }
   }
 
-  // console.log(user);
+  useEffect(() => {
+    fetchUserData();
+  }, []);
+
+  // console.log(input);
   return (
     <>
       <section className="flex justify-center h-screen" style={backgroundImage}>
@@ -110,7 +116,7 @@ export default function MyEditPage() {
                   placeholder="insert username"
                   className="input input-bordered input-primary w-full"
                   name="username"
-                  value={user.username}
+                  value={input.username}
                   onChange={handleOnChange}
                 />
               </div>
@@ -123,7 +129,7 @@ export default function MyEditPage() {
                   placeholder="insert email"
                   className="input input-bordered input-primary w-full"
                   name="email"
-                  value={user.email}
+                  value={input.email}
                   onChange={handleOnChange}
                 />
               </div>
@@ -136,7 +142,6 @@ export default function MyEditPage() {
                   placeholder="insert password"
                   className="input input-bordered input-primary w-full"
                   name="password"
-                  value={user.password}
                   onChange={handleOnChange}
                 />
               </div>
