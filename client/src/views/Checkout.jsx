@@ -15,7 +15,8 @@ function Checkout() {
             };
 
             const response = await axios({
-                url: "http://localhost:3000/api/invoice",
+                // url: "http://localhost:3000/api/invoice",
+                url: "https://api-ip.gemakusuma.com/api/invoice",
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8'
