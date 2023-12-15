@@ -2,23 +2,24 @@ const formatter = require('../helpers/formatRupiah');
 const { Item, Cart } = require('../models')
 
 class ItemController {
-    static async fetchData(req, res) {
+    static async fetchData(req, res, next) {
         try {
             let item = await Item.findAll();
             console.log(item);
 
             res.status(200).json(item)
         } catch (error) {
-            console.log(error);
-            res.status(500).json({message: "Internal server error"})
+            next(error)
         }
     }
 
-    static async addToCart(req, res) {
+    static async addToCart(req, res, next) {
         try {
             const {id} = req.params
 
             let findData = await Item.findByPk(id)
+            
+            if (!findData) throw {name: "NotFound"}
             // console.log(findData.dataValues, "????????");
             let found = findData.dataValues
             // console.log(found, "FOUUUNNNDD");
@@ -27,21 +28,21 @@ class ItemController {
 
             res.status(201).json(newCart)
         } catch (error) {
-            res.status(500).json({message: "Internal server error"})
+            next(error)
         }
     }
 
-    static async readCart(req, res) {
+    static async readCart(req, res, next) {
         try {
             let cart = await Cart.findAll()
 
             res.status(200).json(cart)
         } catch (error) {
-            res.status(500).json({message: "Internal server error"})
+            next()
         }
     }
 
-    static async deleteCart(req, res) {
+    static async deleteCart(req, res, next) {
         try {
             const {id} = req.params;
 
@@ -53,10 +54,7 @@ class ItemController {
 
             res.status(200).json({message: "Success delete item"})
         } catch (error) {
-            if (error.name === "NotFound") {
-                return res.status(404).json({message: "Data not found"})
-            }
-            res.status(500).json({message: "Internal server error"})
+            next(error)
         }
     }
 }

@@ -3,7 +3,7 @@ const { signToken } = require('../helpers/jwt');
 const { User } = require('../models');
 
 class UserController {
-    static async readData() {
+    static async readData(req, res, next) {
         
     const axios = require("axios");
     const options = {
@@ -19,11 +19,11 @@ class UserController {
       const response = await axios.request(options);
       console.log(response.data);
     } catch (error) {
-      console.error(error);
+      next(error)
     }
   }
 
-  static async login(req, res) {
+  static async login(req, res, next) {
     try {
       const {email, password} = req.body;
       if (!email || !password) {
@@ -44,11 +44,7 @@ class UserController {
 
       res.status(200).json({access_token: access_token})
     } catch (error) {
-      console.log(error);
-      if (error.name === "Unauthorized") {
-       return  res.status(401).json({message: "Invalid email or password"})
-      }
-      res.status(500).json({message: "Internal server error"})
+      next(error)
     }
   }
 }
