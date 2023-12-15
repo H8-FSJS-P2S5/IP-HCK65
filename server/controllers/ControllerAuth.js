@@ -35,7 +35,7 @@ class ControllerAuth {
     static async authCodeSpotify(req, res, next) {
         try {
             const clientId = process.env.SPOTIFY_CLIENT_ID
-            const redirectUri = 'https://api.rafizuaf.online/auth/spotify/callback/auth/spotify/callback'
+            const redirectUri = 'https://api.rafizuaf.online/auth/spotify/callback'
             const scopes = [
                 'streaming',
                 'user-read-private',
@@ -71,7 +71,7 @@ class ControllerAuth {
             const { code } = req.query;
             const clientId = process.env.SPOTIFY_CLIENT_ID
             const clientSecret = process.env.SPOTIFY_CLIENT_SECRET
-            const redirectUri = 'https://api.rafizuaf.online/auth/spotify/callback/auth/spotify/callback'
+            const redirectUri = 'https://api.rafizuaf.online/auth/spotify/callback'
 
             const spotifyApi = new SpotifyWebApi({
                 redirectUri,

@@ -11,7 +11,7 @@ export default function CardRecommendationArtists() {
     const fetchArtists = async () => {
         try {
             console.log('aaaaa')
-            const response = await Axios.get('http://34.142.225.177/users/reccommendByArtists', {
+            const response = await Axios.get('https://api.rafizuaf.online/users/reccommendByArtists', {
                 headers: {
                     Authorization: `${localStorage.getItem('access_token')}`
                 }
@@ -33,7 +33,7 @@ export default function CardRecommendationArtists() {
                 console.log(track_uris);
                 await new Promise(resolve => setTimeout(resolve, 1000));
 
-                await Axios.post('http://34.142.225.177/users/addTracks', track_uris, {
+                await Axios.post('https://api.rafizuaf.online/users/addTracks', track_uris, {
                     headers: {
                         Authorization: `${localStorage.getItem('access_token')}`
                     }

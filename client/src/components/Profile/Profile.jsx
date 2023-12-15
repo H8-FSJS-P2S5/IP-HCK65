@@ -6,7 +6,7 @@ export default function Profile() {
 
     const fetchProfile = async () => {
         try {
-            const response = await axios.get('http://34.142.225.177/users/my-profile', {
+            const response = await axios.get('https://api.rafizuaf.online/users/my-profile', {
                 headers: {
                     Authorization: `${localStorage.getItem('access_token')}`
                 }
