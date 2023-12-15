@@ -9,6 +9,7 @@ class ControllerUser {
             // console.log(req.headers.authorization, "<< headers");
             const clientId = process.env.SPOTIFY_CLIENT_ID
             const clientSecret = process.env.SPOTIFY_CLIENT_SECRET
+            // const redirectUri = 'http://localhost:3000/auth/spotify/callback'
             const redirectUri = 'http://34.142.225.177/auth/spotify/callback'
 
             let spotifyApi = new SpotifyWebApi({
@@ -21,7 +22,7 @@ class ControllerUser {
             // console.log(spotifyApi, "<< spotifyApi");
 
             let data = await spotifyApi.getMe()
-            // console.log(data.body, "<< data");
+            console.log(data.body, "<< data");
             const [user, created] = await User.findOrCreate({
                 where: { email: data.body.email },
                 defaults: {

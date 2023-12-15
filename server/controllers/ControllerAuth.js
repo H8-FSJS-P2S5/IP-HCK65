@@ -83,7 +83,7 @@ class ControllerAuth {
             const access_token = data.body.access_token // ACCESS TOKEN
             spotifyApi.setAccessToken(access_token)
 
-            res.redirect(`http://localhost:5173/login?access_token=${access_token}&message=success&status=success`)
+            res.redirect(`https://pitchplus-65.web.app/login?access_token=${access_token}&message=success&status=success`)
             
         } catch (error) {
             console.log(error);
