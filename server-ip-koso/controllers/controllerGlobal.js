@@ -67,13 +67,13 @@ class ControllerGlobal {
           await findUser.Transactions[0].update({ status: "paid" });
           res.status(200).json({
             message: "Payment successful, redirecting to your page",
-            url: "http://localhost:5173/",
+            url: "https://weebify-koso55-redo.web.app/",
           });
         }
       } else {
         const session = await stripe.checkout.sessions.create({
-          success_url: "http://localhost:5173/success", //balikkan ke url client atau endpoint mengakses home
-          cancel_url: "http://localhost:5173/fail", //balikkan ke url client atau endpoint mengakses home
+          success_url: "https://weebify-koso55-redo.web.app/success", //balikkan ke url client atau endpoint mengakses home
+          cancel_url: "https://weebify-koso55-redo.web.app/fail", //balikkan ke url client atau endpoint mengakses home
           line_items: [
             {
               price_data: {

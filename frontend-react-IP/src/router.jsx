@@ -77,6 +77,15 @@ const router = createBrowserRouter([
   {
     path: "success",
     element: <SuccessPay />,
+    loader: () => {
+      const isLoggedIn = localStorage.getItem("access_token");
+      if (!isLoggedIn) {
+        throw redirect("/login");
+      } else {
+        return null;
+      }
+    },
+    
   }, //CHECKED OK
 
 

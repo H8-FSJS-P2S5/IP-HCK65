@@ -1,8 +1,5 @@
 {
   "projects": {
-    "default": "ip-redo-koso55-hck65-weebify",
-    "ip-redo": "ip-redo-koso55-hck65-weebify"
-  },
-  "targets": {},
-  "etags": {}
+    "default": "weebify-koso55-redo"
+  }
 }
