@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "http://localhost:5000", //NNTI GANTI OM
+  baseURL: "http://koso-api.rprakoso.my.id/", //NNTI GANTI OM
 });
