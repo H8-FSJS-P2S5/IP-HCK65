@@ -7,11 +7,17 @@ function DataReview() {
   const [reviewById, setReviewById] = useState([]);
 
   const fetchReviewById = async () => {
+    console.log("masuk");
     try {
       console.log(id, "masuk user review");
 
       const response = await axios.get(
-        `http://localhost:3000/movie/detail/review/${id}`
+        `http://localhost:3000/movie/detail/review/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+          },
+        }
       );
       console.log(response.data, "data user review");
       setReviewById(response.data);
@@ -49,13 +55,15 @@ function DataReview() {
             key={item.id}
             className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-2"
           >
-            <div className="h-auto border border-black hover:bg-blue-200 transition ease-in-out cursor-pointer px-4 py-6 rounded-xl relative">
-              <p className="font-thin text-white whitespace-pre-line break-words"></p>
-              <p className="font-bold text-lg flex items-center sm:mb-0">
-                {item.headline}
-              </p>
-              <p style={{ fontStyle: "italic" }}>{item.review}</p>
-              <div className="flex flex-col sm:flex-row w-full items-center justify-between mt-6">
+            <div className="h-auto border border-black hover:bg-blue-200 transition ease-in-out cursor-pointer px-4 py-6 rounded-xl relative flex flex-col justify-between">
+              <div>
+                <p className="font-thin text-white whitespace-pre-line break-words"></p>
+                <p className="font-bold text-lg flex items-center sm:mb-0">
+                  {item.headline}
+                </p>
+                <p style={{ fontStyle: "italic" }}>{item.review}</p>
+              </div>
+              <div className="flex items-center justify-between mt-6">
                 <p style={{ fontStyle: "italic" }}>{item.name}</p>
                 <div className="flex space-x-2">
                   <button

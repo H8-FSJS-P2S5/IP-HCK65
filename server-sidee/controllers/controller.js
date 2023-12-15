@@ -4,6 +4,8 @@ class Controller {
   static async getMovies(req, res) {
     try {
       console.log("masuk getmovie be");
+      // console.log(req.user, ">>");
+      
       // const { data } = await axios({
       //   method: "GET",
       //   url: "https://imdb-top-100-movies1.p.rapidapi.com/",
@@ -19,7 +21,7 @@ class Controller {
       
       const getMovie = await Movies.findAll();
 
-      console.log(getMovie, "get movie");
+      // console.log(getMovie, "get movie");
       res.status(201).json(getMovie);
     } catch (error) {
       console.log(error);
@@ -36,7 +38,7 @@ class Controller {
         where: { id: id },
       });
   
-      console.log(dataReview, ">>>>");
+      // console.log(dataReview, ">>>>");
   
       if (!dataReview) {
         return res.status(404).json({ message: "Not Found" });
@@ -54,13 +56,13 @@ class Controller {
     try {
 
       const {id} = req.params
-      const { name, headline, review, UserId, MovieId } = req.body;
+      const { name, headline, review } = req.body;
       let reviews = await Review.create({
         name,
         headline,
         review,
-        UserId,
-        MovieId
+        UserId: req.user.id,
+        MovieId: id
       });
 
       res.status(201).json(reviews);
@@ -72,13 +74,15 @@ class Controller {
 
   static async getReviewById(req, res){
     try {
+      console.log("masukk review");
       const { id } = req.params;
       // console.log(id, "data review");
       const dataReviewById = await Review.findAll({
         where : {
-          id : id
+          MovieId : id
         }
       });
+      // console.log(dataReviewById);
       if (!dataReviewById) {
         throw { message: "Not Found" };
       }

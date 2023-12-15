@@ -31,8 +31,9 @@ class UserController {
         throw { code: 401, message: "Invalid email/password" };
       }
 
+      console.log(dataLoginUser);
       const payload = {
-        id: User.id,
+        id: dataLoginUser.id,
       };
 
       const access_token = createToken(payload);

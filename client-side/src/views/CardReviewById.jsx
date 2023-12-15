@@ -9,9 +9,14 @@ function CardReview() {
 
   const fetchDetailReview = async () => {
     try {
-      // console.log("masuk");
+      console.log("masuk");
       const response = await axios.get(
-        `http://localhost:3000/movie/review/${id}`
+        `http://localhost:3000/movie/review/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+          },
+        }
       );
       // console.log(response.data, "card review");
       setDetailReview(response.data);
