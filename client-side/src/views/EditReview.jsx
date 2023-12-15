@@ -33,6 +33,7 @@ function EditReview() {
 
   const loadReview = async (id) => {
     try {
+        console.log("masuk editttt");
       console.log(localStorage.getItem("access_token"), "masuk edit");
       const response = await axios.get(
         `http://localhost:3000/movie/detail/review/${id}`,

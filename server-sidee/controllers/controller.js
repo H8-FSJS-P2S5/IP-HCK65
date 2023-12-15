@@ -83,6 +83,8 @@ class Controller {
         }
       });
       // console.log(dataReviewById);
+      console.log("masuk edit by id cuy");
+
       if (!dataReviewById) {
         throw { message: "Not Found" };
       }
