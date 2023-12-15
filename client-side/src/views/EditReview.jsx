@@ -2,60 +2,54 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
-
-
 function EditReview() {
-    const navigate = useNavigate();
-    const { id } = useParams();
-    const [editReview, seteditReview] = useState({
-        name: "",
-        headline: "",
-        review: "",
-        UserId: "",
-        MovieId: ""
-    });
-  
-    const handleEdit = async (e) => {
-      try {
-        e.preventDefault();
-  
-        console.log(editReview, "ini edit article jsx");
-        const response = await axios.put(
-          `/movie/review/edit/${id}`,
-          editReview,
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("access_token")}`,
-            },
-          }
-        );
-  
-        navigate(`/movie/review/${id}`);
-      } catch (error) {
-        console.log(error);
-        throw error;
-      }
-    };
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const [editReview, setEditReview] = useState({
+    name: "",
+    headline: "",
+    review: "",
+    UserId: "",
+    MovieId: "",
+  });
 
-    
-  const loadReview = async (id) => {
+  const handleEdit = async (e) => {
     try {
-      // e.preventDefault();
+      e.preventDefault();
 
-      console.log(localStorage.getItem("access-token"),"masuk edit");
-      const response = await axios.get(` https://api.enchareal.cloud/articles/${id}`, {
+      console.log(editReview, "ini edit article jsx");
+      const response = await axios.put(`http://localhost:3000/movie/review/edit/${id}`, editReview, {
         headers: {
-          authorization: `Bearer ${localStorage.getItem("access_token")}`,
+          Authorization: `Bearer ${localStorage.getItem("access_token")}`,
         },
       });
+
+      navigate(`/movie/review/${id}`);
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  };
+
+  const loadReview = async (id) => {
+    try {
+      console.log(localStorage.getItem("access_token"), "masuk edit");
+      const response = await axios.get(
+        `http://localhost:3000/movie/detail/review/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+          },
+        }
+      );
       console.log(response, ">>>>>");
 
-      seteditReview({
+      setEditReview({
         name: response.data.name,
         headline: response.data.headline,
         review: response.data.review,
         UserId: response.data.UserId,
-        MovieId: response.data.MovieId
+        MovieId: response.data.MovieId,
       });
     } catch (error) {
       console.log(error);
@@ -65,16 +59,15 @@ function EditReview() {
 
   const handleSubmitEdit = (e) => {
     const { value, name } = e.target;
-    seteditReview({
-      ...editReview,
+    setEditReview((prevReview) => ({
+      ...prevReview,
       [name]: value,
-    });
+    }));
   };
 
   useEffect(() => {
     loadReview(id);
   }, [id]);
-
   return (
     <>
       <div className="container-login m-10">
@@ -115,7 +108,7 @@ function EditReview() {
                     Name
                   </label>
                 </div>
-
+{/* 
                 <div className="relative mt-6">
                   <input
                     type="text"
@@ -152,7 +145,7 @@ function EditReview() {
                   >
                     Movie ID
                   </label>
-                </div>
+                </div> */}
 
                 <div className="relative mt-6">
                   <input
@@ -179,8 +172,9 @@ function EditReview() {
                     value={editReview.review}
                     onChange={handleSubmitEdit}
                     placeholder="Write your Review Here"
-                    className="peer peer mt-1 w-full border-b-2 border-gray-300 px-0 py-1 placeholder:text-transparent focus:border-gray-500 focus:outline-none"
+                    className="peer mt-1 w-full border-b-2 border-gray-300 px-0 py-1 placeholder:text-transparent focus:border-gray-500 focus:outline-none"
                   ></textarea>
+
                   <label
                     htmlFor="review"
                     className="pointer-events-none absolute top-0 left-0 origin-left -translate-y-1/2 transform text-sm text-gray-800 opacity-75 transition-all duration-100 ease-in-out peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:top-0 peer-focus:pl-0 peer-focus:text-sm peer-focus:text-gray-800"
@@ -188,7 +182,6 @@ function EditReview() {
                     Write your Review Here
                   </label>
                 </div>
-                
 
                 <div className="my-6">
                   <button
@@ -201,7 +194,7 @@ function EditReview() {
                       letterSpacing: "2px",
                     }}
                   >
-                    Add Review
+                    Update Review
                   </button>
                 </div>
               </form>

@@ -12,8 +12,6 @@ function AddReview() {
     name: "",
     headline: "",
     review: "",
-    UserId: "",
-    MovieId: ""
   });
 
   const handleInputCreate = async (e) => {
@@ -104,7 +102,7 @@ function AddReview() {
                   </label>
                 </div>
 
-                <div className="relative mt-6">
+                {/* <div className="relative mt-6">
                   <input
                     type="text"
                     name="UserId"
@@ -140,7 +138,7 @@ function AddReview() {
                   >
                     Movie ID
                   </label>
-                </div>
+                </div> */}
 
                 <div className="relative mt-6">
                   <input

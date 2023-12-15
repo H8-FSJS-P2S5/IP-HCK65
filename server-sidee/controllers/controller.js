@@ -61,10 +61,6 @@ class Controller {
         review,
         UserId,
         MovieId
-      }, {
-        where: {
-          MovieId : id
-        }
       });
 
       res.status(201).json(reviews);
