@@ -148,7 +148,11 @@ export default function HomePage() {
             dataLength={animesList.length}
             next={fetchMoreData}
             hasMore={pagination.has_next_page}
-            loader={<p className="flex justify-center">Loading ......</p>}
+            loader={
+              <div className="flex justify-center items-center h-screen">
+                <LoadingAnimation />
+              </div>
+            }
           >
             <div className="flex flex-wrap gap-8 justify-left ml-4 mr-4 mt-8 mb-8">
               {animesList.map((anime) => {
