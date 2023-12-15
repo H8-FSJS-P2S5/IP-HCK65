@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+img {
+    max-width: 100%;
+    height: auto;
+  }
+
+@media screen and (max-width: 640px) {
+  .lg\:card-side {
+    flex-direction: column;
+  }
+}
+
+.btn-action {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+}

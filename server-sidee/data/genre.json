@@ -1,0 +1,20 @@
+[
+    {
+        "genre" : "Drama"
+    },
+    {
+        "genre" : "Crime"
+    },
+    {
+        "genre" : "Action"
+    },
+    {
+        "genre" : "History"
+    },
+    {
+        "genre" : "Adventure"
+    },
+    {
+        "genre" : "Sci-Fi"
+    }
+]
