@@ -85,7 +85,7 @@ module.exports = (sequelize, DataTypes) => {
     static async editUser(data, userLoggedId) {
       try {
         const { username, email, password } = data;
-        console.log(password, "INI PASSWORD DARI EDIT")
+        // console.log(password, "INI PASSWORD DARI EDIT")
         if (!password) throw { name: "noPw" };
         const findUser = await User.findByPk(userLoggedId);
         // console.log(findUser)
@@ -128,6 +128,9 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           notNull: {
             msg: "email is required",
+          },
+          isEmail: {
+            msg: "email must be an email format",
           },
           notEmpty: {
             msg: "email is required",

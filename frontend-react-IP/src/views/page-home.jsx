@@ -12,10 +12,13 @@ import { fetchAnimesRdx } from "../features/animes/asyncAction";
 import CardContents from "../components/cardContents";
 
 import InfiniteScroll from "react-infinite-scroll-component";
+import LoadingAnimation from "../skeleton";
 
 export default function HomePage() {
   const dispatch = useDispatch();
   const animes = useSelector((state) => state.animes.animes);
+
+  const [loading, setLoading] = useState(false);
 
   let navigate = useNavigate();
   const [reqParams, setReqParams] = useState({
@@ -130,30 +133,38 @@ export default function HomePage() {
       errorHandler(error);
     }
   };
-  // console.log(animesList);  
+  // console.log(animesList);
 
   return (
     <>
-      <ToastContainer />
-      <InfiniteScroll
-        dataLength={animesList.length}
-        next={fetchMoreData}
-        hasMore={pagination.has_next_page}
-        loader={<p className="flex justify-center">Loading ......</p>}
-      >
-        <div className="flex flex-wrap gap-8 justify-left ml-4 mr-4 mt-8 mb-8">
-          {animesList.map((anime) => {
-            return (
-              <CardContents
-                key={anime.mal_id}
-                anime={anime}
-                handleShowDetail={handleShowDetail}
-                handleToAddFav={handleToAddFav}
-              />
-            );
-          })}
+      {loading ? (
+        <div className="flex justify-center items-center h-screen">
+          <LoadingAnimation />
         </div>
-      </InfiniteScroll>
+      ) : (
+        <>
+          <ToastContainer />
+          <InfiniteScroll
+            dataLength={animesList.length}
+            next={fetchMoreData}
+            hasMore={pagination.has_next_page}
+            loader={<p className="flex justify-center">Loading ......</p>}
+          >
+            <div className="flex flex-wrap gap-8 justify-left ml-4 mr-4 mt-8 mb-8">
+              {animesList.map((anime) => {
+                return (
+                  <CardContents
+                    key={anime.mal_id}
+                    anime={anime}
+                    handleShowDetail={handleShowDetail}
+                    handleToAddFav={handleToAddFav}
+                  />
+                );
+              })}
+            </div>
+          </InfiniteScroll>
+        </>
+      )}
     </>
   );
 }
