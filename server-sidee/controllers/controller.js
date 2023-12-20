@@ -111,6 +111,7 @@ class Controller {
   static async EditReviewById(req, res) {
     try {
       const { id } = req.params;
+      console.log(req.body, "edit controller");
       const { name, headline, review, UserId, MovieId  } = req.body;
 
       let dataEditReview = await Review.findByPk(id);
@@ -119,13 +120,39 @@ class Controller {
       }
       await dataEditReview.update({name, headline, review, UserId, MovieId  });
       res.status(200).json({
+        MovieId: dataEditReview.MovieId,
         message: `Review has been updated!`,
       });
     } catch (error) {
       console.log(error);
-      next(error);
+      res.status(500).json({ message: " Internal Server Error" });
     }
   }
+
+  static async getEditById(req, res) {
+    try {
+      console.log("masuk");
+      const { id } = req.params;
+      const dataReviewById = await Review.findOne({
+        where: {
+           id
+        },
+       
+      });
+  
+      console.log("masuk getEditById controller");
+  
+      if (!dataReviewById || dataReviewById.length === 0) {
+        throw { message: "Not Found" };
+      }
+  
+      res.status(200).json(dataReviewById)
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Internal Server Error" });
+    }
+  }
+  
 }
 
 module.exports = Controller;

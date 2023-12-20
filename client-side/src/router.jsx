@@ -1,5 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import { createBrowserRouter, redirect } from "react-router-dom";
 import Login from "./views/Login";
 import Register from "./views/Register";
 import Layout from "./views/Layout";
@@ -47,7 +46,7 @@ export const router = createBrowserRouter([
         element: < DataReview/>
       },
       {
-        path: "/movie/review/edit/:id",
+        path: "/movie/review/edit/:reviewId",
         element: < EditReview/>
       }
     ]

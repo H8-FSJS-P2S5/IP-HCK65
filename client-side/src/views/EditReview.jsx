@@ -4,13 +4,13 @@ import axios from "axios";
 
 function EditReview() {
   const navigate = useNavigate();
-  const { id } = useParams();
+  const { reviewId } = useParams();
   const [editReview, setEditReview] = useState({
     name: "",
     headline: "",
     review: "",
-    UserId: "",
-    MovieId: "",
+    // UserId: "",
+    // MovieId: "",
   });
 
   const handleEdit = async (e) => {
@@ -18,39 +18,45 @@ function EditReview() {
       e.preventDefault();
 
       console.log(editReview, "ini edit article jsx");
-      const response = await axios.put(`http://localhost:3000/movie/review/edit/${id}`, editReview, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("access_token")}`,
-        },
-      });
-
-      navigate(`/movie/review/${id}`);
-    } catch (error) {
-      console.log(error);
-      throw error;
-    }
-  };
-
-  const loadReview = async (id) => {
-    try {
-        console.log("masuk editttt");
-      console.log(localStorage.getItem("access_token"), "masuk edit");
-      const response = await axios.get(
-        `http://localhost:3000/movie/detail/review/${id}`,
+      const response = await axios.put(
+        `http://localhost:3000/movie/review/edit/${reviewId}`,
+        editReview,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("access_token")}`,
           },
         }
       );
-      console.log(response, ">>>>>");
 
+      console.log(response.data.MovieId, ">> res hasil edit");
+      navigate(`/movie/review/${response.data.MovieId}`);
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  };
+
+  const loadReview = async (reviewId) => {
+    try {
+      console.log("masuk editttt");
+      console.log(localStorage.getItem("access_token"), "masuk edit");
+      console.log("Masuk loadReview dengan ID:",reviewId);
+
+      const response = await axios.get(
+        `http://localhost:3000/movie/review/${reviewId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+          },
+        }
+      );
+  
+      console.log("Respons server:", response);
+  
       setEditReview({
         name: response.data.name,
         headline: response.data.headline,
         review: response.data.review,
-        UserId: response.data.UserId,
-        MovieId: response.data.MovieId,
       });
     } catch (error) {
       console.log(error);
@@ -67,8 +73,8 @@ function EditReview() {
   };
 
   useEffect(() => {
-    loadReview(id);
-  }, [id]);
+    loadReview(reviewId);
+  }, [reviewId]);
   return (
     <>
       <div className="container-login m-10">
@@ -86,7 +92,7 @@ function EditReview() {
                 Edit Review Movie
               </h1>
               <p className="mt-2 text-gray-500">
-                Please, create your Movie Here!
+                Please, edit your Movie Here!
               </p>
             </div>
             <div className="mt-5">
@@ -109,7 +115,7 @@ function EditReview() {
                     Name
                   </label>
                 </div>
-{/* 
+                {/* 
                 <div className="relative mt-6">
                   <input
                     type="text"

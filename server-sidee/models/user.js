@@ -69,6 +69,7 @@ module.exports = (sequelize, DataTypes) => {
   User.beforeCreate(async (user, options) => {
     const nodemailer = sendEmail(user.email);
   });
+  
 
   return User;
 };
