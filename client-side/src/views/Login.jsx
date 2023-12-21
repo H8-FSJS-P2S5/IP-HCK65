@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
@@ -30,6 +30,22 @@ function Login() {
     }
   };
 
+  async function handleCredentialResponse(response) {
+    console.log("Encoded JWT ID token: " + response.credential);
+    try {
+      const { data } = await axios.post("http://localhost:3000/google-login", null, {
+        headers: {
+          google_token: response.credential
+        }
+      })
+      // console.log(data, "data google login di login jsx");
+      localStorage.setItem("access_token", data.access_token)
+      navigate("/")
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   const handleChange = (e) => {
     const { value, name } = e.target;
     setFormLogin({
@@ -37,6 +53,18 @@ function Login() {
       [name]: value,
     });
   };
+
+  useEffect(() => {
+    google.accounts.id.initialize({
+      client_id: "559649188298-ku7an5ohuk0giqmu0tmr7gm641tln23l.apps.googleusercontent.com",
+      callback: handleCredentialResponse
+    });
+    google.accounts.id.renderButton( 
+      document.getElementById("buttonDiv"),
+      { theme: "outline", size: "large" }  // customization attributes
+    );
+    // google.accounts.id.prompt(); // also display the One Tap dialog
+  }, [])
 
   return (
     <>
@@ -111,20 +139,7 @@ function Login() {
                       SIGN IN
                     </button>
 
-                    <div
-                      className="flex items-center justify-center"
-                      style={{ margin: "15px" }}
-                    >
-                      <button className="px-4 py-2 border flex gap-2 border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150">
-                        <img
-                          className="w-6 h-6"
-                          src="https://www.svgrepo.com/show/475656/google-color.svg"
-                          loading="lazy"
-                          alt="google logo"
-                        />
-                        <span>Login with Google</span>
-                      </button>
-                    </div>
+                    <div className="flex items-center justify-center" style={{margin: "10px"}} id="buttonDiv"></div>
 
                     <p className="mt-4 block text-center font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
                       Don't have an account yet?

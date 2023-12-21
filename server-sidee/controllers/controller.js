@@ -1,6 +1,30 @@
-const { Movies, Review } = require("../models");
+const { Movies, Review, Genre } = require("../models");
+
+function convertData(originalData) {
+  const newData = [];
+
+  for (const movie of originalData) {
+    const stars = movie.Stars.join(', ');
+    const genreId = Genre[movie.genre[0]] || 0;
+
+    const newMovie = {
+      title: movie.title,
+      description: movie.description,
+      Stars: stars,
+      GenreId: genreId,
+      images: movie.images[1][1],  
+      year: movie.year
+    };
+
+    newData.push(newMovie);
+  }
+
+  return newData;
+}
 
 class Controller {
+
+  
   static async getMovies(req, res) {
     try {
       console.log("masuk getmovie");
@@ -16,12 +40,14 @@ class Controller {
       //   },
       // });
 
-      // let dataJsonMovie = require('../data/t.json')
-      //harus looping data json biar sama kayak rapid
+      let originalData = require('../data/t.json')
+      // harus looping data json biar sama kayak rapid
+      const convertedData = convertData(originalData);
       
       const getMovie = await Movies.findAll();
 
-      // console.log(getMovie, "get movie");
+      console.log(getMovie, "get movie");
+      console.log(convertedData, "controller get movies");
       res.status(201).json(getMovie);
     } catch (error) {
       console.log(error);
