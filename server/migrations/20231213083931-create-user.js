@@ -24,12 +24,6 @@ module.exports = {
       profileUrl: {
         type: Sequelize.STRING
       },
-      access_token: {
-        type: Sequelize.TEXT
-      },
-      refresh_token: {
-        type: Sequelize.TEXT
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

@@ -11,9 +11,6 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      User.hasMany(models.Playlist, {
-        foreignKey: 'UserId'
-      })
     }
   }
   User.init({
@@ -44,8 +41,6 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     imageUrl: DataTypes.STRING,
     profileUrl: DataTypes.STRING,
-    access_token: DataTypes.TEXT,
-    refresh_token: DataTypes.TEXT
   }, {
     sequelize,
     modelName: 'User',

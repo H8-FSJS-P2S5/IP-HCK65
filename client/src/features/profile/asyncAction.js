@@ -10,9 +10,9 @@ export const fetchProfile = () => {
                     Authorization: `${localStorage.getItem('access_token')}`
                 }
             });
-            // console.log(data, "from asyncAction");
+            console.log(data, "from asyncAction");
             // dispatch(setProfile(response.data.body))
-            dispatch(setProfile(data.body))
+            dispatch(setProfile(data))
         } catch (error) {
             console.log(error);
         }

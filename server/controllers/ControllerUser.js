@@ -11,33 +11,44 @@ class ControllerUser {
             const clientSecret = process.env.SPOTIFY_CLIENT_SECRET
             const redirectUri = 'http://localhost:3000/auth/spotify/callback'
             // const redirectUri = 'https://api.rafizuaf.online/auth/spotify/callback'
-
+            
             let spotifyApi = new SpotifyWebApi({
-                redirectUri,
-                clientId,
-                clientSecret
-            })
-
-            spotifyApi.setAccessToken(req.headers.authorization)
-            // console.log(spotifyApi, "<< spotifyApi");
-
-            let data = await spotifyApi.getMe()
-            console.log(data.body, "<< data");
-            const [user, created] = await User.findOrCreate({
-                where: { email: data.body.email },
-                defaults: {
-                    email: data.body.email,
-                    name: data.body.display_name,
-                    imageUrl: data.body.images[1].url,
-                    profileUrl: data.body.external_urls.spotify,
-                    password: Math.random().toString(),
+                    redirectUri,
+                    clientId,
+                    clientSecret
+                })
+                
+                spotifyApi.setAccessToken(req.headers.authorization)
+                // console.log(spotifyApi, "<< spotifyApi");
+                
+                let data = await spotifyApi.getMe()
+                let profile = await User.findOne({ where: { email: data.body.email }})
+                if(!profile) {
+                    throw {
+                        name: "NotFound",
+                        message: "User not found"
+                    }
                 }
-            })
+            // let data = await spotifyApi.getMe()
+            // console.log(data.body, "<< data");
+            // const [user, created] = await User.findOrCreate({
+            //     where: { email: data.body.email },
+            //     defaults: {
+            //         email: data.body.email,
+            //         name: data.body.display_name,
+            //         imageUrl: data.body.images[1].url,
+            //         profileUrl: data.body.external_urls.spotify,
+            //         password: Math.random().toString(),
+            //     }
+            // })
 
-            res.status(created ? 201 : 200).json( created ?{
-                "message": `User ${user.email} found`
-            } : data)
+            // res.status(created ? 201 : 200).json( created ?{
+            //     "message": `User ${user.email} found`
+            // } : data)
             // let data = await User.find
+            res.status(200).json(profile)
+
+
         } catch (error) {
             console.log(error);
             res.status(500).json({
