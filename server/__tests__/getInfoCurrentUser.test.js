@@ -1,14 +1,13 @@
 const axios = require('axios');
 const request = require('supertest');
-const app = require('../app'); // Sesuaikan path ini
+const app = require('../app');
 const { sequelize, User } = require('../models');
 const {queryInterface} = sequelize
 jest.mock('axios');
 
 // REAL TOKEN
-const fakeSpotifyToken = 'BQCVizkj_zoWIzdZMXCjVldur0sx34ICGHMLXeEcKdpRhP-jvMzqNo-DxHNJ1o2_0A4PxirHYae1rSefvDBOWvS4_htuPFMz69QmDJ-0BS4fzPoffovQMsZn-lw62rXT4DFYPhAagD7ZnU19hHn1jKWL_XsaG_ta0aPnfBHtn-DtPPcgilgWGJYUvZroVs3bo07ij7BGVrVLhf3YoHUKpfmHaTujRBRhI_248ZypJz9Qs87JJmUKSqbNMZUDvLJMxp92BvPra_FVBwkY-Fg94BiPVCT7DF8NJZfPa1O0asFM-Q';
+const fakeSpotifyToken = 'BQDtS7uQ4_cwqdEZTOgUPtxA6-POlNv2Lkia7Wzmsvd2TW10Y1zYpL_1_WUyH2bBodOC3FsS3KyhQoJdWPZNXBgGp08_WhN-6QWapYaMQ_IVTWcQTuxK3qsDODvNbOVeZbhFEuxyzcRD__k3jy8hulX9ai6pZXkrYl4RQqopnTS1Xmwedm8sQhzLoqEJEze9hS0jNA_U6KsK7hishqntxO26oWCO_UYXhvT3iyrvl6iu27JT3Ecsbup2eowO3WP03vjNBrVURgKggzgSSafc1GAw5P8vPdBE3Yi4r9RwtuFhXg';
 
-// Set up mock Axios sebelum setiap tes
 beforeAll(async () => {
     try {
         await queryInterface.bulkInsert('Users', [{
@@ -41,15 +40,13 @@ describe.skip('GET /users/my-profile', () => {
         expect(response.status).toBe(401);
     });
 
-    test('no user found, should return user not found', async () => {
-        const response = await request(app)
-        .get('/users/my-profile') 
-        .set('Authorization', `${fakeSpotifyToken}`)
-        .expect(200);
-    expect(response.status).toBe(200);
-    });
-
-
+    // test('no user found, should return user not found', async () => {
+    //     const response = await request(app)
+    //     .get('/users/my-profile') 
+    //     .set('Authorization', `${fakeSpotifyToken}`)
+    //     .expect(200);
+    // expect(response.status).toBe(200);
+    // });
 });
 
 afterAll(async () => {

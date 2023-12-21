@@ -89,7 +89,7 @@ class ControllerUser {
         } catch (error) {
             console.log(error, "error catch");
             if (error.name === "WebapiRegularError") {
-                res.status(401).json({
+                return res.status(401).json({
                     message: "Token invalid or expired"
                 })
             }
@@ -129,7 +129,7 @@ class ControllerUser {
         } catch (error) {
             console.log(error);
             if (error.name === "WebapiRegularError") {
-                res.status(401).json({
+                return res.status(401).json({
                     message: "Token invalid or expired"
                 })
             }
@@ -183,7 +183,7 @@ class ControllerUser {
         } catch (error) {
             console.log(error);
             if (error.name === "WebapiRegularError") {
-                res.status(401).json({
+                return res.status(401).json({
                     message: "Token invalid or expired"
                 })
             }
@@ -241,6 +241,11 @@ class ControllerUser {
 
         } catch (error) {
             console.log(error);
+            if (error.name === "WebapiRegularError") {
+                return res.status(401).json({
+                    message: "Token invalid or expired"
+                })
+            }
             res.status(500).json({
                 message: 'Internal server error'
             })
@@ -284,7 +289,7 @@ class ControllerUser {
 
         } catch (error) {
             if (error.name === "WebapiRegularError") {
-                res.status(401).json({
+                return res.status(401).json({
                     message: "Token invalid or expired"
                 })
             }
