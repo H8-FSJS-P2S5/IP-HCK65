@@ -3,7 +3,7 @@ const { Movies, Review } = require("../models");
 class Controller {
   static async getMovies(req, res) {
     try {
-      console.log("masuk getmovie be");
+      console.log("masuk getmovie");
       // console.log(req.user, ">>");
       
       // const { data } = await axios({
