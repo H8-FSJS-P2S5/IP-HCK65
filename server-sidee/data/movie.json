@@ -1,0 +1,99 @@
+[
+    {
+      "title": "The Shawshank Redemption",
+      "description": "Over the course of several years, two convicts form a friendship, seeking consolation and, eventually, redemption through basic compassion.",
+      "Stars": "Tim Robbins, Morgan Freeman, Bob Gunton",
+      "GenreId": 1,
+      "images": "https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_QL75_UX285_CR0,3,285,422_.jpg",
+      "year": "1994"
+    },
+    {
+      "title": "The Godfather",
+      "description": "Don Vito Corleone, head of a mafia family, decides to hand over his empire to his youngest son Michael. However, his decision unintentionally puts the lives of his loved ones in grave danger.",
+      "Stars": "Marlon Brando, Al Pacino, James Caan",
+      "GenreId": 2,
+      "images": "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_QL75_UY422_CR6,0,285,422_.jpg",
+      "year": "1972"
+    },
+    {
+      "title": "The Dark Knight",
+      "description": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+      "Stars": "Christian Bale, Heath Ledge, Aaron Eckhart",
+      "GenreId": 3,
+      "images": "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_QL75_UX285_CR0,0,285,422_.jpg",
+      "year": "2008"
+    },
+    {
+      "title": "Schindler's List",
+      "description": "In German-occupied Poland during World War II, industrialist ",
+      "Stars": "Liam Neeson, Ralph Fiennes, Ben Kingsley",
+      "GenreId": 4,
+      "images": "https://m.media-amazon.com/images/M/MV5BNDE4OTMxMTctNmRhYy00NWE2LTg3YzItYTk3M2UwOTU5Njg4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_QL75_UX285_CR0,3,285,422_.jpg",
+      "year": "1993"
+    },
+    {
+      "title": "The Godfather Part II",
+      "description": "The early life and career of Vito Corleone in 1920s New York City is portrayed, while his son, Michael, expands and tightens his grip on the family crime syndicate.",
+      "Stars": "Al Pacino, Robert De Niro, Robert Duvall",
+      "GenreId": 2,
+      "images": "https://m.media-amazon.com/images/M/MV5BMWMwMGQzZTItY2JlNC00OWZiLWIyMDctNDk2ZDQ2YjRjMWQ0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_QL75_UY422_CR5,0,285,422_.jpg",
+      "year": "1974"
+    },
+    {
+      "title": "The Lord of the Rings: The Return of the King",
+      "description": "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.",
+      "Stars": "Elijah Wood, Viggo Mortensen, Ian McKellen",
+      "GenreId": 5,
+      "images": "https://m.media-amazon.com/images/M/MV5BNzA5ZDNlZWMtM2NhNS00NDJjLTk4NDItYTRmY2EwMWZlMTY3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_QL75_UX285_CR0,0,285,422_.jpg",
+      "year": "2003"
+    },
+    {
+      "title": "12 Angry Men",
+      "description": "The jury in a New York City murder trial is frustrated by a single member whose skeptical caution forces them to more carefully consider the evidence before jumping to a hasty verdict.",
+      "Stars": "Henry Fonda, Lee J. Cobb, Martin Balsam",
+      "GenreId": 2,
+      "images": "https://m.media-amazon.com/images/M/MV5BMWU4N2FjNzYtNTVkNC00NzQ0LTg0MjAtYTJlMjFhNGUxZDFmXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_QL75_UX285_CR0,9,285,422_.jpg",
+      "year": "1957"
+    },
+    {
+      "title": "Pulp Fiction",
+      "description": "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
+      "Stars": "John Travolta, Uma Thurman, Samuel L. Jackson",
+      "GenreId": 2,
+      "images": "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_QL75_UY422_CR2,0,285,422_.jpg",
+      "year": "1994"
+    },
+    {
+      "title": "Spider-Man: Across the Spider-Verse",
+      "description": "Miles Morales catapults across the Multiverse, where he encounters a team of Spider-People charged with protecting its very existence. When the heroes clash on how to handle a new threat, Miles must redefine what it means to be a hero.",
+      "Stars": "Shameik Moore, Hailee Steinfeld, Brian Tyree Henry",
+      "GenreId": 5,
+      "images": "https://m.media-amazon.com/images/M/MV5BMzI0NmVkMjEtYmY4MS00ZDMxLTlkZmEtMzU4MDQxYTMzMjU2XkEyXkFqcGdeQXVyMzQ0MzA0NTM@._V1_QL75_UX285_CR0,1,285,422_.jpg",
+      "year": "2023"
+    },
+    {
+      "title": "Inception",
+      "description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.",
+      "Stars": "Leonardo DiCaprio, Joseph Gordon-Levitt, Elliot Page",
+      "GenreId": 6,
+      "images": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_QL75_UX285_CR0,0,285,422_.jpg",
+      "year": "2010"
+    },
+    {
+      "title": "The Lord of the Rings: The Fellowship of the Ring",
+      "description": "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
+      "Stars": "Elijah Wood, an McKellen, Orlando Bloom",
+      "GenreId": 5,
+      "images": "https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_QL75_UX285_CR0,1,285,422_.jpg",
+      "year": "2001"
+    },
+    {
+      "title": "Fight Club",
+      "description": "An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more.",
+      "Stars": "Brad Pitt, Edward Norton, Meat Loaf",
+      "GenreId": 1,
+      "images": "https://m.media-amazon.com/images/M/MV5BODQ0OWJiMzktYjNlYi00MzcwLThlZWMtMzRkYTY4ZDgxNzgxXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_QL75_UX285_CR0,3,285,422_.jpg",
+      "year": "1999"
+    }
+  ]
+  
