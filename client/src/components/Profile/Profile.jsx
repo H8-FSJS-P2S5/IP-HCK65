@@ -1,26 +1,18 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { fetchProfile } from "../../features/profile/asyncAction"
+
 
 export default function Profile() {
-    let [profile, setProfile] = useState([])
 
-    const fetchProfile = async () => {
-        try {
-            const response = await axios.get('https://api.rafizuaf.online/users/my-profile', {
-                headers: {
-                    Authorization: `${localStorage.getItem('access_token')}`
-                }
-            });
-            console.log(response);
-            setProfile(response.data.body)
-        } catch (error) {
-            console.log(error);
-        }
-    }
-    console.log(profile);
+    const dispatch = useDispatch()
+    const profile = useSelector((state) => state.profile.profile)
+    
+    // console.log(profile);
 
     useEffect(() => {
-        fetchProfile()
+        dispatch(fetchProfile())
     }, [])
     return (
         <>
@@ -30,7 +22,8 @@ export default function Profile() {
                     
                         <img
                             className="w-72 h-72 rounded-full object-cover"
-                            src={profile.images[1].url}
+                            src={profile?.images?.[1]?.url}
+                            // src=""
                             alt="User"
                         />
                         

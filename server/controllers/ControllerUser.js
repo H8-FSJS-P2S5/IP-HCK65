@@ -9,8 +9,8 @@ class ControllerUser {
             // console.log(req.headers.authorization, "<< headers");
             const clientId = process.env.SPOTIFY_CLIENT_ID
             const clientSecret = process.env.SPOTIFY_CLIENT_SECRET
-            // const redirectUri = 'http://localhost:3000/auth/spotify/callback'
-            const redirectUri = 'https://api.rafizuaf.online/auth/spotify/callback'
+            const redirectUri = 'http://localhost:3000/auth/spotify/callback'
+            // const redirectUri = 'https://api.rafizuaf.online/auth/spotify/callback'
 
             let spotifyApi = new SpotifyWebApi({
                 redirectUri,
@@ -50,7 +50,8 @@ class ControllerUser {
         try {
             const clientId = process.env.SPOTIFY_CLIENT_ID
             const clientSecret = process.env.SPOTIFY_CLIENT_SECRET
-            const redirectUri = 'https://api.rafizuaf.online/auth/spotify/callback'
+            // const redirectUri = 'https://api.rafizuaf.online/auth/spotify/callback'
+            const redirectUri = 'http://localhost:3000/auth/spotify/callback'
 
             let spotifyApi = new SpotifyWebApi({
                 redirectUri,
@@ -78,7 +79,8 @@ class ControllerUser {
         try {
             const clientId = process.env.SPOTIFY_CLIENT_ID
             const clientSecret = process.env.SPOTIFY_CLIENT_SECRET
-            const redirectUri = 'https://api.rafizuaf.online/auth/spotify/callback'
+            // const redirectUri = 'https://api.rafizuaf.online/auth/spotify/callback'
+            const redirectUri = 'http://localhost:3000/auth/spotify/callback'
 
             let spotifyApi = new SpotifyWebApi({
                 redirectUri,
@@ -105,7 +107,8 @@ class ControllerUser {
         try {
             const clientId = process.env.SPOTIFY_CLIENT_ID
             const clientSecret = process.env.SPOTIFY_CLIENT_SECRET
-            const redirectUri = 'https://api.rafizuaf.online/auth/spotify/callback'
+            // const redirectUri = 'https://api.rafizuaf.online/auth/spotify/callback'
+            const redirectUri = 'http://localhost:3000/auth/spotify/callback'
             let seed_tracks = []
 
             let spotifyApi = new SpotifyWebApi({
@@ -147,7 +150,8 @@ class ControllerUser {
         try {
             const clientId = process.env.SPOTIFY_CLIENT_ID
             const clientSecret = process.env.SPOTIFY_CLIENT_SECRET
-            const redirectUri = 'https://api.rafizuaf.online/auth/spotify/callback'
+            // const redirectUri = 'https://api.rafizuaf.online/auth/spotify/callback'
+            const redirectUri = 'http://localhost:3000/auth/spotify/callback'
             let seed_artists = []
             let track_uris = []
 
@@ -200,7 +204,8 @@ class ControllerUser {
             if (track_uris) {
                 const clientId = process.env.SPOTIFY_CLIENT_ID
                 const clientSecret = process.env.SPOTIFY_CLIENT_SECRET
-                const redirectUri = 'https://api.rafizuaf.online/auth/spotify/callback'
+                // const redirectUri = 'https://api.rafizuaf.online/auth/spotify/callback'
+                const redirectUri = 'http://localhost:3000/auth/spotify/callback'
                 let spotifyApi = new SpotifyWebApi({
                     redirectUri,
                     clientId,

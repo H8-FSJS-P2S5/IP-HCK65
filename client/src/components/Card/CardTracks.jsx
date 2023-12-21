@@ -9,7 +9,8 @@ export default function CardTracks() {
 
     const fetchTracks = async () => {
         try {
-            const response = await Axios.get('https://api.rafizuaf.online/users/topTracks', {
+            // const response = await Axios.get('https://api.rafizuaf.online/users/topTracks', {
+            const response = await Axios.get('http://localhost:3000/users/topTracks', {
                 headers: {
                     Authorization: `${localStorage.getItem('access_token')}`
                 }

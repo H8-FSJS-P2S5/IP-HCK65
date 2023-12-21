@@ -2,16 +2,61 @@ const express = require('express');
 const { User } = require('../models');
 const SpotifyWebApi = require('spotify-web-api-node');
 const querystring = require('querystring');
-const {OAuth2Client} = require('google-auth-library')
+const { OAuth2Client } = require('google-auth-library')
 const client = new OAuth2Client()
 
 class ControllerAuth {
+
+    static async getAuthCode(req, res, next) {
+        try {
+            let scopes = [
+                'streaming',
+                'user-read-private',
+                'user-read-email',
+                'user-read-recently-played',
+                'user-read-playback-state',
+                'user-modify-playback-state',
+                'user-library-modify',
+                'user-library-read',
+                'user-follow-modify',
+                'playlist-read-private',
+                'playlist-modify-public',
+                'playlist-modify-private',
+                'user-top-read'
+            ];
+            let redirectUri = 'http://localhost:5137/callback';
+            let clientId = process.env.SPOTIFY_CLIENT_ID;
+            const clientSecret = process.env.SPOTIFY_CLIENT_SECRET
+            let state = "state"
+
+            // const spotifyApi = new SpotifyWebApi({
+            //     redirectUri: redirectUri,
+            //     clientId: clientId
+            // })
+
+            const credentials = {
+                clientId: clientId,
+                clientSecret: clientSecret,
+                redirectUri: redirectUri
+            }
+            const spotifyApi = new SpotifyWebApi(credentials)
+            // let authorizeUrl = spotifyApi.createAuthorizeURL(scopes, state);
+            
+            
+            console.log(spotifyApi);
+            res.json(spotifyApi)
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
     static async authTokenSpotify(req, res, next) {
         try {
             const { code } = req.body
             const clientId = process.env.SPOTIFY_CLIENT_ID
             const clientSecret = process.env.SPOTIFY_CLIENT_SECRET
-            const redirectUri = 'https://pitchplus-65.web.app/callback'
+            // const redirectUri = 'https://pitchplus-65.web.app/callback'
+            const redirectUri = 'http://localhost:5173/callback'
 
             const spotifyApi = new SpotifyWebApi({
                 redirectUri,
@@ -35,7 +80,8 @@ class ControllerAuth {
     static async authCodeSpotify(req, res, next) {
         try {
             const clientId = process.env.SPOTIFY_CLIENT_ID
-            const redirectUri = 'https://api.rafizuaf.online/auth/spotify/callback'
+            // const redirectUri = 'https://api.rafizuaf.online/auth/spotify/callback'
+            const redirectUri = 'http://localhost:3000/auth/spotify/callback'
             const scopes = [
                 'streaming',
                 'user-read-private',
@@ -51,7 +97,7 @@ class ControllerAuth {
                 'playlist-modify-private',
                 'user-top-read'
             ].join(',');
-            
+
             res.redirect('https://accounts.spotify.com/authorize?' +
                 querystring.stringify({
                     client_id: clientId,
@@ -71,7 +117,8 @@ class ControllerAuth {
             const { code } = req.query;
             const clientId = process.env.SPOTIFY_CLIENT_ID
             const clientSecret = process.env.SPOTIFY_CLIENT_SECRET
-            const redirectUri = 'https://api.rafizuaf.online/auth/spotify/callback'
+            // const redirectUri = 'https://api.rafizuaf.online/auth/spotify/callback'
+            const redirectUri = 'http://localhost:3000/auth/spotify/callback'
 
             const spotifyApi = new SpotifyWebApi({
                 redirectUri,
@@ -83,8 +130,8 @@ class ControllerAuth {
             const access_token = data.body.access_token // ACCESS TOKEN
             spotifyApi.setAccessToken(access_token)
 
-            res.redirect(`https://pitchplus-65.web.app/login?access_token=${access_token}&message=success&status=success`)
-            
+            res.redirect(`http://localhost:5173/login?access_token=${access_token}&message=success&status=success`)
+
         } catch (error) {
             console.log(error);
         }

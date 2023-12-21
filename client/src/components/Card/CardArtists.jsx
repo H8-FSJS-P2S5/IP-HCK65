@@ -8,7 +8,8 @@ export default function CardArtists() {
 
     const fetchArtists = async () => {
         try {
-            const response = await Axios.get('https://api.rafizuaf.online/users/topArtists', {
+            // const response = await Axios.get('https://api.rafizuaf.online/users/topArtists', {
+            const response = await Axios.get('http://localhost:3000/users/topArtists', {
                 headers: {
                     Authorization: `${localStorage.getItem('access_token')}`
                 }

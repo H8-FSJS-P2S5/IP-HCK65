@@ -10,7 +10,8 @@ export default function CardRecommendationTracks() {
 
     const fetchTracks = async () => {
         try {
-            const response = await Axios.get('https://api.rafizuaf.online/users/reccommendByTracks', {
+            // const response = await Axios.get('https://api.rafizuaf.online/users/reccommendByTracks', {
+            const response = await Axios.get('http://localhost:3000/users/reccommendByTracks', {
                 headers: {
                     Authorization: `${localStorage.getItem('access_token')}`
                 }
@@ -30,7 +31,8 @@ export default function CardRecommendationTracks() {
 
                 console.log(track_uris);
 
-                await Axios.post('https://api.rafizuaf.online/users/addTracks', track_uris, {
+                // await Axios.post('https://api.rafizuaf.online/users/addTracks', track_uris, {
+                await Axios.post('http://localhost:3000/users/addTracks', track_uris, {
                     headers: {
                         Authorization: `${localStorage.getItem('access_token')}`
                     }
