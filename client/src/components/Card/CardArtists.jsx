@@ -21,7 +21,7 @@ export default function CardArtists() {
         }
     }
 
-    // console.log(artists);
+    console.log(artists);
     useEffect(() => {
         fetchArtists()
     }, [])

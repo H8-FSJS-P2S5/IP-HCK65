@@ -115,11 +115,13 @@ class ControllerUser {
             spotifyApi.setAccessToken(req.headers.authorization);
 
             let tracks = await spotifyApi.getMyTopArtists({ limit: 10, time_range: 'short_term' })
+            // console.log(tracks.body.items[0]);
             let artists = tracks.body.items.map((artist) => {
                 return {
                     id: artist.id,
                     artist: artist.name,
                     artistUri: artist.uri,
+                    artistUrl: artist.external_urls.spotify,
                     artistImg: artist.images[0].url,
                 }
             })

@@ -288,18 +288,21 @@ Response (200 - OK)
         "id": "7jy3rLJdDQY21OgRLCZ9sD",
         "artist": "Foo Fighters",
         "artistUri": "spotify:artist:7jy3rLJdDQY21OgRLCZ9sD",
+        "artistUrl": "https://open.spotify.com/artist/7jy3rLJdDQY21OgRLCZ9sD",
         "artistImg": "https://i.scdn.co/image/ab6761610000e5ebc884df599abc793c116cdf15"
     },
     {
         "id": "7mnBLXK823vNxN3UWB7Gfz",
         "artist": "The Black Keys",
         "artistUri": "spotify:artist:7mnBLXK823vNxN3UWB7Gfz",
+        "artistUrl": "https://open.spotify.com/artist/7mnBLXK823vNxN3UWB7Gfz",
         "artistImg": "https://i.scdn.co/image/ab6761610000e5ebae537808bd15be9f7031e99b"
     },
     {
         "id": "4RLzLs2SHeyA0nLLlAJBg4",
         "artist": "The SIGIT",
         "artistUri": "spotify:artist:4RLzLs2SHeyA0nLLlAJBg4",
+        "artistUrl": "https://open.spotify.com/artist/4RLzLs2SHeyA0nLLlAJBg4",
         "artistImg": "https://i.scdn.co/image/ab6761610000e5ebc75f165a53048b5cb941b42f"
     },
     ...,

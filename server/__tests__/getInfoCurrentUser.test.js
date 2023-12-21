@@ -6,7 +6,7 @@ const {queryInterface} = sequelize
 jest.mock('axios');
 
 // REAL TOKEN
-const fakeSpotifyToken = 'BQDtS7uQ4_cwqdEZTOgUPtxA6-POlNv2Lkia7Wzmsvd2TW10Y1zYpL_1_WUyH2bBodOC3FsS3KyhQoJdWPZNXBgGp08_WhN-6QWapYaMQ_IVTWcQTuxK3qsDODvNbOVeZbhFEuxyzcRD__k3jy8hulX9ai6pZXkrYl4RQqopnTS1Xmwedm8sQhzLoqEJEze9hS0jNA_U6KsK7hishqntxO26oWCO_UYXhvT3iyrvl6iu27JT3Ecsbup2eowO3WP03vjNBrVURgKggzgSSafc1GAw5P8vPdBE3Yi4r9RwtuFhXg';
+const fakeSpotifyToken = 'BQDtYI-LPXELzc-C-uUWG9pgabBuI7jOVRiF_VBBgz5-2NkDXL96Pp0-xf_9p0cq0exZq2td0Cu0dJNOgT0uCnp7iOvf8AP7W5aXsHz_AGOUdmuEbEcMqZNVc98J_U5IEOOzkdwSLG6YAWArwK3HL2b_-PY-pBegNYAS3v_KUhF1jlA7wHYlQdgdA6gxba1zJyMi6D6gkJPjZuMkWjffUiaXOGq6Cq8ZPAcKIoTZmr2cR7VlP7V55S5Tmqs_h4dtYz4L5Q-QAmGazXZYSGYPBP7NXGTrRWswtP7TcY4y5SveJQ';
 
 beforeAll(async () => {
     try {
@@ -24,13 +24,18 @@ beforeAll(async () => {
     }
 });
 
-describe.skip('GET /users/my-profile', () => {
+describe.only('GET /users/my-profile', () => {
     test('should fetch current user info from Spotify and return 200 status code', async () => {
         const response = await request(app)
             .get('/users/my-profile') 
             .set('Authorization', `${fakeSpotifyToken}`)
             .expect(200);
-        expect(response.status).toBe(200);
+        expect(response.status).toBe(200)
+        expect(response.body).toHaveProperty('email', expect.any(String));
+        expect(response.body).toHaveProperty('password', expect.any(String));
+        expect(response.body).toHaveProperty('name', expect.any(String));
+        expect(response.body).toHaveProperty('imageUrl', expect.any(String));
+        expect(response.body).toHaveProperty('profileUrl', expect.any(String));
     });
 
     test('no login/no authentication, should return Invalid token', async () => {
@@ -38,6 +43,7 @@ describe.skip('GET /users/my-profile', () => {
             .get('/users/my-profile')
             .expect(401);
         expect(response.status).toBe(401);
+        expect(response.body).toHaveProperty('error')
     });
 
     // test('no user found, should return user not found', async () => {
