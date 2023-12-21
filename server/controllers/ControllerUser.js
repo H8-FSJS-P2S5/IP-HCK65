@@ -11,43 +11,26 @@ class ControllerUser {
             const clientSecret = process.env.SPOTIFY_CLIENT_SECRET
             const redirectUri = 'http://localhost:3000/auth/spotify/callback'
             // const redirectUri = 'https://api.rafizuaf.online/auth/spotify/callback'
-            
+
             let spotifyApi = new SpotifyWebApi({
-                    redirectUri,
-                    clientId,
-                    clientSecret
-                })
-                
-                spotifyApi.setAccessToken(req.headers.authorization)
-                // console.log(spotifyApi, "<< spotifyApi");
-                
-                let data = await spotifyApi.getMe()
-                let profile = await User.findOne({ where: { email: data.body.email }})
-                if(!profile) {
-                    throw {
-                        name: "NotFound",
-                        message: "User not found"
-                    }
+                redirectUri,
+                clientId,
+                clientSecret
+            })
+
+            spotifyApi.setAccessToken(req.headers.authorization)
+            // console.log(spotifyApi, "<< spotifyApi");
+
+            let data = await spotifyApi.getMe()
+            let profile = await User.findOne({ where: { email: data.body.email } })
+            if (!profile) {
+                throw {
+                    name: "NotFound",
+                    message: "User not found"
                 }
-            // let data = await spotifyApi.getMe()
-            // console.log(data.body, "<< data");
-            // const [user, created] = await User.findOrCreate({
-            //     where: { email: data.body.email },
-            //     defaults: {
-            //         email: data.body.email,
-            //         name: data.body.display_name,
-            //         imageUrl: data.body.images[1].url,
-            //         profileUrl: data.body.external_urls.spotify,
-            //         password: Math.random().toString(),
-            //     }
-            // })
+            }
 
-            // res.status(created ? 201 : 200).json( created ?{
-            //     "message": `User ${user.email} found`
-            // } : data)
-            // let data = await User.find
             res.status(200).json(profile)
-
 
         } catch (error) {
             console.log(error);
@@ -74,12 +57,25 @@ class ControllerUser {
             // console.log(spotifyApi,"req tokennnn");
 
             let tracks = await spotifyApi.getMyTopTracks({ limit: 10, time_range: 'short_term' })
-
-            res.json(tracks.body.items)
-
-            // console.log(tracks);
+            let songs = tracks.body.items.map((song) => {
+                return {
+                    id: song.id,
+                    songTitle: song.name,
+                    artist: song.artists[0].name,
+                    trackUrl: song.external_urls.spotify,
+                    trackUri: song.uri,
+                    albumImg: song.album.images[0].url,
+                }
+            })
+            res.json(songs)
+        
         } catch (error) {
-            console.log(error);
+            console.log(error, "error catch");
+            if (error.name === "WebapiRegularError") {
+                res.status(401).json({
+                    message: "Token invalid or expired"
+                })
+            }
             res.status(500).json({
                 message: 'Internal server error'
             })
@@ -102,12 +98,24 @@ class ControllerUser {
             spotifyApi.setAccessToken(req.headers.authorization);
 
             let tracks = await spotifyApi.getMyTopArtists({ limit: 10, time_range: 'short_term' })
-
-            res.json(tracks.body.items)
+            let artists = tracks.body.items.map((artist) => {
+                return {
+                    id: artist.id,
+                    artist: artist.name,
+                    artistUri: artist.uri,
+                    artistImg: artist.images[0].url,
+                }
+            })
+            res.json(artists)
 
             // console.log(tracks);
         } catch (error) {
             console.log(error);
+            if (error.name === "WebapiRegularError") {
+                res.status(401).json({
+                    message: "Token invalid or expired"
+                })
+            }
             res.status(500).json({
                 message: 'Internal server error'
             })
@@ -132,25 +140,36 @@ class ControllerUser {
 
             let tracks = await spotifyApi.getMyTopTracks({ limit: 5, time_range: 'short_term' })
             tracks = tracks.body.items
-            // console.log(tracks), "<<<< tracks";
             tracks.map((track) => {
-                // console.log(track.id);
                 seed_tracks.push(track.id)
             })
-            // console.log(seed_artists);
-            let reccommendations = await spotifyApi.getRecommendations({
+            let recommendations = await spotifyApi.getRecommendations({
                 limit: 10,
                 market: 'US',
                 seed_tracks
             })
 
-            reccommendations = reccommendations.body.tracks
+            recommendations = recommendations.body.tracks
+            let songs = recommendations.map((song) => {
+                return {
+                    id: song.id,
+                    songTitle: song.name,
+                    artist: song.artists[0].name,
+                    trackUrl: song.external_urls.spotify,
+                    trackUri: song.uri,
+                    albumImg: song.album.images[0].url,
+                }
+            })
 
-            res.json(reccommendations)
+            res.json(songs)
 
-            // console.log(tracks);
         } catch (error) {
             console.log(error);
+            if (error.name === "WebapiRegularError") {
+                res.status(401).json({
+                    message: "Token invalid or expired"
+                })
+            }
             res.status(500).json({
                 message: 'Internal server error'
             })
@@ -166,41 +185,43 @@ class ControllerUser {
             let seed_artists = []
             let track_uris = []
 
-            console.log('11111')
             let spotifyApi = new SpotifyWebApi({
                 redirectUri,
                 clientId,
                 clientSecret
             })
-            // console.log('22222')
+            
             spotifyApi.setAccessToken(req.headers.authorization);
-            // console.log('3333')
             let artists = await spotifyApi.getMyTopArtists({ limit: 5, time_range: 'short_term' })
-            // console.log('444444')
             artists = artists.body.items
-            // // console.log(tracks), "<<<< tracks";
             artists.map((artist) => {
-                // console.log(track.id);
                 seed_artists.push(artist.id)
             })
-            console.log(seed_artists)
-            // console.log(seed_artists);
+
             let reccommendations = await spotifyApi.getRecommendations({
                 limit: 10,
                 market: 'US',
                 seed_artists
             })
-            console.log('6666')
+
             reccommendations = reccommendations.body.tracks
             reccommendations.map((track) => {
-                // console.log(track);
                 track_uris.push(track.uri)
             })
-            // console.log(track_uris);
-            console.log('7777')
-            res.json(reccommendations)
 
-            // console.log(tracks);
+            let songs = reccommendations.map((song) => {
+                return {
+                    id: song.id,
+                    songTitle: song.name,
+                    artist: song.artists[0].name,
+                    trackUrl: song.external_urls.spotify,
+                    trackUri: song.uri,
+                    albumImg: song.album.images[0].url,
+                }
+            })
+
+            res.json(songs)
+
         } catch (error) {
             console.log(error);
             res.status(500).json({
@@ -236,13 +257,23 @@ class ControllerUser {
                 // console.log(reccommendations);
                 // console.log(addTracks);
 
-                res.json(addTracks)
+                res.status(201).json({
+                    message: 'Playlist added successfully'
+                })
             } else {
                 throw { name: "BadRequest", message: "No tracks provided" }
 
             }
 
         } catch (error) {
+            if (error.name === "WebapiRegularError") {
+                res.status(401).json({
+                    message: "Token invalid or expired"
+                })
+            }
+            res.status(500).json({
+                message: 'Internal server error'
+            })
             console.log(error);
         }
     }

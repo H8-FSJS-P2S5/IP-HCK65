@@ -133,60 +133,14 @@ Response (200 - OK)
 
 ```json
 {
-    "body": {
-        "display_name": "api",
-        "external_urls": {
-            "spotify": "https://open.spotify.com/user/rafizuaf"
-        },
-        "href": "https://api.spotify.com/v1/users/rafizuaf",
-        "id": "rafizuaf",
-        "images": [
-            {
-                "url": "https://i.scdn.co/image/ab67757000003b82bd4bea126bfc71c211fd3aab",
-                "height": 64,
-                "width": 64
-            },
-            {
-                "url": "https://i.scdn.co/image/ab6775700000ee85bd4bea126bfc71c211fd3aab",
-                "height": 300,
-                "width": 300
-            }
-        ],
-        "type": "user",
-        "uri": "spotify:user:rafizuaf",
-        "followers": {
-            "href": null,
-            "total": 24
-        },
-        "country": "ID",
-        "product": "premium",
-        "explicit_content": {
-            "filter_enabled": false,
-            "filter_locked": false
-        },
-        "email": "mukhtar.r.f@gmail.com"
-    },
-    "headers": {
-        "content-type": "application/json; charset=utf-8",
-        "cache-control": "private, max-age=0",
-        "vary": "Authorization",
-        "x-robots-tag": "noindex, nofollow",
-        "access-control-allow-origin": "*",
-        "access-control-allow-headers": "Accept, App-Platform, Authorization, Content-Type, Origin, Retry-After, Spotify-App-Version, X-Cloud-Trace-Context, client-token, content-access-token",
-        "access-control-allow-methods": "GET, POST, OPTIONS, PUT, DELETE, PATCH",
-        "access-control-allow-credentials": "true",
-        "access-control-max-age": "604800",
-        "content-encoding": "gzip",
-        "strict-transport-security": "max-age=31536000",
-        "x-content-type-options": "nosniff",
-        "date": "Thu, 21 Dec 2023 10:53:28 GMT",
-        "server": "envoy",
-        "via": "HTTP/2 edgeproxy, 1.1 google",
-        "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
-        "connection": "close",
-        "transfer-encoding": "chunked"
-    },
-    "statusCode": 200
+    "id": 20,
+    "email": "mukhtar.r.f@gmail.com",
+    "password": "0.15877415510662152",
+    "name": "api",
+    "imageUrl": "https://i.scdn.co/image/ab6775700000ee85bd4bea126bfc71c211fd3aab",
+    "profileUrl": "https://open.spotify.com/user/rafizuaf",
+    "createdAt": "2023-12-21T09:43:15.804Z",
+    "updatedAt": "2023-12-21T09:43:15.804Z"
 }
 ```
 
@@ -259,81 +213,28 @@ Response (200 - OK)
 ```json
 [
     {
-        "album": {
-            "album_type": "ALBUM",
-            "artists": [
-                {
-                    "external_urls": {
-                        "spotify": "https://open.spotify.com/artist/0zuIBB0gRxp4i4E2gvrcoM"
-                    },
-                    "href": "https://api.spotify.com/v1/artists/0zuIBB0gRxp4i4E2gvrcoM",
-                    "id": "0zuIBB0gRxp4i4E2gvrcoM",
-                    "name": "The Adams",
-                    "type": "artist",
-                    "uri": "spotify:artist:0zuIBB0gRxp4i4E2gvrcoM"
-                }
-            ],
-            "available_markets": ["array of strings"],
-            "external_urls": {
-                "spotify": "https://open.spotify.com/album/6EjtRvsWa1wRYJgeJOROI3"
-            },
-            "href": "https://api.spotify.com/v1/albums/6EjtRvsWa1wRYJgeJOROI3",
-            "id": "6EjtRvsWa1wRYJgeJOROI3",
-            "images": [
-                {
-                    "height": 640,
-                    "url": "https://i.scdn.co/image/ab67616d0000b273848d417028ad1eb2f8ff9c26",
-                    "width": 640
-                },
-                {
-                    "height": 300,
-                    "url": "https://i.scdn.co/image/ab67616d00001e02848d417028ad1eb2f8ff9c26",
-                    "width": 300
-                },
-                {
-                    "height": 64,
-                    "url": "https://i.scdn.co/image/ab67616d00004851848d417028ad1eb2f8ff9c26",
-                    "width": 64
-                }
-            ],
-            "name": "Agterplaas",
-            "release_date": "2019-03-15",
-            "release_date_precision": "day",
-            "total_tracks": 11,
-            "type": "album",
-            "uri": "spotify:album:6EjtRvsWa1wRYJgeJOROI3"
-        },
-        "artists": [
-            {
-                "external_urls": {
-                    "spotify": "https://open.spotify.com/artist/0zuIBB0gRxp4i4E2gvrcoM"
-                },
-                "href": "https://api.spotify.com/v1/artists/0zuIBB0gRxp4i4E2gvrcoM",
-                "id": "0zuIBB0gRxp4i4E2gvrcoM",
-                "name": "The Adams",
-                "type": "artist",
-                "uri": "spotify:artist:0zuIBB0gRxp4i4E2gvrcoM"
-            }
-        ],
-        "available_markets": ["array of strings"],
-        "disc_number": 1,
-        "duration_ms": 299093,
-        "explicit": false,
-        "external_ids": {
-            "isrc": "TCAEC1904822"
-        },
-        "external_urls": {
-            "spotify": "https://open.spotify.com/track/2bEuh25NMtUEQGu6VqohPu"
-        },
-        "href": "https://api.spotify.com/v1/tracks/2bEuh25NMtUEQGu6VqohPu",
         "id": "2bEuh25NMtUEQGu6VqohPu",
-        "is_local": false,
-        "name": "Timur",
-        "popularity": 62,
-        "preview_url": "https://p.scdn.co/mp3-preview/c3bf2fd7a240abb5221f47cb5c795923dcc00f2b?cid=d86db55895ca45319957a258fac15a79",
-        "track_number": 11,
-        "type": "track",
-        "uri": "spotify:track:2bEuh25NMtUEQGu6VqohPu"
+        "songTitle": "Timur",
+        "artist": "The Adams",
+        "trackUrl": "https://open.spotify.com/track/2bEuh25NMtUEQGu6VqohPu",
+        "trackUri": "spotify:track:2bEuh25NMtUEQGu6VqohPu",
+        "albumImg": "https://i.scdn.co/image/ab67616d0000b273848d417028ad1eb2f8ff9c26"
+    },
+    {
+        "id": "1u8c2t2Cy7UBoG4ArRcF5g",
+        "songTitle": "Blank Space",
+        "artist": "Taylor Swift",
+        "trackUrl": "https://open.spotify.com/track/1u8c2t2Cy7UBoG4ArRcF5g",
+        "trackUri": "spotify:track:1u8c2t2Cy7UBoG4ArRcF5g",
+        "albumImg": "https://i.scdn.co/image/ab67616d0000b27352b2a3824413eefe9e33817a"
+    },
+    {
+        "id": "5zFvqPwpy81Sg4cR2p3q31",
+        "songTitle": "Wajahmu Indahkan Duniaku",
+        "artist": "Alexa",
+        "trackUrl": "https://open.spotify.com/track/5zFvqPwpy81Sg4cR2p3q31",
+        "trackUri": "spotify:track:5zFvqPwpy81Sg4cR2p3q31",
+        "albumImg": "https://i.scdn.co/image/ab67616d0000b2738738c63b70c0b4d42efc72ab"
     },
     ...,
 ]
@@ -343,31 +244,7 @@ Response (401 - Invalid Token)
 
 ```json
 {
-  "body": {
-    "error": {
-      "status": 401,
-      "message": "The access token expired"
-    }
-  },
-  "headers": {
-    "www-authenticate": "Bearer realm=\"spotify\", error=\"invalid_token\", error_description=\"The access token expired\"",
-    "access-control-allow-origin": "*",
-    "access-control-allow-headers": "Accept, App-Platform, Authorization, Content-Type, Origin, Retry-After, Spotify-App-Version, X-Cloud-Trace-Context, client-token, content-access-token",
-    "access-control-allow-methods": "GET, POST, OPTIONS, PUT, DELETE, PATCH",
-    "access-control-allow-credentials": "true",
-    "access-control-max-age": "604800",
-    "content-type": "application/json",
-    "content-encoding": "gzip",
-    "strict-transport-security": "max-age=31536000",
-    "x-content-type-options": "nosniff",
-    "date": "Thu, 21 Dec 2023 10:52:59 GMT",
-    "server": "envoy",
-    "via": "HTTP/2 edgeproxy, 1.1 google",
-    "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
-    "connection": "close",
-    "transfer-encoding": "chunked"
-  },
-  "statusCode": 401
+  "message": "Token invalid or expired"
 }
 ```
 
@@ -408,81 +285,22 @@ Response (200 - OK)
 ```json
 [
     {
-        "album": {
-            "album_type": "ALBUM",
-            "artists": [
-                {
-                    "external_urls": {
-                        "spotify": "https://open.spotify.com/artist/0zuIBB0gRxp4i4E2gvrcoM"
-                    },
-                    "href": "https://api.spotify.com/v1/artists/0zuIBB0gRxp4i4E2gvrcoM",
-                    "id": "0zuIBB0gRxp4i4E2gvrcoM",
-                    "name": "The Adams",
-                    "type": "artist",
-                    "uri": "spotify:artist:0zuIBB0gRxp4i4E2gvrcoM"
-                }
-            ],
-            "available_markets": ["array of strings"],
-            "external_urls": {
-                "spotify": "https://open.spotify.com/album/6EjtRvsWa1wRYJgeJOROI3"
-            },
-            "href": "https://api.spotify.com/v1/albums/6EjtRvsWa1wRYJgeJOROI3",
-            "id": "6EjtRvsWa1wRYJgeJOROI3",
-            "images": [
-                {
-                    "height": 640,
-                    "url": "https://i.scdn.co/image/ab67616d0000b273848d417028ad1eb2f8ff9c26",
-                    "width": 640
-                },
-                {
-                    "height": 300,
-                    "url": "https://i.scdn.co/image/ab67616d00001e02848d417028ad1eb2f8ff9c26",
-                    "width": 300
-                },
-                {
-                    "height": 64,
-                    "url": "https://i.scdn.co/image/ab67616d00004851848d417028ad1eb2f8ff9c26",
-                    "width": 64
-                }
-            ],
-            "name": "Agterplaas",
-            "release_date": "2019-03-15",
-            "release_date_precision": "day",
-            "total_tracks": 11,
-            "type": "album",
-            "uri": "spotify:album:6EjtRvsWa1wRYJgeJOROI3"
-        },
-        "artists": [
-            {
-                "external_urls": {
-                    "spotify": "https://open.spotify.com/artist/0zuIBB0gRxp4i4E2gvrcoM"
-                },
-                "href": "https://api.spotify.com/v1/artists/0zuIBB0gRxp4i4E2gvrcoM",
-                "id": "0zuIBB0gRxp4i4E2gvrcoM",
-                "name": "The Adams",
-                "type": "artist",
-                "uri": "spotify:artist:0zuIBB0gRxp4i4E2gvrcoM"
-            }
-        ],
-        "available_markets": ["array of strings"],
-        "disc_number": 1,
-        "duration_ms": 299093,
-        "explicit": false,
-        "external_ids": {
-            "isrc": "TCAEC1904822"
-        },
-        "external_urls": {
-            "spotify": "https://open.spotify.com/track/2bEuh25NMtUEQGu6VqohPu"
-        },
-        "href": "https://api.spotify.com/v1/tracks/2bEuh25NMtUEQGu6VqohPu",
-        "id": "2bEuh25NMtUEQGu6VqohPu",
-        "is_local": false,
-        "name": "Timur",
-        "popularity": 62,
-        "preview_url": "https://p.scdn.co/mp3-preview/c3bf2fd7a240abb5221f47cb5c795923dcc00f2b?cid=d86db55895ca45319957a258fac15a79",
-        "track_number": 11,
-        "type": "track",
-        "uri": "spotify:track:2bEuh25NMtUEQGu6VqohPu"
+        "id": "7jy3rLJdDQY21OgRLCZ9sD",
+        "artist": "Foo Fighters",
+        "artistUri": "spotify:artist:7jy3rLJdDQY21OgRLCZ9sD",
+        "artistImg": "https://i.scdn.co/image/ab6761610000e5ebc884df599abc793c116cdf15"
+    },
+    {
+        "id": "7mnBLXK823vNxN3UWB7Gfz",
+        "artist": "The Black Keys",
+        "artistUri": "spotify:artist:7mnBLXK823vNxN3UWB7Gfz",
+        "artistImg": "https://i.scdn.co/image/ab6761610000e5ebae537808bd15be9f7031e99b"
+    },
+    {
+        "id": "4RLzLs2SHeyA0nLLlAJBg4",
+        "artist": "The SIGIT",
+        "artistUri": "spotify:artist:4RLzLs2SHeyA0nLLlAJBg4",
+        "artistImg": "https://i.scdn.co/image/ab6761610000e5ebc75f165a53048b5cb941b42f"
     },
     ...,
 ]
@@ -541,81 +359,28 @@ Response (200 - OK)
 ```json
 [
     {
-        "album": {
-            "album_type": "ALBUM",
-            "artists": [
-                {
-                    "external_urls": {
-                        "spotify": "https://open.spotify.com/artist/0zuIBB0gRxp4i4E2gvrcoM"
-                    },
-                    "href": "https://api.spotify.com/v1/artists/0zuIBB0gRxp4i4E2gvrcoM",
-                    "id": "0zuIBB0gRxp4i4E2gvrcoM",
-                    "name": "The Adams",
-                    "type": "artist",
-                    "uri": "spotify:artist:0zuIBB0gRxp4i4E2gvrcoM"
-                }
-            ],
-            "available_markets": ["array of strings"],
-            "external_urls": {
-                "spotify": "https://open.spotify.com/album/6EjtRvsWa1wRYJgeJOROI3"
-            },
-            "href": "https://api.spotify.com/v1/albums/6EjtRvsWa1wRYJgeJOROI3",
-            "id": "6EjtRvsWa1wRYJgeJOROI3",
-            "images": [
-                {
-                    "height": 640,
-                    "url": "https://i.scdn.co/image/ab67616d0000b273848d417028ad1eb2f8ff9c26",
-                    "width": 640
-                },
-                {
-                    "height": 300,
-                    "url": "https://i.scdn.co/image/ab67616d00001e02848d417028ad1eb2f8ff9c26",
-                    "width": 300
-                },
-                {
-                    "height": 64,
-                    "url": "https://i.scdn.co/image/ab67616d00004851848d417028ad1eb2f8ff9c26",
-                    "width": 64
-                }
-            ],
-            "name": "Agterplaas",
-            "release_date": "2019-03-15",
-            "release_date_precision": "day",
-            "total_tracks": 11,
-            "type": "album",
-            "uri": "spotify:album:6EjtRvsWa1wRYJgeJOROI3"
-        },
-        "artists": [
-            {
-                "external_urls": {
-                    "spotify": "https://open.spotify.com/artist/0zuIBB0gRxp4i4E2gvrcoM"
-                },
-                "href": "https://api.spotify.com/v1/artists/0zuIBB0gRxp4i4E2gvrcoM",
-                "id": "0zuIBB0gRxp4i4E2gvrcoM",
-                "name": "The Adams",
-                "type": "artist",
-                "uri": "spotify:artist:0zuIBB0gRxp4i4E2gvrcoM"
-            }
-        ],
-        "available_markets": ["array of strings"],
-        "disc_number": 1,
-        "duration_ms": 299093,
-        "explicit": false,
-        "external_ids": {
-            "isrc": "TCAEC1904822"
-        },
-        "external_urls": {
-            "spotify": "https://open.spotify.com/track/2bEuh25NMtUEQGu6VqohPu"
-        },
-        "href": "https://api.spotify.com/v1/tracks/2bEuh25NMtUEQGu6VqohPu",
         "id": "2bEuh25NMtUEQGu6VqohPu",
-        "is_local": false,
-        "name": "Timur",
-        "popularity": 62,
-        "preview_url": "https://p.scdn.co/mp3-preview/c3bf2fd7a240abb5221f47cb5c795923dcc00f2b?cid=d86db55895ca45319957a258fac15a79",
-        "track_number": 11,
-        "type": "track",
-        "uri": "spotify:track:2bEuh25NMtUEQGu6VqohPu"
+        "songTitle": "Timur",
+        "artist": "The Adams",
+        "trackUrl": "https://open.spotify.com/track/2bEuh25NMtUEQGu6VqohPu",
+        "trackUri": "spotify:track:2bEuh25NMtUEQGu6VqohPu",
+        "albumImg": "https://i.scdn.co/image/ab67616d0000b273848d417028ad1eb2f8ff9c26"
+    },
+    {
+        "id": "1u8c2t2Cy7UBoG4ArRcF5g",
+        "songTitle": "Blank Space",
+        "artist": "Taylor Swift",
+        "trackUrl": "https://open.spotify.com/track/1u8c2t2Cy7UBoG4ArRcF5g",
+        "trackUri": "spotify:track:1u8c2t2Cy7UBoG4ArRcF5g",
+        "albumImg": "https://i.scdn.co/image/ab67616d0000b27352b2a3824413eefe9e33817a"
+    },
+    {
+        "id": "5zFvqPwpy81Sg4cR2p3q31",
+        "songTitle": "Wajahmu Indahkan Duniaku",
+        "artist": "Alexa",
+        "trackUrl": "https://open.spotify.com/track/5zFvqPwpy81Sg4cR2p3q31",
+        "trackUri": "spotify:track:5zFvqPwpy81Sg4cR2p3q31",
+        "albumImg": "https://i.scdn.co/image/ab67616d0000b2738738c63b70c0b4d42efc72ab"
     },
     ...,
 ]
@@ -625,31 +390,7 @@ Response (401 - Invalid Token)
 
 ```json
 {
-  "body": {
-    "error": {
-      "status": 401,
-      "message": "The access token expired"
-    }
-  },
-  "headers": {
-    "www-authenticate": "Bearer realm=\"spotify\", error=\"invalid_token\", error_description=\"The access token expired\"",
-    "access-control-allow-origin": "*",
-    "access-control-allow-headers": "Accept, App-Platform, Authorization, Content-Type, Origin, Retry-After, Spotify-App-Version, X-Cloud-Trace-Context, client-token, content-access-token",
-    "access-control-allow-methods": "GET, POST, OPTIONS, PUT, DELETE, PATCH",
-    "access-control-allow-credentials": "true",
-    "access-control-max-age": "604800",
-    "content-type": "application/json",
-    "content-encoding": "gzip",
-    "strict-transport-security": "max-age=31536000",
-    "x-content-type-options": "nosniff",
-    "date": "Thu, 21 Dec 2023 10:52:59 GMT",
-    "server": "envoy",
-    "via": "HTTP/2 edgeproxy, 1.1 google",
-    "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
-    "connection": "close",
-    "transfer-encoding": "chunked"
-  },
-  "statusCode": 401
+  "message": "Token invalid or expired"
 }
 ```
 
@@ -674,81 +415,28 @@ Response (200 - OK)
 ```json
 [
     {
-        "album": {
-            "album_type": "ALBUM",
-            "artists": [
-                {
-                    "external_urls": {
-                        "spotify": "https://open.spotify.com/artist/0zuIBB0gRxp4i4E2gvrcoM"
-                    },
-                    "href": "https://api.spotify.com/v1/artists/0zuIBB0gRxp4i4E2gvrcoM",
-                    "id": "0zuIBB0gRxp4i4E2gvrcoM",
-                    "name": "The Adams",
-                    "type": "artist",
-                    "uri": "spotify:artist:0zuIBB0gRxp4i4E2gvrcoM"
-                }
-            ],
-            "available_markets": ["array of strings"],
-            "external_urls": {
-                "spotify": "https://open.spotify.com/album/6EjtRvsWa1wRYJgeJOROI3"
-            },
-            "href": "https://api.spotify.com/v1/albums/6EjtRvsWa1wRYJgeJOROI3",
-            "id": "6EjtRvsWa1wRYJgeJOROI3",
-            "images": [
-                {
-                    "height": 640,
-                    "url": "https://i.scdn.co/image/ab67616d0000b273848d417028ad1eb2f8ff9c26",
-                    "width": 640
-                },
-                {
-                    "height": 300,
-                    "url": "https://i.scdn.co/image/ab67616d00001e02848d417028ad1eb2f8ff9c26",
-                    "width": 300
-                },
-                {
-                    "height": 64,
-                    "url": "https://i.scdn.co/image/ab67616d00004851848d417028ad1eb2f8ff9c26",
-                    "width": 64
-                }
-            ],
-            "name": "Agterplaas",
-            "release_date": "2019-03-15",
-            "release_date_precision": "day",
-            "total_tracks": 11,
-            "type": "album",
-            "uri": "spotify:album:6EjtRvsWa1wRYJgeJOROI3"
-        },
-        "artists": [
-            {
-                "external_urls": {
-                    "spotify": "https://open.spotify.com/artist/0zuIBB0gRxp4i4E2gvrcoM"
-                },
-                "href": "https://api.spotify.com/v1/artists/0zuIBB0gRxp4i4E2gvrcoM",
-                "id": "0zuIBB0gRxp4i4E2gvrcoM",
-                "name": "The Adams",
-                "type": "artist",
-                "uri": "spotify:artist:0zuIBB0gRxp4i4E2gvrcoM"
-            }
-        ],
-        "available_markets": ["array of strings"],
-        "disc_number": 1,
-        "duration_ms": 299093,
-        "explicit": false,
-        "external_ids": {
-            "isrc": "TCAEC1904822"
-        },
-        "external_urls": {
-            "spotify": "https://open.spotify.com/track/2bEuh25NMtUEQGu6VqohPu"
-        },
-        "href": "https://api.spotify.com/v1/tracks/2bEuh25NMtUEQGu6VqohPu",
         "id": "2bEuh25NMtUEQGu6VqohPu",
-        "is_local": false,
-        "name": "Timur",
-        "popularity": 62,
-        "preview_url": "https://p.scdn.co/mp3-preview/c3bf2fd7a240abb5221f47cb5c795923dcc00f2b?cid=d86db55895ca45319957a258fac15a79",
-        "track_number": 11,
-        "type": "track",
-        "uri": "spotify:track:2bEuh25NMtUEQGu6VqohPu"
+        "songTitle": "Timur",
+        "artist": "The Adams",
+        "trackUrl": "https://open.spotify.com/track/2bEuh25NMtUEQGu6VqohPu",
+        "trackUri": "spotify:track:2bEuh25NMtUEQGu6VqohPu",
+        "albumImg": "https://i.scdn.co/image/ab67616d0000b273848d417028ad1eb2f8ff9c26"
+    },
+    {
+        "id": "1u8c2t2Cy7UBoG4ArRcF5g",
+        "songTitle": "Blank Space",
+        "artist": "Taylor Swift",
+        "trackUrl": "https://open.spotify.com/track/1u8c2t2Cy7UBoG4ArRcF5g",
+        "trackUri": "spotify:track:1u8c2t2Cy7UBoG4ArRcF5g",
+        "albumImg": "https://i.scdn.co/image/ab67616d0000b27352b2a3824413eefe9e33817a"
+    },
+    {
+        "id": "5zFvqPwpy81Sg4cR2p3q31",
+        "songTitle": "Wajahmu Indahkan Duniaku",
+        "artist": "Alexa",
+        "trackUrl": "https://open.spotify.com/track/5zFvqPwpy81Sg4cR2p3q31",
+        "trackUri": "spotify:track:5zFvqPwpy81Sg4cR2p3q31",
+        "albumImg": "https://i.scdn.co/image/ab67616d0000b2738738c63b70c0b4d42efc72ab"
     },
     ...,
 ]
@@ -758,31 +446,7 @@ Response (401 - Invalid Token)
 
 ```json
 {
-  "body": {
-    "error": {
-      "status": 401,
-      "message": "The access token expired"
-    }
-  },
-  "headers": {
-    "www-authenticate": "Bearer realm=\"spotify\", error=\"invalid_token\", error_description=\"The access token expired\"",
-    "access-control-allow-origin": "*",
-    "access-control-allow-headers": "Accept, App-Platform, Authorization, Content-Type, Origin, Retry-After, Spotify-App-Version, X-Cloud-Trace-Context, client-token, content-access-token",
-    "access-control-allow-methods": "GET, POST, OPTIONS, PUT, DELETE, PATCH",
-    "access-control-allow-credentials": "true",
-    "access-control-max-age": "604800",
-    "content-type": "application/json",
-    "content-encoding": "gzip",
-    "strict-transport-security": "max-age=31536000",
-    "x-content-type-options": "nosniff",
-    "date": "Thu, 21 Dec 2023 10:52:59 GMT",
-    "server": "envoy",
-    "via": "HTTP/2 edgeproxy, 1.1 google",
-    "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
-    "connection": "close",
-    "transfer-encoding": "chunked"
-  },
-  "statusCode": 401
+  "message": "Token invalid or expired"
 }
 ```
 

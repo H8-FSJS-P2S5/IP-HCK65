@@ -31,12 +31,12 @@ export default function CardArtists() {
                 <div key={artist.id} className="card col-span-1 p-4 rounded-lg">
                     
                     <div className='relative'>
-                        <a href={artist.external_urls.spotify} target="_blank">
-                            <img className='h-52 w-56 object-cover ' src={artist.images[0].url} alt="" />
+                        <a href={artist.artistUrl} target="_blank">
+                            <img className='h-52 w-56 object-cover ' src={artist.artistImg} alt="" />
                         </a>
                     </div>
 
-                    <h3 className="font-semibold my-2">{artist.name}</h3>
+                    <h3 className="font-semibold my-2">{artist.artist}</h3>
                     <p className='text-xs text-white/25 leading-4'>Artist</p>
                 
                 </div>

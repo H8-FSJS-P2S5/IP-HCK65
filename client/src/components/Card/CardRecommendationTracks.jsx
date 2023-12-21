@@ -16,6 +16,7 @@ export default function CardRecommendationTracks() {
                     Authorization: `${localStorage.getItem('access_token')}`
                 }
             });
+            setTracks(response.data)
             let getTracks = response.data
             await sendTracksUris(getTracks)
         } catch (error) {
@@ -27,10 +28,7 @@ export default function CardRecommendationTracks() {
         try {
             if (tracks.length > 0) {
                 setTracks(tracks)
-                const track_uris = tracks.map((track) => track.uri);
-
-                console.log(track_uris);
-
+                const track_uris = tracks.map((track) => track.trackUri);
                 // await Axios.post('https://api.rafizuaf.online/users/addTracks', track_uris, {
                 await Axios.post('http://localhost:3000/users/addTracks', track_uris, {
                     headers: {
@@ -62,6 +60,7 @@ export default function CardRecommendationTracks() {
     useEffect(() => {
         fetchData();
     }, []);
+    
     return (
         <>
         <ToastContainer />
@@ -72,15 +71,15 @@ export default function CardRecommendationTracks() {
                         {tracks.map((track) => (
                             <div key={track.id} className="card col-span-1 p-4 rounded-lg">
                                 <div className='relative'>
-                                    <a href={track.external_urls.spotify} target="_blank">
-                                        <img src={track.album.images[0].url} alt="" />
+                                    <a href={track.trackUrl} target="_blank">
+                                        <img src={track.albumImg} alt="" />
                                     </a>
                                     <button className='playBtn flex items-center rounded-[50%] bg-primary justify-center p-3 absolute bottom-0 right-0'>
                                         <FaPlay className='text-black' />
                                     </button>
                                 </div>
-                                <h3 className="font-semibold my-2">{track.name}</h3>
-                                <p className='text-xs text-white/25 leading-4'>{track.artists[0].name}</p>
+                                <h3 className="font-semibold my-2">{track.songTitle}</h3>
+                                <p className='text-xs text-white/25 leading-4'>{track.artist}</p>
                             </div>
                         ))}
                     </div>
