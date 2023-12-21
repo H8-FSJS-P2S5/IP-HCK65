@@ -20,8 +20,10 @@ function Login() {
         formLogin
       );
 
-      console.log(data.access_token, "login on submit");
+      console.log(data, "login on submit");
       localStorage.setItem("access_token", data.access_token);
+      localStorage.setItem("id", data.id);
+      localStorage.setItem("status", data.status)
 
       navigate("/");
     } catch (error) {
@@ -38,8 +40,11 @@ function Login() {
           google_token: response.credential
         }
       })
-      // console.log(data, "data google login di login jsx");
+      console.log(data, "data google login di login jsx");
       localStorage.setItem("access_token", data.access_token)
+      localStorage.setItem("id", data.id)
+      localStorage.setItem("status", data.status)
+
       navigate("/")
     } catch (error) {
       console.log(error);

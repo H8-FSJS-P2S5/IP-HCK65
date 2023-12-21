@@ -2,6 +2,7 @@
     {
         "fullName" : "Haru Nakoya",
         "email" : "haru@mail.com",
-        "password" : "haruya"
+        "password" : "haruya",
+        "status": "free"
     }
 ]

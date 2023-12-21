@@ -1,10 +1,13 @@
-const { Movies, Review, Genre } = require("../models");
+const { Movies, Review, Genre, User } = require("../models");
+const midtransClient = require("midtrans-client");
+const MIDTRANS_API_SERVER = process.env.MIDTRANS_API_SERVER;
+
 
 function convertData(originalData) {
   const newData = [];
 
   for (const movie of originalData) {
-    const stars = movie.Stars.join(', ');
+    const stars = movie.Stars.join(", ");
     const genreId = Genre[movie.genre[0]] || 0;
 
     const newMovie = {
@@ -12,8 +15,8 @@ function convertData(originalData) {
       description: movie.description,
       Stars: stars,
       GenreId: genreId,
-      images: movie.images[1][1],  
-      year: movie.year
+      images: movie.images[1][1],
+      year: movie.year,
     };
 
     newData.push(newMovie);
@@ -23,13 +26,11 @@ function convertData(originalData) {
 }
 
 class Controller {
-
-  
   static async getMovies(req, res) {
     try {
       console.log("masuk getmovie");
       // console.log(req.user, ">>");
-      
+
       // const { data } = await axios({
       //   method: "GET",
       //   url: "https://imdb-top-100-movies1.p.rapidapi.com/",
@@ -40,14 +41,14 @@ class Controller {
       //   },
       // });
 
-      let originalData = require('../data/t.json')
+      let originalData = require("../data/t.json");
       // harus looping data json biar sama kayak rapid
       const convertedData = convertData(originalData);
-      
+
       const getMovie = await Movies.findAll();
 
-      console.log(getMovie, "get movie");
-      console.log(convertedData, "controller get movies");
+      // console.log(getMovie, "get movie");
+      // console.log(convertedData, "controller get movies");
       res.status(201).json(getMovie);
     } catch (error) {
       console.log(error);
@@ -59,36 +60,34 @@ class Controller {
     try {
       const { id } = req.params;
       console.log(id, "data review");
-  
+
       const dataReview = await Movies.findOne({
         where: { id: id },
       });
-  
+
       // console.log(dataReview, ">>>>");
-  
+
       if (!dataReview) {
         return res.status(404).json({ message: "Not Found" });
       }
-  
+
       return res.status(200).json(dataReview);
     } catch (error) {
       console.error(error);
       return res.status(500).json({ message: "Internal Server Error" });
     }
   }
-  
 
   static async postReview(req, res) {
     try {
-
-      const {id} = req.params
+      const { id } = req.params;
       const { name, headline, review } = req.body;
       let reviews = await Review.create({
         name,
         headline,
         review,
         UserId: req.user.id,
-        MovieId: id
+        MovieId: id,
       });
 
       res.status(201).json(reviews);
@@ -98,15 +97,15 @@ class Controller {
     }
   }
 
-  static async getReviewById(req, res){
+  static async getReviewById(req, res) {
     try {
       console.log("masukk review");
       const { id } = req.params;
       // console.log(id, "data review");
       const dataReviewById = await Review.findAll({
-        where : {
-          MovieId : id
-        }
+        where: {
+          MovieId: id,
+        },
       });
       // console.log(dataReviewById);
       console.log("masuk edit by id cuy");
@@ -115,7 +114,7 @@ class Controller {
         throw { message: "Not Found" };
       }
 
-      res.status(200).json(dataReviewById)
+      res.status(200).json(dataReviewById);
     } catch (error) {
       console.log(error);
       res.status(500).json({ message: "Internal Server Error" });
@@ -138,13 +137,13 @@ class Controller {
     try {
       const { id } = req.params;
       console.log(req.body, "edit controller");
-      const { name, headline, review, UserId, MovieId  } = req.body;
+      const { name, headline, review, UserId, MovieId } = req.body;
 
       let dataEditReview = await Review.findByPk(id);
       if (!dataEditReview) {
         throw { name: "NotFound" };
       }
-      await dataEditReview.update({name, headline, review, UserId, MovieId  });
+      await dataEditReview.update({ name, headline, review, UserId, MovieId });
       res.status(200).json({
         MovieId: dataEditReview.MovieId,
         message: `Review has been updated!`,
@@ -161,24 +160,76 @@ class Controller {
       const { id } = req.params;
       const dataReviewById = await Review.findOne({
         where: {
-           id
+          id,
         },
-       
       });
-  
+
       console.log("masuk getEditById controller");
-  
+
       if (!dataReviewById || dataReviewById.length === 0) {
         throw { message: "Not Found" };
       }
-  
-      res.status(200).json(dataReviewById)
+
+      res.status(200).json(dataReviewById);
     } catch (error) {
       console.error(error);
       res.status(500).json({ message: "Internal Server Error" });
     }
   }
-  
+
+  static async upgradeAccountPayment(req, res) {
+    try {
+      
+      let user = await User.findByPk(req.user.id);
+      console.log(req.user.id, "upgrade account di controller");
+
+      let snap = new midtransClient.Snap({
+        isProduction: false,
+        serverKey: MIDTRANS_API_SERVER,
+      });
+
+      let parameter = {
+        transaction_details: {
+          order_id:
+            "YOUR-ORDER-ID-ETHEREAL-MOVIES" + Math.floor(100000000 + Math.random() * 9000000),
+          gross_amount: 10000,
+        },
+        credit_card: {
+          secure: true,
+        },
+        customer_details: {
+          email: user.email,
+        },
+      };
+      const midtransToken = await snap.createTransaction(parameter);
+      res.status(201).json(midtransToken);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Internal Server Error" });
+    }
+  }
+
+  static async updateStatusUser(req, res) {
+    try {
+      const { id } = req.params;
+
+      let findUserId = await User.findByPk(id);
+      if (!findUserId) {
+        throw { name: "NotFound" };
+      }
+      await findUserId.update({ status: "premium"});
+
+      let findUserUpdated = await User.findByPk(id);
+
+      res.status(200).json({
+        status: findUserUpdated.status ,
+        message: `status has been upgarde to premium!`,
+      });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ message: " Internal Server Error" });
+    }
+  }
 }
 
 module.exports = Controller;

@@ -42,7 +42,7 @@ class UserController {
       };
 
       const access_token = createToken(payload);
-      res.status(200).json({ access_token });
+      res.status(200).json({ access_token, id: dataLoginUser.id, status: dataLoginUser.status });
     } catch (error) {
       console.log(error);
       if (error.code !== undefined) {
@@ -62,7 +62,7 @@ class UserController {
         audience: process.env.google_client,
       });
       const payload = ticket.getPayload();
-      console.log(payload, "ini payload di usercontroller login google");
+      // console.log(payload, "ini payload di usercontroller login google");
 
       const user = await User.findOne({ where: { email: payload.email } });
       if (!user) {
@@ -70,6 +70,7 @@ class UserController {
           email: payload.email,
           fullName: payload.name,
           password: String(Math.random()),
+          status : "free"
         });
       }
 
@@ -81,7 +82,7 @@ class UserController {
       };
 
       const access_token = createToken(payloadId);
-      res.status(200).json({ access_token });
+      res.status(200).json({ access_token, id: user.id, status: user.status});
     } catch (error) {
       console.log(error);
       res.status(500).json({ message: "Internal Server Error" });
