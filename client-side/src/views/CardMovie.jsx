@@ -58,7 +58,11 @@ function CardMovie() {
               alt="movie"
             />
             <p className="font-bold text-black font-serif m-2">{item.title}</p>
-            <p className="text-black font-serif m-2">Cast : {item.Stars}</p>
+            <p className="text-black font-serif m-2">
+              {" "}
+              Cast
+              <strong /> : {item.Stars}
+            </p>
             <p className="font-semibold text-black font-mono m-2">
               {item.description}
             </p>

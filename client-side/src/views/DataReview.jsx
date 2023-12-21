@@ -7,7 +7,7 @@ function DataReview() {
   const [reviewById, setReviewById] = useState([]);
 
   const fetchReviewById = async () => {
-    console.log("masuk");
+    console.log("masuk data review");
     try {
       console.log(id, "masuk user review");
 

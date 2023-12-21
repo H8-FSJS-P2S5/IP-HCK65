@@ -1,99 +1,802 @@
 [
-    {
+  {
       "title": "The Shawshank Redemption",
       "description": "Over the course of several years, two convicts form a friendship, seeking consolation and, eventually, redemption through basic compassion.",
       "Stars": "Tim Robbins, Morgan Freeman, Bob Gunton",
       "GenreId": 1,
       "images": "https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_QL75_UX285_CR0,3,285,422_.jpg",
       "year": "1994"
-    },
-    {
+  },
+  {
       "title": "The Godfather",
       "description": "Don Vito Corleone, head of a mafia family, decides to hand over his empire to his youngest son Michael. However, his decision unintentionally puts the lives of his loved ones in grave danger.",
       "Stars": "Marlon Brando, Al Pacino, James Caan",
       "GenreId": 2,
       "images": "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_QL75_UY422_CR6,0,285,422_.jpg",
       "year": "1972"
-    },
-    {
+  },
+  {
       "title": "The Dark Knight",
       "description": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
-      "Stars": "Christian Bale, Heath Ledge, Aaron Eckhart",
-      "GenreId": 3,
+      "Stars": "Christian Bale, Heath Ledger, Aaron Eckhart",
+      "GenreId": 4,
       "images": "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_QL75_UX285_CR0,0,285,422_.jpg",
       "year": "2008"
-    },
-    {
+  },
+  {
       "title": "Schindler's List",
       "description": "In German-occupied Poland during World War II, industrialist ",
       "Stars": "Liam Neeson, Ralph Fiennes, Ben Kingsley",
-      "GenreId": 4,
+      "GenreId": 3,
       "images": "https://m.media-amazon.com/images/M/MV5BNDE4OTMxMTctNmRhYy00NWE2LTg3YzItYTk3M2UwOTU5Njg4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_QL75_UX285_CR0,3,285,422_.jpg",
       "year": "1993"
-    },
-    {
+  },
+  {
       "title": "The Godfather Part II",
       "description": "The early life and career of Vito Corleone in 1920s New York City is portrayed, while his son, Michael, expands and tightens his grip on the family crime syndicate.",
       "Stars": "Al Pacino, Robert De Niro, Robert Duvall",
-      "GenreId": 2,
+      "GenreId": 4,
       "images": "https://m.media-amazon.com/images/M/MV5BMWMwMGQzZTItY2JlNC00OWZiLWIyMDctNDk2ZDQ2YjRjMWQ0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_QL75_UY422_CR5,0,285,422_.jpg",
       "year": "1974"
-    },
-    {
+  },
+  {
       "title": "The Lord of the Rings: The Return of the King",
       "description": "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.",
       "Stars": "Elijah Wood, Viggo Mortensen, Ian McKellen",
-      "GenreId": 5,
+      "GenreId": 6,
       "images": "https://m.media-amazon.com/images/M/MV5BNzA5ZDNlZWMtM2NhNS00NDJjLTk4NDItYTRmY2EwMWZlMTY3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_QL75_UX285_CR0,0,285,422_.jpg",
       "year": "2003"
-    },
-    {
+  },
+  {
       "title": "12 Angry Men",
       "description": "The jury in a New York City murder trial is frustrated by a single member whose skeptical caution forces them to more carefully consider the evidence before jumping to a hasty verdict.",
       "Stars": "Henry Fonda, Lee J. Cobb, Martin Balsam",
       "GenreId": 2,
       "images": "https://m.media-amazon.com/images/M/MV5BMWU4N2FjNzYtNTVkNC00NzQ0LTg0MjAtYTJlMjFhNGUxZDFmXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_QL75_UX285_CR0,9,285,422_.jpg",
       "year": "1957"
-    },
-    {
+  },
+  {
       "title": "Pulp Fiction",
       "description": "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
       "Stars": "John Travolta, Uma Thurman, Samuel L. Jackson",
-      "GenreId": 2,
+      "GenreId": 3,
       "images": "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_QL75_UY422_CR2,0,285,422_.jpg",
       "year": "1994"
-    },
-    {
+  },
+  {
       "title": "Spider-Man: Across the Spider-Verse",
       "description": "Miles Morales catapults across the Multiverse, where he encounters a team of Spider-People charged with protecting its very existence. When the heroes clash on how to handle a new threat, Miles must redefine what it means to be a hero.",
       "Stars": "Shameik Moore, Hailee Steinfeld, Brian Tyree Henry",
       "GenreId": 5,
       "images": "https://m.media-amazon.com/images/M/MV5BMzI0NmVkMjEtYmY4MS00ZDMxLTlkZmEtMzU4MDQxYTMzMjU2XkEyXkFqcGdeQXVyMzQ0MzA0NTM@._V1_QL75_UX285_CR0,1,285,422_.jpg",
       "year": "2023"
-    },
-    {
+  },
+  {
       "title": "Inception",
       "description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.",
       "Stars": "Leonardo DiCaprio, Joseph Gordon-Levitt, Elliot Page",
-      "GenreId": 6,
+      "GenreId": 2,
       "images": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_QL75_UX285_CR0,0,285,422_.jpg",
       "year": "2010"
-    },
-    {
+  },
+  {
       "title": "The Lord of the Rings: The Fellowship of the Ring",
       "description": "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
-      "Stars": "Elijah Wood, an McKellen, Orlando Bloom",
-      "GenreId": 5,
+      "Stars": "Elijah Wood, Ian McKellen, Orlando Bloom",
+      "GenreId": 1,
       "images": "https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_QL75_UX285_CR0,1,285,422_.jpg",
       "year": "2001"
-    },
-    {
+  },
+  {
       "title": "Fight Club",
       "description": "An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more.",
       "Stars": "Brad Pitt, Edward Norton, Meat Loaf",
-      "GenreId": 1,
+      "GenreId": 5,
       "images": "https://m.media-amazon.com/images/M/MV5BODQ0OWJiMzktYjNlYi00MzcwLThlZWMtMzRkYTY4ZDgxNzgxXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_QL75_UX285_CR0,3,285,422_.jpg",
       "year": "1999"
-    }
-  ]
-  
+  },
+  {
+      "title": "Forrest Gump",
+      "description": "The history of the United States from the 1950s to the '70s unfolds from the perspective of an Alabama man with an IQ of 75, who yearns to be reunited with his childhood sweetheart.",
+      "Stars": "Tom Hanks, Robin Wright, Gary Sinise",
+      "GenreId": 6,
+      "images": "https://m.media-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_QL75_UY422_CR3,0,285,422_.jpg",
+      "year": "1994"
+  },
+  {
+      "title": "Il buono, il brutto, il cattivo",
+      "description": "A bounty hunting scam joins two men in an uneasy alliance against a third in a race to find a fortune in gold buried in a remote cemetery.",
+      "Stars": "Clint Eastwood, Eli Wallach, Lee Van Cleef",
+      "GenreId": 3,
+      "images": "https://m.media-amazon.com/images/M/MV5BNjJlYmNkZGItM2NhYy00MjlmLTk5NmQtNjg1NmM2ODU4OTMwXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_QL75_UX285_CR0,3,285,422_.jpg",
+      "year": "1966"
+  },
+  {
+      "title": "The Lord of the Rings: The Two Towers",
+      "description": "While Frodo and Sam edge closer to Mordor with the help of the shifty Gollum, the divided fellowship makes a stand against Sauron's new ally, Saruman, and his hordes of Isengard.",
+      "Stars": "Elijah Wood, Ian McKellen, Viggo Mortensen",
+      "GenreId": 2,
+      "images": "https://m.media-amazon.com/images/M/MV5BZGMxZTdjZmYtMmE2Ni00ZTdkLWI5NTgtNjlmMjBiNzU2MmI5XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_QL75_UX285_CR0,11,285,422_.jpg",
+      "year": "2002"
+  },
+  {
+      "title": "Interstellar",
+      "description": "When Earth becomes uninhabitable in the future, a farmer and ex-NASA pilot, Joseph Cooper, is tasked to pilot a spacecraft, along with a team of researchers, to find a new planet for humans.",
+      "Stars": "Matthew McConaughey, Anne Hathaway, Jessica Chastain",
+      "GenreId": 3,
+      "images": "https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_QL75_UX285_CR0,0,285,422_.jpg",
+      "year": "2014"
+  },
+  {
+      "title": "Goodfellas",
+      "description": "The story of ",
+      "Stars": "Robert De Niro, Ray Liotta, Joe Pesci",
+      "GenreId": 3,
+      "images": "https://m.media-amazon.com/images/M/MV5BY2NkZjEzMDgtN2RjYy00YzM1LWI4ZmQtMjIwYjFjNmI3ZGEwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_QL75_UX285_CR0,3,285,422_.jpg",
+      "year": "1990"
+  },
+  {
+      "title": "The Matrix",
+      "description": "When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence.",
+      "Stars": "Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss",
+      "GenreId": 4,
+      "images": "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_QL75_UX285_CR0,3,285,422_.jpg",
+      "year": "1999"
+  },
+  {
+      "title": "One Flew Over the Cuckoo's Nest",
+      "description": "In the Fall of 1963, a Korean War veteran and criminal pleads insanity and is admitted to a mental institution, where he rallies up the scared patients against the tyrannical nurse.",
+      "Stars": "Jack Nicholson, Louise Fletcher, Michael Berryman",
+      "GenreId": 3,
+      "images": "https://m.media-amazon.com/images/M/MV5BZjA0OWVhOTAtYWQxNi00YzNhLWI4ZjYtNjFjZTEyYjJlNDVlL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_QL75_UX285_CR0,1,285,422_.jpg",
+      "year": "1975"
+  },
+  {
+      "title": "Star Wars: Episode V - The Empire Strikes Back",
+      "description": "After the Rebels are overpowered by the Empire, Luke Skywalker begins his Jedi training with Yoda, while his friends are pursued across the galaxy by Darth Vader and bounty hunter Boba Fett.",
+      "Stars": "Mark Hamill, Harrison Ford, Carrie Fisher",
+      "GenreId": 2,
+      "images": "https://m.media-amazon.com/images/M/MV5BYmU1NDRjNDgtMzhiMi00NjZmLTg5NGItZDNiZjU5NTU4OTE0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_QL75_UX285_CR0,11,285,422_.jpg",
+      "year": "1980"
+  },
+  {
+      "title": "Oppenheimer",
+      "description": "The story of American scientist, ",
+      "Stars": "Cillian Murphy, Emily Blunt, Matt Damon",
+      "GenreId": 3,
+      "images": "https://m.media-amazon.com/images/M/MV5BMDBmYTZjNjUtN2M1MS00MTQ2LTk2ODgtNzc2M2QyZGE5NTVjXkEyXkFqcGdeQXVyNzAwMjU2MTY@._V1_QL75_UX285_CR0,0,285,422_.jpg",
+      "year": "2023"
+  },
+  {
+      "title": "Se7en",
+      "description": "Two detectives, a rookie and a veteran, hunt a serial killer who uses the seven deadly sins as his motives.",
+      "Stars": "Morgan Freeman, Brad Pitt, Kevin Spacey",
+      "GenreId": 3,
+      "images": "https://m.media-amazon.com/images/M/MV5BOTUwODM5MTctZjczMi00OTk4LTg3NWUtNmVhMTAzNTNjYjcyXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_QL75_UX285_CR0,12,285,422_.jpg",
+      "year": "1995"
+  },
+  {
+      "title": "The Silence of the Lambs",
+      "description": "A young F.B.I. cadet must receive the help of an incarcerated and manipulative cannibal killer to help catch another serial killer, a madman who skins his victims.",
+      "Stars": "Jodie Foster, Anthony Hopkins, Lawrence A. Bonney",
+      "GenreId": 2,
+      "images": "https://m.media-amazon.com/images/M/MV5BNjNhZTk0ZmEtNjJhMi00YzFlLWE1MmEtYzM1M2ZmMGMwMTU4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_QL75_UY422_CR0,0,285,422_.jpg",
+      "year": "1991"
+  },
+  {
+      "title": "The Green Mile",
+      "description": "A tale set on death row in a Southern jail, where gentle giant John possesses the mysterious power to heal people's ailments. When the lead guard, Paul, recognizes John's gift, he tries to help stave off the condemned man's execution.",
+      "Stars": "Tom Hanks, Michael Clarke Duncan, David Morse",
+      "GenreId": 2,
+      "images": "https://m.media-amazon.com/images/M/MV5BMTUxMzQyNjA5MF5BMl5BanBnXkFtZTYwOTU2NTY3._V1_QL75_UX285_CR0,0,285,422_.jpg",
+      "year": "1999"
+  },
+  {
+      "title": "Saving Private Ryan",
+      "description": "Following the Normandy Landings, a group of U.S. soldiers go behind enemy lines to retrieve a paratrooper whose brothers have been killed in action.",
+      "Stars": "Tom Hanks, Matt Damon, Tom Sizemore",
+      "GenreId": 3,
+      "images": "https://m.media-amazon.com/images/M/MV5BZjhkMDM4MWItZTVjOC00ZDRhLThmYTAtM2I5NzBmNmNlMzI1XkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_QL75_UY422_CR1,0,285,422_.jpg",
+      "year": "1998"
+  },
+  {
+      "title": "Terminator 2: Judgment Day",
+      "description": "A cyborg, identical to the one who failed to kill Sarah Connor, must now protect her ten year old son John from an even more advanced and powerful cyborg.",
+      "Stars": "Arnold Schwarzenegger, Linda Hamilton, Edward Furlong",
+      "GenreId": 3,
+      "images": "https://m.media-amazon.com/images/M/MV5BMGU2NzRmZjUtOGUxYS00ZjdjLWEwZWItY2NlM2JhNjkxNTFmXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_QL75_UX285_CR0,1,285,422_.jpg",
+      "year": "1991"
+  },
+  {
+      "title": "Star Wars",
+      "description": "Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee and two droids to save the galaxy from the Empire's world-destroying battle station, while also attempting to rescue Princess Leia from the mysterious Darth Vader.",
+      "Stars": "Mark Hamill, Harrison Ford, Carrie Fisher",
+      "GenreId": 4,
+      "images": "https://m.media-amazon.com/images/M/MV5BOTA5NjhiOTAtZWM0ZC00MWNhLThiMzEtZDFkOTk2OTU1ZDJkXkEyXkFqcGdeQXVyMTA4NDI1NTQx._V1_QL75_UX285_CR0,7,285,422_.jpg",
+      "year": "1977"
+  },
+  {
+      "title": "Sen to Chihiro no kamikakushi",
+      "description": "During her family's move to the suburbs, a sullen 10-year-old girl wanders into a world ruled by gods, witches and spirits, a world where humans are changed into beasts.",
+      "Stars": "Daveigh Chase, Suzanne Pleshette, Miyu Irino",
+      "GenreId": 1,
+      "images": "https://m.media-amazon.com/images/M/MV5BMjlmZmI5MDctNDE2YS00YWE0LWE5ZWItZDBhYWQ0NTcxNWRhXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_QL75_UX285_CR0,1,285,422_.jpg",
+      "year": "2001"
+  },
+  {
+      "title": "Cidade de Deus",
+      "description": "In the slums of Rio, two kids' paths diverge as one struggles to become a photographer and the other a kingpin.",
+      "Stars": "Alexandre Rodrigues, Leandro Firmino, Matheus Nachtergaele",
+      "GenreId": 6,
+      "images": "https://m.media-amazon.com/images/M/MV5BOTMwYjc5ZmItYTFjZC00ZGQ3LTlkNTMtMjZiNTZlMWQzNzI5XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_QL75_UX285_CR0,2,285,422_.jpg",
+      "year": "2002"
+  },
+  {
+      "title": "La vita è bella",
+      "description": "When an open-minded Jewish waiter and his son become victims of the Holocaust, he uses a perfect mixture of will, humor and imagination to protect his son from the dangers around their camp.",
+      "Stars": "Roberto Benigni, Nicoletta Braschi, Giorgio Cantarini",
+      "GenreId": 3,
+      "images": "https://m.media-amazon.com/images/M/MV5BYmJmM2Q4NmMtYThmNC00ZjRlLWEyZmItZTIwOTBlZDQ3NTQ1XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_QL75_UX285_CR0,2,285,422_.jpg",
+      "year": "1997"
+  },
+  {
+      "title": "It's a Wonderful Life",
+      "description": "An angel is sent from Heaven to help a desperately frustrated businessman by showing him what life would have been like if he had never existed.",
+      "Stars": "James Stewart, Donna Reed, Lionel Barrymore",
+      "GenreId": 3,
+      "images": "https://m.media-amazon.com/images/M/MV5BZjc4NDZhZWMtNGEzYS00ZWU2LThlM2ItNTA0YzQ0OTExMTE2XkEyXkFqcGdeQXVyNjUwMzI2NzU@._V1_QL75_UY422_CR2,0,285,422_.jpg",
+      "year": "1946"
+  },
+  {
+      "title": "Shichinin no samurai",
+      "description": "Farmers from a village exploited by bandits hire a veteran samurai for protection, who gathers six other samurai to join him.",
+      "Stars": "Toshirô Mifune, Takashi Shimura, Keiko Tsushima",
+      "GenreId": 4,
+      "images": "https://m.media-amazon.com/images/M/MV5BNWQ3OTM4ZGItMWEwZi00MjI5LWI3YzgtNTYwNWRkNmIzMGI5XkEyXkFqcGdeQXVyNDY2MTk1ODk@._V1_QL75_UY422_CR8,0,285,422_.jpg",
+      "year": "1954"
+  },
+  {
+      "title": "Seppuku",
+      "description": "When a ronin requesting seppuku at a feudal lord's palace is told of the brutal suicide of another ronin who previously visited, he reveals how their pasts are intertwined - and in doing so challenges the clan's integrity.",
+      "Stars": "Tatsuya Nakadai, Akira Ishihama, Shima Iwashita",
+      "GenreId": 2,
+      "images": "https://m.media-amazon.com/images/M/MV5BYjBmYTQ1NjItZWU5MS00YjI0LTg2OTYtYmFkN2JkMmNiNWVkXkEyXkFqcGdeQXVyMTMxMTY0OTQ@._V1_QL75_UY422_CR12,0,285,422_.jpg",
+      "year": "1962"
+  },
+  {
+      "title": "Gladiator",
+      "description": "A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.",
+      "Stars": "Russell Crowe, Joaquin Phoenix, Connie Nielsen",
+      "GenreId": 5,
+      "images": "https://m.media-amazon.com/images/M/MV5BMDliMmNhNDEtODUyOS00MjNlLTgxODEtN2U3NzIxMGVkZTA1L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_QL75_UX285_CR0,0,285,422_.jpg",
+      "year": "2000"
+  },
+  {
+      "title": "The Prestige",
+      "description": "After a tragic accident, two stage magicians in 1890s London engage in a battle to create the ultimate illusion while sacrificing everything they have to outwit each other.",
+      "Stars": "Christian Bale, Hugh Jackman, Scarlett Johansson",
+      "GenreId": 3,
+      "images": "https://m.media-amazon.com/images/M/MV5BMjA4NDI0MTIxNF5BMl5BanBnXkFtZTYwNTM0MzY2._V1_QL75_UX285_CR0,0,285,422_.jpg",
+      "year": "2006"
+  },
+  {
+      "title": "The Departed",
+      "description": "An undercover cop and a mole in the police attempt to identify each other while infiltrating an Irish gang in South Boston.",
+      "Stars": "Leonardo DiCaprio, Matt Damon, Jack Nicholson",
+      "GenreId": 4,
+      "images": "https://m.media-amazon.com/images/M/MV5BMTI1MTY2OTIxNV5BMl5BanBnXkFtZTYwNjQ4NjY3._V1_QL75_UY422_CR0,0,285,422_.jpg",
+      "year": "2006"
+  },
+  {
+      "title": "Back to the Future",
+      "description": "Marty McFly, a 17-year-old high school student, is accidentally sent 30 years into the past in a time-traveling DeLorean invented by his close friend, the maverick scientist Doc Brown.",
+      "Stars": "Michael J. Fox, Christopher Lloyd, Lea Thompson",
+      "GenreId": 3,
+      "images": "https://m.media-amazon.com/images/M/MV5BZmU0M2Y1OGUtZjIxNi00ZjBkLTg1MjgtOWIyNThiZWIwYjRiXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_QL75_UX285_CR0,11,285,422_.jpg",
+      "year": "1985"
+  },
+  {
+      "title": "Django Unchained",
+      "description": "With the help of a German bounty-hunter, a freed slave sets out to rescue his wife from a brutal plantation owner in Mississippi.",
+      "Stars": "Jamie Foxx, Christoph Waltz, Leonardo DiCaprio",
+      "GenreId": 3,
+      "images": "https://m.media-amazon.com/images/M/MV5BMjIyNTQ5NjQ1OV5BMl5BanBnXkFtZTcwODg1MDU4OA@@._V1_QL75_UX285_CR0,0,285,422_.jpg",
+      "year": "2012"
+  },
+  {
+      "title": "Gisaengchung",
+      "description": "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.",
+      "Stars": "Song Kang-ho, Lee Sun-kyun, Cho Yeo-jeong",
+      "GenreId": 2,
+      "images": "https://m.media-amazon.com/images/M/MV5BYWZjMjk3ZTItODQ2ZC00NTY5LWE0ZDYtZTI3MjcwN2Q5NTVkXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_QL75_UX285_CR0,0,285,422_.jpg",
+      "year": "2019"
+  },
+  {
+      "title": "Alien",
+      "description": "The crew of a commercial spacecraft encounters a deadly lifeform after investigating an unknown transmission.",
+      "Stars": "Sigourney Weaver, Tom Skerritt, John Hurt",
+      "GenreId": 2,
+      "images": "https://m.media-amazon.com/images/M/MV5BOGQzZTBjMjQtOTVmMS00NGE5LWEyYmMtOGQ1ZGZjNmRkYjFhXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_QL75_UX285_CR0,4,285,422_.jpg",
+      "year": "1979"
+  },
+  {
+      "title": "Whiplash",
+      "description": "A promising young drummer enrolls at a cut-throat music conservatory where his dreams of greatness are mentored by an instructor who will stop at nothing to realize a student's potential.",
+      "Stars": "Miles Teller, J.K. Simmons, Melissa Benoist",
+      "GenreId": 2,
+      "images": "https://m.media-amazon.com/images/M/MV5BOTA5NDZlZGUtMjAxOS00YTRkLTkwYmMtYWQ0NWEwZDZiNjEzXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_QL75_UX285_CR0,0,285,422_.jpg",
+      "year": "2014"
+  },
+  {
+      "title": "Léon",
+      "description": "12-year-old Mathilda is reluctantly taken in by Léon, a professional assassin, after her family is murdered. An unusual relationship forms as she becomes his protégée and learns the assassin's trade.",
+      "Stars": "Jean Reno, Gary Oldman, Natalie Portman",
+      "GenreId": 3,
+      "images": "https://m.media-amazon.com/images/M/MV5BOTgyMWQ0ZWUtN2Q2MS00NmY0LWI3OWMtNjFkMzZlNDZjNTk0XkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_QL75_UX285_CR0,2,285,422_.jpg",
+      "year": "1994"
+  },
+  {
+      "title": "The Usual Suspects",
+      "description": "The sole survivor of a pier shoot-out tells the story of how a notorious criminal influenced the events that began with five criminals meeting in a seemingly random police lineup.",
+      "Stars": "Kevin Spacey, Gabriel Byrne, Chazz Palminteri",
+      "GenreId": 3,
+      "images": "https://m.media-amazon.com/images/M/MV5BYTViNjMyNmUtNDFkNC00ZDRlLThmMDUtZDU2YWE4NGI2ZjVmXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_QL75_UX285_CR0,2,285,422_.jpg",
+      "year": "1995"
+  },
+  {
+      "title": "The Pianist",
+      "description": "A Polish Jewish musician struggles to survive the destruction of the Warsaw ghetto of World War II.",
+      "Stars": "Adrien Brody, Thomas Kretschmann, Frank Finlay",
+      "GenreId": 6,
+      "images": "https://m.media-amazon.com/images/M/MV5BOWRiZDIxZjktMTA1NC00MDQ2LWEzMjUtMTliZmY3NjQ3ODJiXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_QL75_UY422_CR10,0,285,422_.jpg",
+      "year": "2002"
+  },
+  {
+      "title": "The Lion King",
+      "description": "Lion prince Simba and his father are targeted by his bitter uncle, who wants to ascend the throne himself.",
+      "Stars": "Matthew Broderick, Jeremy Irons, James Earl Jones",
+      "GenreId": 3,
+      "images": "https://m.media-amazon.com/images/M/MV5BYTYxNGMyZTYtMjE3MS00MzNjLWFjNmYtMDk3N2FmM2JiM2M1XkEyXkFqcGdeQXVyNjY5NDU4NzI@._V1_QL75_UX285_CR0,1,285,422_.jpg",
+      "year": "1994"
+  },
+  {
+      "title": "American History X",
+      "description": "Living a life marked by violence, neo-Nazi Derek finally goes to prison after killing two black youths. Upon his release, Derek vows to change; he hopes to prevent his brother, Danny, who idolizes Derek, from following in his footsteps.",
+      "Stars": "Edward Norton, Edward Furlong, Beverly D'Angelo",
+      "GenreId": 1,
+      "images": "https://m.media-amazon.com/images/M/MV5BZTJhN2FkYWEtMGI0My00YWM4LWI2MjAtM2UwNjY4MTI2ZTQyXkEyXkFqcGdeQXVyNjc3MjQzNTI@._V1_QL75_UX285_CR0,1,285,422_.jpg",
+      "year": "1998"
+  },
+  {
+      "title": "Psycho",
+      "description": "A Phoenix secretary embezzles $40,000 from her employer's client, goes on the run and checks into a remote motel run by a young man under the domination of his mother.",
+      "Stars": "Anthony Perkins, Janet Leigh, Vera Miles",
+      "GenreId": 3,
+      "images": "https://m.media-amazon.com/images/M/MV5BNTQwNDM1YzItNDAxZC00NWY2LTk0M2UtNDIwNWI5OGUyNWUxXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_QL75_UX285_CR0,1,285,422_.jpg",
+      "year": "1960"
+  },
+  {
+      "title": "The Intouchables",
+      "description": "After he becomes a quadriplegic from a paragliding accident, an aristocrat hires a young man from the projects to be his caregiver.",
+      "Stars": "François Cluzet, Omar Sy, Anne Le Ny",
+      "GenreId": 1,
+      "images": "https://m.media-amazon.com/images/M/MV5BMTYxNDA3MDQwNl5BMl5BanBnXkFtZTcwNTU4Mzc1Nw@@._V1_QL75_UX285_CR0,0,285,422_.jpg",
+      "year": "2011"
+  },
+  {
+      "title": "Casablanca",
+      "description": "A cynical expatriate American cafe owner struggles to decide whether or not to help his former lover and her fugitive husband escape the Nazis in French Morocco.",
+      "Stars": "Humphrey Bogart, Ingrid Bergman, Paul Henreid",
+      "GenreId": 3,
+      "images": "https://m.media-amazon.com/images/M/MV5BY2IzZGY2YmEtYzljNS00NTM5LTgwMzUtMzM1NjQ4NGI0OTk0XkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_QL75_UX285_CR0,4,285,422_.jpg",
+      "year": "1942"
+  },
+  {
+      "title": "Hotaru no haka",
+      "description": "A young boy and his little sister struggle to survive in Japan during World War II.",
+      "Stars": "Tsutomu Tatsumi, Ayano Shiraishi, Akemi Yamaguchi",
+      "GenreId": 2,
+      "images": "https://m.media-amazon.com/images/M/MV5BZmY2NjUzNDQtNTgxNC00M2Q4LTljOWQtMjNjNDBjNWUxNmJlXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_QL75_UX285_CR0,3,285,422_.jpg",
+      "year": "1988"
+  },
+  {
+      "title": "Once Upon a Time in the West",
+      "description": "A mysterious stranger with a harmonica joins forces with a notorious desperado to protect a beautiful widow from a ruthless assassin working for the railroad.",
+      "Stars": "Henry Fonda, Charles Bronson, Claudia Cardinale",
+      "GenreId": 2,
+      "images": "https://m.media-amazon.com/images/M/MV5BODQ3NDExOGYtMzI3Mi00NWRlLTkwNjAtNjc4MDgzZGJiZTA1XkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_QL75_UX285_CR0,2,285,422_.jpg",
+      "year": "1968"
+  },
+  {
+      "title": "Rear Window",
+      "description": "A photographer in a wheelchair spies on his neighbors from his Greenwich Village courtyard apartment window, and becomes convinced one of them has committed murder, despite the skepticism of his fashion-model girlfriend.",
+      "Stars": "James Stewart, Grace Kelly, Wendell Corey",
+      "GenreId": 3,
+      "images": "https://m.media-amazon.com/images/M/MV5BNGUxYWM3M2MtMGM3Mi00ZmRiLWE0NGQtZjE5ODI2OTJhNTU0XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_QL75_UY422_CR1,0,285,422_.jpg",
+      "year": "1954"
+  },
+  {
+      "title": "Nuovo Cinema Paradiso",
+      "description": "A filmmaker recalls his childhood when falling in love with the pictures at the cinema of his home village and forms a deep friendship with the cinema's projectionist.",
+      "Stars": "Philippe Noiret, Enzo Cannavale, Antonella Attili",
+      "GenreId": 1,
+      "images": "https://m.media-amazon.com/images/M/MV5BM2FhYjEyYmYtMDI1Yy00YTdlLWI2NWQtYmEzNzAxOGY1NjY2XkEyXkFqcGdeQXVyNTA3NTIyNDg@._V1_QL75_UX285_CR0,0,285,422_.jpg",
+      "year": "1988"
+  },
+  {
+      "title": "Modern Times",
+      "description": "The Tramp struggles to live in modern industrial society with the help of a young homeless woman.",
+      "Stars": "Charles Chaplin, Paulette Goddard, Henry Bergman",
+      "GenreId": 1,
+      "images": "https://m.media-amazon.com/images/M/MV5BYjJiZjMzYzktNjU0NS00OTkxLWEwYzItYzdhYWJjN2QzMTRlL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_QL75_UX285_CR0,11,285,422_.jpg",
+      "year": "1936"
+  },
+  {
+      "title": "City Lights",
+      "description": "With the aid of a wealthy erratic tippler, a dewy-eyed tramp who has fallen in love with a sightless flower girl accumulates money to be able to help her medically.",
+      "Stars": "Charles Chaplin, Virginia Cherrill, Florence Lee",
+      "GenreId": 2,
+      "images": "https://m.media-amazon.com/images/M/MV5BY2I4MmM1N2EtM2YzOS00OWUzLTkzYzctNDc5NDg2N2IyODJmXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_QL75_UX285_CR0,3,285,422_.jpg",
+      "year": "1931"
+  },
+  {
+      "title": "Oldeuboi",
+      "description": "After being kidnapped and imprisoned for fifteen years, Oh Dae-Su is released, only to find that he must find his captor in five days.",
+      "Stars": "Choi Min-sik, Yoo Ji-tae, Kang Hye-jeong",
+      "GenreId": 2,
+      "images": "https://m.media-amazon.com/images/M/MV5BMTI3NTQyMzU5M15BMl5BanBnXkFtZTcwMTM2MjgyMQ@@._V1_QL75_UX285_CR0,0,285,422_.jpg",
+      "year": "2003"
+  },
+  {
+      "title": "Spider-Man: Into the Spider-Verse",
+      "description": "Teen Miles Morales becomes the Spider-Man of his universe and must join with five spider-powered individuals from other dimensions to stop a threat for all realities.",
+      "Stars": "Shameik Moore, Jake Johnson, Hailee Steinfeld",
+      "GenreId": 1,
+      "images": "https://m.media-amazon.com/images/M/MV5BMjMwNDkxMTgzOF5BMl5BanBnXkFtZTgwNTkwNTQ3NjM@._V1_QL75_UX285_CR0,1,285,422_.jpg",
+      "year": "2018"
+  },
+  {
+      "title": "Avengers: Endgame",
+      "description": "After the devastating events of ",
+      "Stars": "Robert Downey Jr., Chris Evans, Mark Ruffalo",
+      "GenreId": 4,
+      "images": "https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_QL75_UX285_CR0,0,285,422_.jpg",
+      "year": "2019"
+  },
+  {
+      "title": "The Dark Knight Rises",
+      "description": "Eight years after the Joker's reign of chaos, Batman is coerced out of exile with the assistance of the mysterious Selina Kyle in order to defend Gotham City from the vicious guerrilla terrorist Bane.",
+      "Stars": "Christian Bale, Tom Hardy, Anne Hathaway",
+      "GenreId": 4,
+      "images": "https://m.media-amazon.com/images/M/MV5BMTk4ODQzNDY3Ml5BMl5BanBnXkFtZTcwODA0NTM4Nw@@._V1_QL75_UX285_CR0,0,285,422_.jpg",
+      "year": "2012"
+  },
+  {
+      "title": "Joker",
+      "description": "The rise of Arthur Fleck, from aspiring stand-up comedian and pariah to Gotham's clown prince and leader of the revolution.",
+      "Stars": "Joaquin Phoenix, Robert De Niro, Zazie Beetz",
+      "GenreId": 4,
+      "images": "https://m.media-amazon.com/images/M/MV5BNGVjNWI4ZGUtNzE0MS00YTJmLWE0ZDctN2ZiYTk2YmI3NTYyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_QL75_UX285_CR0,0,285,422_.jpg",
+      "year": "2019"
+  },
+  {
+      "title": "Memento",
+      "description": "A man with short-term memory loss attempts to track down his wife's murderer.",
+      "Stars": "Guy Pearce, Carrie-Anne Moss, Joe Pantoliano",
+      "GenreId": 3,
+      "images": "https://m.media-amazon.com/images/M/MV5BZTcyNjk1MjgtOWI3Mi00YzQwLWI5MTktMzY4ZmI2NDAyNzYzXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_QL75_UY422_CR1,0,285,422_.jpg",
+      "year": "2000"
+  },
+  {
+      "title": "The Shining",
+      "description": "A family heads to an isolated hotel for the winter where a sinister presence influences the father into violence, while his psychic son sees horrific forebodings from both past and future.",
+      "Stars": "Jack Nicholson, Shelley Duvall, Danny Lloyd",
+      "GenreId": 1,
+      "images": "https://m.media-amazon.com/images/M/MV5BZWFlYmY2MGEtZjVkYS00YzU4LTg0YjQtYzY1ZGE3NTA5NGQxXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_QL75_UX285_CR0,6,285,422_.jpg",
+      "year": "1980"
+  },
+  {
+      "title": "Aliens",
+      "description": "Decades after surviving the Nostromo incident, Ellen Ripley is sent out to re-establish contact with a terraforming colony but finds herself battling the Alien Queen and her offspring.",
+      "Stars": "Sigourney Weaver, Michael Biehn, Carrie Henn",
+      "GenreId": 3,
+      "images": "https://m.media-amazon.com/images/M/MV5BOGJkY2EyOWYtYWRmNy00ZTEzLTllMDAtYzYzYjA0ZjFhZWJjXkEyXkFqcGdeQXVyMTUzMDUzNTI3._V1_QL75_UX285_CR0,5,285,422_.jpg",
+      "year": "1986"
+  },
+  {
+      "title": "Raiders of the Lost Ark",
+      "description": "In 1936, archaeologist and adventurer Indiana Jones is hired by the U.S. government to find the Ark of the Covenant before the Nazis can obtain its awesome powers.",
+      "Stars": "Harrison Ford, Karen Allen, Paul Freeman",
+      "GenreId": 2,
+      "images": "https://m.media-amazon.com/images/M/MV5BNTU2ODkyY2MtMjU1NC00NjE1LWEzYjgtMWQ3MzRhMTE0NDc0XkEyXkFqcGdeQXVyMjM4MzQ4OTQ@._V1_QL75_UY422_CR1,0,285,422_.jpg",
+      "year": "1981"
+  },
+  {
+      "title": "Apocalypse Now",
+      "description": "A U.S. Army officer serving in Vietnam is tasked with assassinating a renegade Special Forces Colonel who sees himself as a god.",
+      "Stars": "Martin Sheen, Marlon Brando, Robert Duvall",
+      "GenreId": 3,
+      "images": "https://m.media-amazon.com/images/M/MV5BYmQyNTA1ZGItNjZjMi00NzFlLWEzMWEtNWMwN2Q2MjJhYzEyXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_QL75_UX285_CR0,8,285,422_.jpg",
+      "year": "1979"
+  },
+  {
+      "title": "Avengers: Infinity War",
+      "description": "The Avengers and their allies must be willing to sacrifice all in an attempt to defeat the powerful Thanos before his blitz of devastation and ruin puts an end to the universe.",
+      "Stars": "Robert Downey Jr., Chris Hemsworth, Mark Ruffalo",
+      "GenreId": 2,
+      "images": "https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_QL75_UX285_CR0,0,285,422_.jpg",
+      "year": "2018"
+  },
+  {
+      "title": "Idi i smotri",
+      "description": "After finding an old rifle, a young boy joins the Soviet resistance movement against ruthless German forces and experiences the horrors of World War II.",
+      "Stars": "Aleksey Kravchenko, Olga Mironova, Liubomiras Laucevicius",
+      "GenreId": 4,
+      "images": "https://m.media-amazon.com/images/M/MV5BODM4Njg0NTAtYjI5Ny00ZjAxLTkwNmItZTMxMWU5M2U3M2RjXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_QL75_UX285_CR0,8,285,422_.jpg",
+      "year": "1985"
+  },
+  {
+      "title": "Amadeus",
+      "description": "The life, success and troubles of ",
+      "Stars": "F. Murray Abraham, Tom Hulce, Elizabeth Berridge",
+      "GenreId": 4,
+      "images": "https://m.media-amazon.com/images/M/MV5BNWJlNzUzNGMtYTAwMS00ZjI2LWFmNWQtODcxNWUxODA5YmU1XkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_QL75_UX285_CR0,11,285,422_.jpg",
+      "year": "1984"
+  },
+  {
+      "title": "Coco",
+      "description": "Aspiring musician Miguel, confronted with his family's ancestral ban on music, enters the Land of the Dead to find his great-great-grandfather, a legendary singer.",
+      "Stars": "Anthony Gonzalez, Gael García Bernal, Benjamin Bratt",
+      "GenreId": 1,
+      "images": "https://m.media-amazon.com/images/M/MV5BYjQ5NjM0Y2YtNjZkNC00ZDhkLWJjMWItN2QyNzFkMDE3ZjAxXkEyXkFqcGdeQXVyODIxMzk5NjA@._V1_QL75_UY422_CR5,0,285,422_.jpg",
+      "year": "2017"
+  },
+  {
+      "title": "Kimi no na wa.",
+      "description": "Two teenagers share a profound, magical connection upon discovering they are swapping bodies. Things manage to become even more complicated when the boy and girl decide to meet in person.",
+      "Stars": "Ryunosuke Kamiki, Mone Kamishiraishi, Ryo Narita",
+      "GenreId": 3,
+      "images": "https://m.media-amazon.com/images/M/MV5BODRmZDVmNzUtZDA4ZC00NjhkLWI2M2UtN2M0ZDIzNDcxYThjL2ltYWdlXkEyXkFqcGdeQXVyNTk0MzMzODA@._V1_QL75_UX285_CR0,0,285,422_.jpg",
+      "year": "2016"
+  },
+  {
+      "title": "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb",
+      "description": "An insane American general orders a bombing attack on the Soviet Union, triggering a path to nuclear holocaust that a war room full of politicians and generals frantically tries to stop.",
+      "Stars": "Peter Sellers, George C. Scott, Sterling Hayden",
+      "GenreId": 6,
+      "images": "https://m.media-amazon.com/images/M/MV5BMWMxYjZkOWUtM2FjMi00MmI1LThkNzQtNTM5Y2E2ZGQ2NGFhXkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_QL75_UX285_CR0,3,285,422_.jpg",
+      "year": "1964"
+  },
+  {
+      "title": "WALL·E",
+      "description": "In the distant future, a small waste-collecting robot inadvertently embarks on a space journey that will ultimately decide the fate of mankind.",
+      "Stars": "Ben Burtt, Elissa Knight, Jeff Garlin",
+      "GenreId": 5,
+      "images": "https://m.media-amazon.com/images/M/MV5BMjExMTg5OTU0NF5BMl5BanBnXkFtZTcwMjMxMzMzMw@@._V1_QL75_UX285_CR0,0,285,422_.jpg",
+      "year": "2008"
+  },
+  {
+      "title": "The Lives of Others",
+      "description": "In 1984 East Berlin, an agent of the secret police, conducting surveillance on a writer and his lover, finds himself becoming increasingly absorbed by their lives.",
+      "Stars": "Ulrich Mühe, Martina Gedeck, Sebastian Koch",
+      "GenreId": 2,
+      "images": "https://m.media-amazon.com/images/M/MV5BNmQyNmJjM2ItNTQzYi00ZjMxLWFjMDYtZjUyN2YwZDk5YWQ2XkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_QL75_UX285_CR0,2,285,422_.jpg",
+      "year": "2006"
+  },
+  {
+      "title": "3 Idiots",
+      "description": "Two friends are searching for their long lost companion. They revisit their college days and recall the memories of their friend who inspired them to think differently, even as the rest of the world called them \"idiots\".",
+      "Stars": "Aamir Khan, Madhavan, Mona Singh",
+      "GenreId": 3,
+      "images": "https://m.media-amazon.com/images/M/MV5BNTkyOGVjMGEtNmQzZi00NzFlLTlhOWQtODYyMDc2ZGJmYzFhXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_QL75_UY422_CR4,0,285,422_.jpg",
+      "year": "2009"
+  },
+  {
+      "title": "Capharnaüm",
+      "description": "While serving a five-year sentence for a violent crime, a 12-year-old boy sues his parents for neglect.",
+      "Stars": "Zain Al Rafeea, Yordanos Shiferaw, Boluwatife Treasure Bankole",
+      "GenreId": 4,
+      "images": "https://m.media-amazon.com/images/M/MV5BMmExNzU2ZWMtYzUwYi00YmM2LTkxZTQtNmVhNjY0NTMyMWI2XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_QL75_UY422_CR1,0,285,422_.jpg",
+      "year": "2018"
+  },
+  {
+      "title": "Das Boot",
+      "description": "A German U-boat stalks the frigid waters of the North Atlantic as its young crew experience the sheer terror and claustrophobic life of a submariner in World War II.",
+      "Stars": "Jürgen Prochnow, Herbert Grönemeyer, Klaus Wennemann",
+      "GenreId": 6,
+      "images": "https://m.media-amazon.com/images/M/MV5BNDBjMWUxNTUtNjZiNi00YzJhLTgzNzUtMTRiY2FkZmMzYTNjXkEyXkFqcGdeQXVyMTUzMDUzNTI3._V1_QL75_UX285_CR0,6,285,422_.jpg",
+      "year": "1981"
+  },
+  {
+      "title": "Sunset Blvd.",
+      "description": "A screenwriter develops a dangerous relationship with a faded film star determined to make a triumphant return.",
+      "Stars": "William Holden, Gloria Swanson, Erich von Stroheim",
+      "GenreId": 3,
+      "images": "https://m.media-amazon.com/images/M/MV5BMTU0NTkyNzYwMF5BMl5BanBnXkFtZTgwMDU0NDk5MTI@._V1_QL75_UX285_CR0,4,285,422_.jpg",
+      "year": "1950"
+  },
+  {
+      "title": "Paths of Glory",
+      "description": "After refusing to attack an enemy position, a general accuses the soldiers of cowardice and their commanding officer must defend them.",
+      "Stars": "Kirk Douglas, Ralph Meeker, Adolphe Menjou",
+      "GenreId": 2,
+      "images": "https://m.media-amazon.com/images/M/MV5BOTI5Nzc0OTMtYzBkMS00NjkxLThmM2UtNjM2ODgxN2M5NjNkXkEyXkFqcGdeQXVyNjQ2MjQ5NzM@._V1_QL75_UX285_CR0,7,285,422_.jpg",
+      "year": "1957"
+  },
+  {
+      "title": "Witness for the Prosecution",
+      "description": "A veteran British barrister must defend his client in a murder trial that has surprise after surprise.",
+      "Stars": "Tyrone Power, Marlene Dietrich, Charles Laughton",
+      "GenreId": 2,
+      "images": "https://m.media-amazon.com/images/M/MV5BNDQwODU5OWYtNDcyNi00MDQ1LThiOGMtZDkwNWJiM2Y3MDg0XkEyXkFqcGdeQXVyMDI2NDg0NQ@@._V1_QL75_UX285_CR0,7,285,422_.jpg",
+      "year": "1957"
+  },
+  {
+      "title": "The Great Dictator",
+      "description": "Dictator Adenoid Hynkel tries to expand his empire while a poor Jewish barber tries to avoid persecution from Hynkel's regime.",
+      "Stars": "Charles Chaplin, Paulette Goddard, Jack Oakie",
+      "GenreId": 3,
+      "images": "https://m.media-amazon.com/images/M/MV5BMmExYWJjNTktNGUyZS00ODhmLTkxYzAtNWIzOGEyMGNiMmUwXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_QL75_UY422_CR0,0,285,422_.jpg",
+      "year": "1940"
+  },
+  {
+      "title": "Tengoku to jigoku",
+      "description": "An executive of a Yokohama shoe company becomes a victim of extortion when his chauffeur's son is kidnapped by mistake and held for ransom.",
+      "Stars": "Toshirô Mifune, Yutaka Sada, Tatsuya Nakadai",
+      "GenreId": 4,
+      "images": "https://m.media-amazon.com/images/M/MV5BOTI4NTNhZDMtMWNkZi00MTRmLWJmZDQtMmJkMGVmZTEzODlhXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_QL75_UX285_CR0,3,285,422_.jpg",
+      "year": "1963"
+  },
+  {
+      "title": "Inglourious Basterds",
+      "description": "In Nazi-occupied France during World War II, a plan to assassinate Nazi leaders by a group of Jewish U.S. soldiers coincides with a theatre owner's vengeful plans for the same.",
+      "Stars": "Brad Pitt, Diane Kruger, Eli Roth",
+      "GenreId": 5,
+      "images": "https://m.media-amazon.com/images/M/MV5BOTJiNDEzOWYtMTVjOC00ZjlmLWE0NGMtZmE1OWVmZDQ2OWJhXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_QL75_UX285_CR0,0,285,422_.jpg",
+      "year": "2009"
+  },
+  {
+      "title": "American Beauty",
+      "description": "A sexually frustrated suburban father has a mid-life crisis after becoming infatuated with his daughter's best friend.",
+      "Stars": "Kevin Spacey, Annette Bening, Thora Birch",
+      "GenreId": 6,
+      "images": "https://m.media-amazon.com/images/M/MV5BNTBmZWJkNjctNDhiNC00MGE2LWEwOTctZTk5OGVhMWMyNmVhXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_QL75_UX285_CR0,0,285,422_.jpg",
+      "year": "1999"
+  },
+  {
+      "title": "2001: A Space Odyssey",
+      "description": "After uncovering a mysterious artifact buried beneath the Lunar surface, a spacecraft is sent to Jupiter to find its origins: a spacecraft manned by two men and the supercomputer HAL 9000.",
+      "Stars": "Keir Dullea, Gary Lockwood, William Sylvester",
+      "GenreId": 3,
+      "images": "https://m.media-amazon.com/images/M/MV5BMmNlYzRiNDctZWNhMi00MzI4LThkZTctMTUzMmZkMmFmNThmXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_QL75_UX285_CR0,0,285,422_.jpg",
+      "year": "1968"
+  },
+  {
+      "title": "Requiem for a Dream",
+      "description": "The drug-induced utopias of four Coney Island people are shattered when their addictions run deep.",
+      "Stars": "Ellen Burstyn, Jared Leto, Jennifer Connelly",
+      "GenreId": 4,
+      "images": "https://m.media-amazon.com/images/M/MV5BOTdiNzJlOWUtNWMwNS00NmFlLWI0YTEtZmI3YjIzZWUyY2Y3XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_QL75_UX285_CR0,3,285,422_.jpg",
+      "year": "2000"
+  },
+  {
+      "title": "Good Will Hunting",
+      "description": "Will Hunting, a janitor at M.I.T., has a gift for mathematics, but needs help from a psychologist to find direction in his life.",
+      "Stars": "Robin Williams, Matt Damon, Ben Affleck",
+      "GenreId": 4,
+      "images": "https://m.media-amazon.com/images/M/MV5BOTI0MzcxMTYtZDVkMy00NjY1LTgyMTYtZmUxN2M3NmQ2NWJhXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_QL75_UX285_CR0,7,285,422_.jpg",
+      "year": "1997"
+  },
+  {
+      "title": "Eternal Sunshine of the Spotless Mind",
+      "description": "When their relationship turns sour, a couple undergoes a medical procedure to have each other erased from their memories for ever.",
+      "Stars": "Jim Carrey, Kate Winslet, Tom Wilkinson",
+      "GenreId": 2,
+      "images": "https://m.media-amazon.com/images/M/MV5BMTY4NzcwODg3Nl5BMl5BanBnXkFtZTcwNTEwOTMyMw@@._V1_QL75_UX285_CR0,0,285,422_.jpg",
+      "year": "2004"
+  },
+  {
+      "title": "Braveheart",
+      "description": "Scottish warrior William Wallace leads his countrymen in a rebellion to free his homeland from the tyranny of King Edward I of England.",
+      "Stars": "Mel Gibson, Sophie Marceau, Patrick McGoohan",
+      "GenreId": 3,
+      "images": "https://m.media-amazon.com/images/M/MV5BMzkzMmU0YTYtOWM3My00YzBmLWI0YzctOGYyNTkwMWE5MTJkXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_QL75_UY422_CR0,0,285,422_.jpg",
+      "year": "1995"
+  },
+  {
+      "title": "Reservoir Dogs",
+      "description": "When a simple jewelry heist goes horribly wrong, the surviving criminals begin to suspect that one of them is a police informant.",
+      "Stars": "Harvey Keitel, Tim Roth, Michael Madsen",
+      "GenreId": 4,
+      "images": "https://m.media-amazon.com/images/M/MV5BZmExNmEwYWItYmQzOS00YjA5LTk2MjktZjEyZDE1Y2QxNjA1XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_QL75_UX285_CR0,2,285,422_.jpg",
+      "year": "1992"
+  },
+  {
+      "title": "Once Upon a Time in America",
+      "description": "A former Prohibition-era Jewish gangster returns to the Lower East Side of Manhattan 35 years later, where he must once again confront the ghosts and regrets of his old life.",
+      "Stars": "Robert De Niro, James Woods, Elizabeth McGovern",
+      "GenreId": 2,
+      "images": "https://m.media-amazon.com/images/M/MV5BMmQzZjdmZDAtOGE2Yy00MmUwLTljYzgtZTMwMjk3ZDdiOWUyXkEyXkFqcGdeQXVyNjc5NjEzNA@@._V1_QL75_UX285_CR0,3,285,422_.jpg",
+      "year": "1984"
+  },
+  {
+      "title": "Jagten",
+      "description": "A teacher lives a lonely life, all the while struggling over his son's custody. His life slowly gets better as he finds love and receives good news from his son, but his new luck is about to be brutally shattered by an innocent little lie.",
+      "Stars": "Mads Mikkelsen, Thomas Bo Larsen, Annika Wedderkopp",
+      "GenreId": 3,
+      "images": "https://m.media-amazon.com/images/M/MV5BMTg2NDg3ODg4NF5BMl5BanBnXkFtZTcwNzk3NTc3Nw@@._V1_QL75_UY422_CR5,0,285,422_.jpg",
+      "year": "2012"
+  },
+  {
+      "title": "Toy Story",
+      "description": "A cowboy doll is profoundly threatened and jealous when a new spaceman action figure supplants him as top toy in a boy's bedroom.",
+      "Stars": "Tom Hanks, Tim Allen, Don Rickles",
+      "GenreId": 2,
+      "images": "https://m.media-amazon.com/images/M/MV5BMDU2ZWJlMjktMTRhMy00ZTA5LWEzNDgtYmNmZTEwZTViZWJkXkEyXkFqcGdeQXVyNDQ2OTk4MzI@._V1_QL75_UX285_CR0,2,285,422_.jpg",
+      "year": "1995"
+  },
+  {
+      "title": "Star Wars: Episode VI - Return of the Jedi",
+      "description": "After rescuing Han Solo from Jabba the Hutt, the Rebels attempt to destroy the second Death Star, while Luke struggles to help Darth Vader back from the dark side.",
+      "Stars": "Mark Hamill, Harrison Ford, Carrie Fisher",
+      "GenreId": 3,
+      "images": "https://m.media-amazon.com/images/M/MV5BOWZlMjFiYzgtMTUzNC00Y2IzLTk1NTMtZmNhMTczNTk0ODk1XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_QL75_UX285_CR0,10,285,422_.jpg",
+      "year": "1983"
+  },
+  {
+      "title": "Mononoke-hime",
+      "description": "On a journey to find the cure for a Tatarigami's curse, Ashitaka finds himself in the middle of a war between the forest gods and Tatara, a mining colony. In this quest he also meets San, the Mononoke Hime.",
+      "Stars": "Yôji Matsuda, Yuriko Ishida, Yûko Tanaka",
+      "GenreId": 4,
+      "images": "https://m.media-amazon.com/images/M/MV5BNTZkYmI0MmEtNGFlZC00OWZjLWFjMmItMjk1OWZkOWJiZGVjXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_QL75_UX285_CR0,3,285,422_.jpg",
+      "year": "1997"
+  },
+  {
+      "title": "Toy Story 3",
+      "description": "The toys are mistakenly delivered to a day-care center instead of the attic right before Andy leaves for college, and it's up to Woody to convince the other toys that they weren't abandoned and to return home.",
+      "Stars": "Tom Hanks, Tim Allen, Joan Cusack",
+      "GenreId": 1,
+      "images": "https://m.media-amazon.com/images/M/MV5BMTgxOTY4Mjc0MF5BMl5BanBnXkFtZTcwNTA4MDQyMw@@._V1_QL75_UY422_CR6,0,285,422_.jpg",
+      "year": "2010"
+  },
+  {
+      "title": "Lawrence of Arabia",
+      "description": "The story of ",
+      "Stars": "Peter O'Toole, Alec Guinness, Anthony Quinn",
+      "GenreId": 1,
+      "images": "https://m.media-amazon.com/images/M/MV5BYWY5ZjhjNGYtZmI2Ny00ODM0LWFkNzgtZmI1YzA2N2MxMzA0XkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_QL75_UY422_CR4,0,285,422_.jpg",
+      "year": "1962"
+  },
+  {
+      "title": "Citizen Kane",
+      "description": "Following the death of publishing tycoon Charles Foster Kane, reporters scramble to uncover the meaning of his final utterance: 'Rosebud.'",
+      "Stars": "Orson Welles, Joseph Cotten, Dorothy Comingore",
+      "GenreId": 3,
+      "images": "https://m.media-amazon.com/images/M/MV5BYjBiOTYxZWItMzdiZi00NjlkLWIzZTYtYmFhZjhiMTljOTdkXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_QL75_UX285_CR0,3,285,422_.jpg",
+      "year": "1941"
+  },
+  {
+      "title": "Singin' in the Rain",
+      "description": "A silent film star falls for a chorus girl just as he and his delusionally jealous screen partner are trying to make the difficult transition to talking pictures in 1920s Hollywood.",
+      "Stars": "Gene Kelly, Donald O'Connor, Debbie Reynolds",
+      "GenreId": 4,
+      "images": "https://m.media-amazon.com/images/M/MV5BZDRjNGViMjQtOThlMi00MTA3LThkYzQtNzJkYjBkMGE0YzE1XkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_QL75_UY422_CR2,0,285,422_.jpg",
+      "year": "1952"
+  },
+  {
+      "title": "M - Eine Stadt sucht einen Mörder",
+      "description": "When the police in a German city are unable to catch a child-murderer, other criminals join in the manhunt.",
+      "Stars": "Peter Lorre, Ellen Widmann, Inge Landgut",
+      "GenreId": 2,
+      "images": "https://m.media-amazon.com/images/M/MV5BODA4ODk3OTEzMF5BMl5BanBnXkFtZTgwMTQ2ODMwMzE@._V1_QL75_UX285_CR0,3,285,422_.jpg",
+      "year": "1931"
+  },
+  {
+      "title": "Ikiru",
+      "description": "A bureaucrat tries to find meaning in his life after he discovers he has terminal cancer.",
+      "Stars": "Takashi Shimura, Nobuo Kaneko, Shin'ichi Himori",
+      "GenreId": 1,
+      "images": "https://m.media-amazon.com/images/M/MV5BYWM1YmZkNTctZDAwNy00ZTY4LWFjMTktYzU4ZjViMmU1OTJmXkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_QL75_UX285_CR0,3,285,422_.jpg",
+      "year": "1952"
+  }
+]

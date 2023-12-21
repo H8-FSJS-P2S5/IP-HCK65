@@ -1,6 +1,8 @@
 const { comparePassword } = require("../helpers/bcrypt");
 const { createToken } = require("../helpers/jwt");
 const { User } = require("../models");
+const { OAuth2Client } = require("google-auth-library");
+const client = new OAuth2Client();
 
 class UserController {
   static async login(req, res) {
@@ -25,7 +27,10 @@ class UserController {
         throw { code: 400, message: "Invalid email/password" };
       }
 
-      const comparedPassword = comparePassword(password, dataLoginUser.password);
+      const comparedPassword = comparePassword(
+        password,
+        dataLoginUser.password
+      );
 
       if (!comparedPassword) {
         throw { code: 401, message: "Invalid email/password" };
@@ -48,9 +53,43 @@ class UserController {
     }
   }
 
+  static async googleLogin(req, res) {
+    try {
+      // const {google_token} = req.body
+      console.log(req.headers.google_token, "di user controller login google");
+      const ticket = await client.verifyIdToken({
+        idToken: req.headers.google_token,
+        audience: process.env.google_client,
+      });
+      const payload = ticket.getPayload();
+      console.log(payload, "ini payload di usercontroller login google");
+
+      const user = await User.findOne({ where: { email: payload.email } });
+      if (!user) {
+        const user = await User.create({
+          email: payload.email,
+          fullName: payload.name,
+          password: String(Math.random()),
+        });
+      }
+
+      console.log(user, "data user google di controller");
+      // const userid = payload["sub"];
+
+      const payloadId = {
+        id: user.id,
+      };
+
+      const access_token = createToken(payloadId);
+      res.status(200).json({ access_token });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ message: "Internal Server Error" });
+    }
+  }
+
   static async register(req, res) {
     try {
-      
       const { fullName, email, password } = req.body;
       const newUser = await User.create({ fullName, email, password });
       res.status(201).json({

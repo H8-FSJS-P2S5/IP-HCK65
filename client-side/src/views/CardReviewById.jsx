@@ -18,7 +18,7 @@ function CardReview() {
           },
         }
       );
-      // console.log(response.data, "card review");
+      console.log(response.data, "card review");
       setDetailReview(response.data);
     } catch (error) {
       console.log(error);
