@@ -1,13 +1,16 @@
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import './login.css'
 import { useEffect } from 'react'
+import { GoogleLogin } from '@react-oauth/google';
+import { jwtDecode } from "jwt-decode";
+
 
 export default function Login() {
     const navigate = useNavigate()
     const [searchParams] = useSearchParams()
     useEffect(() => {
         // console.log(searchParams.get('access_token'));
-        if(searchParams.get('status') === 'success') {
+        if (searchParams.get('status') === 'success') {
             localStorage.access_token = searchParams.get('access_token');
             navigate('/')
         }
@@ -17,7 +20,7 @@ export default function Login() {
             <header className="px-12 header bg-black">
                 <div className="logo">
                     <Link to='/'>
-                    <img src="https://i.ibb.co/k3HYSg2/logowhite.png" width={120} alt="Pitch+" />
+                        <img src="https://i.ibb.co/k3HYSg2/logowhite.png" width={120} alt="Pitch+" />
                     </Link>
                 </div>
             </header>
@@ -29,7 +32,7 @@ export default function Login() {
                     </div>
                     <form className='text-center mx-auto w-1/2'>
                         {/* email */}
-                        <div className='w-full text-left py-4'>
+                        {/* <div className='w-full text-left py-4'>
                             <label htmlFor="email" className='mb-2 inline-block'>Email or username</label>
                             <input
                                 type="email"
@@ -50,9 +53,9 @@ export default function Login() {
                                     placeholder:text-gray-400 
                                     p-3
                                     outline-none' />
-                        </div>
+                        </div> */}
                         {/* password */}
-                        <div className='w-full text-left py-4'>
+                        {/* <div className='w-full text-left py-4'>
                             <label htmlFor="password" className='mb-2 inline-block'>Password</label>
                             <input
                                 type="password"
@@ -72,12 +75,23 @@ export default function Login() {
                                     placeholder:text-gray-400 
                                     p-3
                                     outline-none' />
-                        </div>
+                        </div> */}
                         {/* login btn */}
-                        <div className='w-full text-left py-4'>
+                        <div className='w-full flex flex-col justify-center items-center gap-4'>
+                            <GoogleLogin className='w-full text-center'
+                                onSuccess={credentialResponse => {
+                                    const credentialResponseDecoded = jwtDecode(credentialResponse.credential)
+                                    console.log(credentialResponseDecoded);
+                                    navigate('/spotifyAuth')
+                                }}
+                                onError={() => {
+                                    console.log('Login Failed');
+                                }}
+                            />
+                            OR
                             {/* <a href="https://api.rafizuaf.online/auth/spotify/sign-in"  */}
-                            <a href="http://localhost:3000/auth/spotify/sign-in" 
-                            className='bg-primary
+                            <a href="http://localhost:3000/auth/spotify/sign-in"
+                                className='bg-primary
                                     block 
                                     w-full
                                     p-3
@@ -87,7 +101,7 @@ export default function Login() {
                                     text-black 
                                     font-semibold hover:font-bold 
                                     text-center rounded-full
-                                    outline-none'>Login</a>
+                                    outline-none'>Login with Spotify</a>
                         </div>
                         {/* forgot */}
                         <div className='w-full text-center py-4'>
@@ -98,7 +112,7 @@ export default function Login() {
                     <div className='border-t border-gray-400 w-3/4 my-4 mx-auto'>
                         <p className=' pt-8'>
                             <span className='text-gray-400'>
-                            Don't have an account? 
+                                Don't have an account?
                             </span>
                             <Link to='/signup' className='text-white hover:text-primary font-semibold underline mx-auto'> Sign up for Pitch+</Link>
                         </p>

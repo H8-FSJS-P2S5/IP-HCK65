@@ -6,11 +6,16 @@ import Signup from "./components/Signup/Signup";
 import CardRecommendationTracks from "./components/Card/CardRecommendationTracks";
 import CardRecommendationArtists from "./components/Card/CardRecommendationArtists";
 import Profile from "./components/Profile/Profile";
+import AuthorizeSpotify from "./components/Login/AuthorizeSpotify";
 
 export const router = createBrowserRouter([
     {
         path: '/login',
         element: <Login />
+    },
+    {
+        path: '/spotifyAuth',
+        element: <AuthorizeSpotify />,
     },
     {
         path: '/signup',
@@ -68,6 +73,7 @@ export const router = createBrowserRouter([
                     }
                 }
             },
+            
         ]
     }
 ])

@@ -1,7 +1,6 @@
 const express = require('express');
 const SpotifyWebApi = require('spotify-web-api-node');
 const { User } = require('../models');
-const axios = require('axios');
 
 class ControllerUser {
     static async getInfoCurrentUser(req, res, next) {
@@ -19,7 +18,13 @@ class ControllerUser {
             })
 
             spotifyApi.setAccessToken(req.headers.authorization)
-            // console.log(spotifyApi, "<< spotifyApi");
+            // console.log(spotifyApi._credentials.accessToken, "<< spotifyApi");
+            if(!spotifyApi._credentials.accessToken) {
+                throw {
+                    name: 'InvalidToken',
+                    message: 'Invalid access token'
+                }
+            }
 
             let data = await spotifyApi.getMe()
             let profile = await User.findOne({ where: { email: data.body.email } })
@@ -34,6 +39,18 @@ class ControllerUser {
 
         } catch (error) {
             console.log(error);
+            if(error.name === 'InvalidToken') {
+                return res.status(401).json({
+                    error: error.message
+                })
+            }
+            
+            if(error.name === 'NotFound') {
+                return res.status(404).json({
+                    error: error.message
+                })
+            }
+
             res.status(500).json({
                 message: 'Internal server error'
             })
@@ -190,7 +207,7 @@ class ControllerUser {
                 clientId,
                 clientSecret
             })
-            
+
             spotifyApi.setAccessToken(req.headers.authorization);
             let artists = await spotifyApi.getMyTopArtists({ limit: 5, time_range: 'short_term' })
             artists = artists.body.items
