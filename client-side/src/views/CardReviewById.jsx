@@ -12,7 +12,7 @@ function CardReview() {
       console.log("masuk");
       // id buat edit dibawah
      
-      const response = await axios.get(`http://localhost:3000/movie/${id}`, {
+      const response = await axios.get(`http://34.142.153.182/movie/${id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("access_token")}`,
         },
@@ -30,7 +30,7 @@ function CardReview() {
       console.log("masuk change status");
       const {data} = await axios({
         method: "put",
-        url: `http://localhost:3000/user/status/${userId}`,
+        url: `http://34.142.153.182/user/status/${userId}`,
         headers: {
           Authorization: `Bearer ${localStorage.getItem("access_token")}`,
         },
@@ -49,7 +49,7 @@ function CardReview() {
       console.log("masuk payment");
       const { data } = await axios({
         method: "POST",
-        url: `http://localhost:3000/movies/upgrade-account/`,
+        url: `http://34.142.153.182/movies/upgrade-account/`,
         headers: {
           authorization: `Bearer ${localStorage.getItem("access_token")}`,
         },

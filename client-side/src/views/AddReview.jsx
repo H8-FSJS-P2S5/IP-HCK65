@@ -28,7 +28,7 @@ function AddReview() {
 
       if (result.isConfirmed) {
         const response = await axios.post(
-          `http://localhost:3000/movie/add/review/${id}`,
+          `http://34.142.153.182/movie/add/review/${id}`,
           createReview,
           {
             headers: {
