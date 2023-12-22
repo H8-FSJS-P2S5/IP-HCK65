@@ -1,0 +1,19 @@
+
+.card {
+    background-color: var(--cardSecBg);
+}
+
+.card:hover {
+    background: var(--cardBg);
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+    /* box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1); */
+}
+
+.playBtn {
+    display: none!important;
+}
+.card:hover .playBtn {
+    display: block!important;
+    transition: all .3s ease-in;
+}
