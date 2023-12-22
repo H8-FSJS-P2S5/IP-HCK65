@@ -14,7 +14,7 @@ export const fetchDetailMovie = () => {
               return;
           }
 
-          const response = await axios.get("http://34.142.153.182/movie", {
+          const response = await axios.get("https://ip.enchareal.cloud/movie", {
               headers: {
                   Authorization: `Bearer ${accessToken}`,
               },

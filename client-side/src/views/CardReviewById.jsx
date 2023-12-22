@@ -12,7 +12,7 @@ function CardReview() {
       console.log("masuk");
       // id buat edit dibawah
      
-      const response = await axios.get(`http://34.142.153.182/movie/${id}`, {
+      const response = await axios.get(`https://ip.enchareal.cloud/movie/${id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("access_token")}`,
         },
@@ -30,7 +30,7 @@ function CardReview() {
       console.log("masuk change status");
       const {data} = await axios({
         method: "put",
-        url: `http://34.142.153.182/user/status/${userId}`,
+        url: `https://ip.enchareal.cloud/user/status/${userId}`,
         headers: {
           Authorization: `Bearer ${localStorage.getItem("access_token")}`,
         },
@@ -49,7 +49,7 @@ function CardReview() {
       console.log("masuk payment");
       const { data } = await axios({
         method: "POST",
-        url: `http://34.142.153.182/movies/upgrade-account/`,
+        url: `https://ip.enchareal.cloud/movies/upgrade-account/`,
         headers: {
           authorization: `Bearer ${localStorage.getItem("access_token")}`,
         },

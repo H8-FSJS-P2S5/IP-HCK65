@@ -43,7 +43,7 @@ function EditReview() {
       console.log("Masuk loadReview dengan ID:",reviewId);
 
       const response = await axios.get(
-        `http://34.142.153.182/movie/review/${reviewId}`,
+        `https://ip.enchareal.cloud/movie/review/${reviewId}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("access_token")}`,

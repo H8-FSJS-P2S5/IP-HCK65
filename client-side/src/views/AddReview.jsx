@@ -28,7 +28,7 @@ function AddReview() {
 
       if (result.isConfirmed) {
         const response = await axios.post(
-          `http://34.142.153.182/movie/add/review/${id}`,
+          `https://ip.enchareal.cloud/movie/add/review/${id}`,
           createReview,
           {
             headers: {

@@ -16,7 +16,7 @@ function Login() {
     try {
       console.log("login nih jsx", formLogin);
       const { data } = await axios.post(
-        "http://34.142.153.182/login",
+        "https://ip.enchareal.cloud/login",
         formLogin
       );
 
@@ -35,7 +35,7 @@ function Login() {
   async function handleCredentialResponse(response) {
     console.log("Encoded JWT ID token: " + response.credential);
     try {
-      const { data } = await axios.post("http://34.142.153.182/google-login", null, {
+      const { data } = await axios.post("https://ip.enchareal.cloud/google-login", null, {
         headers: {
           google_token: response.credential
         }

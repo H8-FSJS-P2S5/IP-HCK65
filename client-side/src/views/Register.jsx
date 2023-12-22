@@ -29,7 +29,7 @@ function Register() {
       if (result.isConfirmed) {
         try {
           const { data } = await axios.post(
-            "http://34.142.153.182/register",
+            "https://ip.enchareal.cloud/register",
             formRegister,
             {
               headers: {

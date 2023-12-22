@@ -12,7 +12,7 @@ function DataReview() {
       console.log(id, "masuk user review");
 
       const response = await axios.get(
-        `http://34.142.153.182/movie/detail/review/${id}`,
+        `https://ip.enchareal.cloud/movie/detail/review/${id}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("access_token")}`,
@@ -28,7 +28,7 @@ function DataReview() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://34.142.153.182/movie/review/delete/${id}`, {
+      await axios.delete(`https://ip.enchareal.cloud/movie/review/delete/${id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("access_token")}`,
         },
