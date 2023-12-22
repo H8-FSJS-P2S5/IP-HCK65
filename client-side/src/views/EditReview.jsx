@@ -19,7 +19,7 @@ function EditReview() {
 
       console.log(editReview, "ini edit article jsx");
       const response = await axios.put(
-        `http://localhost:3000/movie/review/edit/${reviewId}`,
+        `http://34.142.153.182/movie/review/edit/${reviewId}`,
         editReview,
         {
           headers: {
@@ -43,7 +43,7 @@ function EditReview() {
       console.log("Masuk loadReview dengan ID:",reviewId);
 
       const response = await axios.get(
-        `http://localhost:3000/movie/review/${reviewId}`,
+        `http://34.142.153.182/movie/review/${reviewId}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("access_token")}`,

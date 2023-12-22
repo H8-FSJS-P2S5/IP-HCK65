@@ -5,7 +5,7 @@ const { OAuth2Client } = require("google-auth-library");
 const client = new OAuth2Client();
 
 class UserController {
-  static async login(req, res) {
+  static async login(req, res, next) {
     try {
       const { email, password } = req.body;
 
@@ -49,7 +49,7 @@ class UserController {
     }
   }
 
-  static async googleLogin(req, res) {
+  static async googleLogin(req, res, next) {
     try {
       // const {google_token} = req.body
       // console.log(req.headers.google_token, "di user controller login google");
@@ -85,7 +85,7 @@ class UserController {
     }
   }
 
-  static async register(req, res) {
+  static async register(req, res, next) {
     try {
       const { fullName, email, password } = req.body;
       const newUser = await User.create({ fullName, email, password });

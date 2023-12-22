@@ -29,7 +29,7 @@ function Register() {
       if (result.isConfirmed) {
         try {
           const { data } = await axios.post(
-            "http://localhost:3000/register",
+            "http://34.142.153.182/register",
             formRegister,
             {
               headers: {
