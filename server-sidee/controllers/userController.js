@@ -7,47 +7,57 @@ const client = new OAuth2Client();
 class UserController {
   static async login(req, res, next) {
     try {
+      console.log("masuk");
       const { email, password } = req.body;
-
+  
       if (!email) {
-        throw {message: "Email is required" };
+        throw { status: 400, message: "Email is required" };
       }
-
+  
       if (!password) {
-        throw {message: "Password is required" };
+        throw { status: 400, message: "Password is required" };
       }
-
+  
       const dataLoginUser = await User.findOne({
         where: {
           email,
         },
       });
-
+  
       if (!dataLoginUser) {
-        throw { message: "Invalid email/password" };
+        throw { status: 401, message: "Invalid email/password" };
       }
-
+  
       const comparedPassword = comparePassword(
         password,
         dataLoginUser.password
       );
-
+  
       if (!comparedPassword) {
-        throw { message: "Invalid email/password" };
+        throw { status: 401, message: "Invalid email/password" };
       }
-
+  
       console.log(dataLoginUser);
+  
       const payload = {
         id: dataLoginUser.id,
       };
-
+  
       const access_token = createToken(payload);
-      res.status(200).json({ access_token, id: dataLoginUser.id, status: dataLoginUser.status });
+  
+      res.status(200).json({
+        access_token,
+        id: dataLoginUser.id,
+        status: dataLoginUser.status,
+      });
     } catch (error) {
-      console.log(error);
-      next(error);
+      console.error(error);
+  
+      const status = error.status || 500;
+      res.status(status).json({ error: error.message });
     }
   }
+  
 
   static async googleLogin(req, res, next) {
     try {
