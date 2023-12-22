@@ -38,6 +38,12 @@ function errorHandler(error, req, res, next) {
       message = "Password is required";
       break;
 
+      case "Email Already Exists":
+        status = 400;
+        message = "Email Already Exists";
+        break;
+      
+
     default:
       break;
   }
