@@ -10,11 +10,11 @@ class UserController {
       const { email, password } = req.body;
 
       if (!email) {
-        throw { code: 400, message: "Email is required" };
+        throw {message: "Email is required" };
       }
 
       if (!password) {
-        throw { code: 400, message: "Password is required" };
+        throw {message: "Password is required" };
       }
 
       const dataLoginUser = await User.findOne({
@@ -24,7 +24,7 @@ class UserController {
       });
 
       if (!dataLoginUser) {
-        throw { code: 400, message: "Invalid email/password" };
+        throw { message: "Invalid email/password" };
       }
 
       const comparedPassword = comparePassword(
@@ -33,7 +33,7 @@ class UserController {
       );
 
       if (!comparedPassword) {
-        throw { code: 401, message: "Invalid email/password" };
+        throw { message: "Invalid email/password" };
       }
 
       console.log(dataLoginUser);
@@ -45,18 +45,14 @@ class UserController {
       res.status(200).json({ access_token, id: dataLoginUser.id, status: dataLoginUser.status });
     } catch (error) {
       console.log(error);
-      if (error.code !== undefined) {
-        res.status(error.code).json({ message: error.message });
-      } else {
-        res.status(500).json({ message: "Internal Server Error" });
-      }
+      next(error);
     }
   }
 
   static async googleLogin(req, res) {
     try {
       // const {google_token} = req.body
-      console.log(req.headers.google_token, "di user controller login google");
+      // console.log(req.headers.google_token, "di user controller login google");
       const ticket = await client.verifyIdToken({
         idToken: req.headers.google_token,
         audience: process.env.google_client,
@@ -85,7 +81,7 @@ class UserController {
       res.status(200).json({ access_token, id: user.id, status: user.status});
     } catch (error) {
       console.log(error);
-      res.status(500).json({ message: "Internal Server Error" });
+      next(error);
     }
   }
 
@@ -99,12 +95,7 @@ class UserController {
       });
     } catch (error) {
       console.log(error);
-      if (
-        (error.name === "SequelizeValidationError") |
-        (error.name === "SequelizeUniqueConstraintError")
-      ) {
-        res.status(400).json({ message: error.errors[0].message });
-      }
+      next(error);
     }
   }
 }

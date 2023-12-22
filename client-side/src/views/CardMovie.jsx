@@ -1,53 +1,25 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+// import axios from "axios";
+// import { fetchMovies } from "../features/moviesSlice";
+import { fetchDetailMovie } from "../features/actions";
 
 function CardMovie() {
-  const [detailMovie, setDetailMovie] = useState([]);
+  // const [detailMovie, setDetailMovie] = useState([]);
 
-  // const fetchDetailMovie = async () => {
-  //   try {
-  //     const response = await axios({
-  //       method: "get",
-  //       url: "https://imdb-top-100-movies1.p.rapidapi.com/",
-  //       headers: {
-  //         "X-RapidAPI-Key": `864ff3300fmshcf160a65dec8800p122df3jsn3e75fb70c1a1`,
-  //         "X-RapidAPI-Host": "imdb-top-100-movies1.p.rapidapi.com"
-  //       },
-  //     });
-  //     console.log(response.data, ">>>>>>");
-  //     setDetailMovie(response.data)
-
-  //   } catch (error) {
-  //     console.log(error);
-  //     throw error;
-  //   }
-  // };
-
-  const fetchDetailMovie = async () => {
-    try {
-      const response = await axios.get("http://localhost:3000/movie", {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("access_token")}`,
-        },
-      });
-      console.log(response.data, ">>>>>>");
-      setDetailMovie(response.data);
-    } catch (error) {
-      console.log(error);
-      throw error;
-    }
-  };
-  // console.log(fetchDetailMovie);
+  const dataMovieList = useSelector((state) => state.movies.movies);
+  const dispatch = useDispatch();
+  // console.log(dataMovieList, "cardmovie yaaa");
 
   useEffect(() => {
-    fetchDetailMovie();
+    dispatch(fetchDetailMovie());
   }, []);
 
   return (
     <>
       <div className="flex flex-wrap justify-center m-3">
-        {detailMovie.map((item) => (
+        {dataMovieList.map((item) => (
           <div
             key={item.id}
             className="w-full sm:w-72 md:w-96 lg:w-80 xl:w-96 cursor-pointer rounded-lg bg-white p-2 m-2 shadow duration-150 hover:scale-105 hover:shadow-md"

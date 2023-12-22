@@ -129,3 +129,367 @@ _Response (500 - Internal Server Error)_
   "message": "Internal server error"
 }
 ```
+
+
+### GET /movie/:id
+
+> Get Movie by Id
+
+_Request Header_
+
+```
+{
+  "access_token": "string"
+}
+```
+
+_Request Body_
+
+```
+{
+
+    "name": string,
+    "headline": string,
+    "review": string,
+    "UserId": integer,
+    "MovieId": integer,
+}
+```
+
+_Response (200 - Ok Request)_
+
+```
+{
+    "name": string,
+    "headline": string,
+    "review": string,
+    "UserId": integer,
+    "MovieId": integer,
+}
+```
+
+_Response (500 - Internal Server Error)_
+
+```
+{
+  "message": "Internal server error"
+}
+```
+
+
+### POST /movie/add/review/:id
+
+> Create a new Review by Movie Id
+
+_Request Header_
+
+```
+{
+  "access_token": "string"
+}
+```
+
+_Request Body_
+
+```
+{
+    "name": string,
+    "headline": string,
+    "review": string,
+}
+```
+
+_Response (201 - Created)_
+
+```
+{
+    "name": string,
+    "headline": string,
+    "review": string,
+}
+```
+
+_Response (400 - Bad Request)_
+
+```
+{
+  "message": "title is Required."
+}
+OR
+{
+  "message": "content is Required."
+}
+OR
+{
+  "message": "MovieId is Required"
+}
+OR
+{
+  "message": "GenreId is Required."
+}
+```
+
+_Response (500 - Internal Server Error)_
+
+```
+{
+  "message": "Internal server error"
+}
+```
+
+
+### GET /movie/detail/review/:id
+
+> Get Review Detail by Movie Id
+
+_Request Header_
+
+```
+{
+  "access_token": "string"
+}
+```
+
+_Request Body_
+
+```
+{
+        "name": string,
+        "headline": string,
+        "review": string,
+        "UserId": integer,
+        "MovieId": integer,
+}
+```
+
+_Response (200 - Ok Request)_
+
+```
+    {
+        "name": string,
+        "headline": string,
+        "review": string,
+        "UserId": integer,
+        "MovieId": integer,
+    }
+```
+
+_Response (500 - Internal Server Error)_
+
+```
+{
+  "message": "Internal server error"
+}
+```
+
+
+### DELETE /movie/review/delete/:id
+
+> Remove a Review data based on Movie Id
+
+_Request Header_
+
+```
+{
+  "access_token": "string"
+}
+```
+
+_Request Body_
+
+```
+{
+      "name": string,
+      "headline": string,
+      "review": string,
+      "UserId": integer,
+      "MovieId": integer,
+}
+```
+
+_Response (200 - Ok Request)_
+
+```
+{
+ "message": "Success Delete Review"
+}
+```
+
+_Response (500 - Internal Server Error)_
+
+```
+{
+  "message": "Internal server error"
+}
+```
+
+
+### PUT /movie/review/edit/:id
+
+> update Review Movie on Database by Movie Id
+
+_Request Header_
+
+```
+{
+  "access_token": "string"
+}
+```
+
+_Request Body_
+
+```
+{
+   "name": string
+}
+```
+
+_Response (200 - Ok Request)_
+
+```
+{
+    "message": "Review has been updated!"
+}
+```
+
+_Response (404 - Not Found)_
+
+```
+{
+  "message": "Error not found"
+}
+```
+
+_Response (500 - Internal Server Error)_
+
+```
+{
+  "message": "Internal server error"
+}
+```
+
+
+### GET /movie/review/:id
+
+> Get Review Movie by Id
+
+_Request Header_
+
+```
+{
+  "access_token": "string"
+}
+```
+
+_Request Body_
+
+```
+{
+    "name": string,
+    "headline": string,
+    "review": string,
+}
+```
+
+_Response (200 - Ok Request)_
+
+```
+    {
+      "name": string,
+      "headline": string,
+      "review": string,
+    }
+```
+
+_Response (500 - Internal Server Error)_
+
+```
+{
+  "message": "Internal server error"
+}
+```
+
+
+### POST /movies/upgrade-account
+
+> Create a new Payment for Upgrade Acccount
+
+_Request Header_
+
+```
+{
+  "access_token": "string"
+}
+```
+
+_Request Body_
+
+```
+{
+     "token": string,
+      "redirect_url": string
+}
+```
+
+_Response (201 - Created)_
+
+```
+{
+      "token": string,
+      "redirect_url": string
+}
+```
+
+_Response (500 - Internal Server Error)_
+
+```
+{
+  "name": "Internal Server Error"
+}
+```
+
+### PUT /user/status/:id
+
+> update User on Database by User Id
+
+_Request Header_
+
+```
+{
+  "access_token": "string"
+}
+```
+
+_Request Body_
+
+```
+{
+   "status": string
+}
+```
+
+_Response (200 - Ok Request)_
+
+```
+{
+    "status": string
+}
+```
+
+_Response (404 - Not Found)_
+
+```
+{
+  "message": "Error not found"
+}
+```
+
+_Response (500 - Internal Server Error)_
+
+```
+{
+  "message": "Internal server error"
+}
+```
+
+

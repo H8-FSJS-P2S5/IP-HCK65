@@ -26,23 +26,12 @@ function convertData(originalData) {
 }
 
 class Controller {
-  static async getMovies(req, res) {
+  static async getMovies(req, res, next) {
     try {
       console.log("masuk getmovie");
       // console.log(req.user, ">>");
 
-      // const { data } = await axios({
-      //   method: "GET",
-      //   url: "https://imdb-top-100-movies1.p.rapidapi.com/",
-      //   headers: {
-      //     "X-RapidAPI-Key":
-      //       "864ff3300fmshcf160a65dec8800p122df3jsn3e75fb70c1a1",
-      //     "X-RapidAPI-Host": "imdb-top-100-movies1.p.rapidapi.com",
-      //   },
-      // });
-
       let originalData = require("../data/t.json");
-      // harus looping data json biar sama kayak rapid
       const convertedData = convertData(originalData);
 
       const getMovie = await Movies.findAll();
@@ -74,7 +63,7 @@ class Controller {
       return res.status(200).json(dataReview);
     } catch (error) {
       console.error(error);
-      return res.status(500).json({ message: "Internal Server Error" });
+      next(error);
     }
   }
 
@@ -93,7 +82,7 @@ class Controller {
       res.status(201).json(reviews);
     } catch (error) {
       console.log(error);
-      res.status(500).json({ message: "Internal Server Error" });
+      next(error);
     }
   }
 
@@ -117,7 +106,7 @@ class Controller {
       res.status(200).json(dataReviewById);
     } catch (error) {
       console.log(error);
-      res.status(500).json({ message: "Internal Server Error" });
+      next(error);
     }
   }
 
@@ -129,7 +118,7 @@ class Controller {
       res.status(200).json({ message: "Success Delete Review" });
     } catch (error) {
       console.log(error);
-      res.status(500).json({ message: " Internal Server Error" });
+      next(error);
     }
   }
 
@@ -150,7 +139,7 @@ class Controller {
       });
     } catch (error) {
       console.log(error);
-      res.status(500).json({ message: " Internal Server Error" });
+      next(error);
     }
   }
 
@@ -173,7 +162,7 @@ class Controller {
       res.status(200).json(dataReviewById);
     } catch (error) {
       console.error(error);
-      res.status(500).json({ message: "Internal Server Error" });
+      next(error);
     }
   }
 
@@ -205,7 +194,7 @@ class Controller {
       res.status(201).json(midtransToken);
     } catch (error) {
       console.error(error);
-      res.status(500).json({ message: "Internal Server Error" });
+      next(error);
     }
   }
 
@@ -227,7 +216,7 @@ class Controller {
       });
     } catch (error) {
       console.log(error);
-      res.status(500).json({ message: " Internal Server Error" });
+      next(error);
     }
   }
 }
