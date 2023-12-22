@@ -1,0 +1,34 @@
+npx sequelize-cli model:generate --name User --attributes fullName:string,address:string,phoneNumber:string,email:string,password:string
+npx sequelize-cli model:generate --name ReadingList --attributes title:string,UserId:integer
+
+member => bayar atau hanya registrasi?
+
+fitur jika member bisa download bukunya format pdf
+atau jika member bisa buka seluruh collection buku
+atau tidak ada member, tapi ada buku yang berbayar
+
+
+landing page :
+
+navbar => about => books => Join-member/register account => login => cms/pub
+sidebar => category
+welcome => search book
+corrousel/card new book
+card buku best seller
+footer
+
+page cms user : 
+collection book
+edit profile
+
+
+3party-API
+email - pdf - midtrans
+
+delete : selesai dibaca
+create : tambahin list reading list
+read : 
+
+
+
+
