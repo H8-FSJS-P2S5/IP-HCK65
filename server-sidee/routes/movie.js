@@ -13,6 +13,9 @@ movie.delete("/movie/review/delete/:id", Controller.deleteReviewById);
 movie.put("/movie/review/edit/:id", Controller.EditReviewById);
 movie.get("/movie/review/:id", Controller.getEditById);
 
+movie.post("/movies/upgrade-account", Controller.upgradeAccountPayment)
+movie.put("/user/status/:id", Controller.updateStatusUser);
+
 
 
 module.exports = movie

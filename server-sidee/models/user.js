@@ -56,6 +56,7 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
     },
+    status: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'User',

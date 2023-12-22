@@ -4,5 +4,6 @@ const login = express.Router()
 
 //user endpoint 
 login.post("/login", UserController.login);
+login.post("/google-login", UserController.googleLogin);
 
 module.exports = login

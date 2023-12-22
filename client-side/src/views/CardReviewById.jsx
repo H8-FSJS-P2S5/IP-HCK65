@@ -1,24 +1,23 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import DataReview from "./DataReview";
 
 function CardReview() {
   const { id } = useParams();
   const [detailReview, setDetailReview] = useState();
-
+  const navigate = useNavigate()
   const fetchDetailReview = async () => {
     try {
       console.log("masuk");
-      const response = await axios.get(
-        `http://localhost:3000/movie/${id}`,
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("access_token")}`,
-          },
-        }
-      );
-      // console.log(response.data, "card review");
+      // id buat edit dibawah
+     
+      const response = await axios.get(`http://localhost:3000/movie/${id}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+        },
+      });
+      console.log(response.data, "card review");
       setDetailReview(response.data);
     } catch (error) {
       console.log(error);
@@ -26,8 +25,59 @@ function CardReview() {
     }
   };
 
+  const changeStatusUsertoPremium = async (userId) => {
+    try {
+      console.log("masuk change status");
+      const {data} = await axios({
+        method: "put",
+        url: `http://localhost:3000/user/status/${userId}`,
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+        },
+      });
+      localStorage.removeItem("status");
+      console.log(data, "dari card review");
+      localStorage.setItem("status", data.status)
+      navigate(`/movie/review/${id}`);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handlePremium = async () => {
+    try {
+      console.log("masuk payment");
+      const { data } = await axios({
+        method: "POST",
+        url: `http://localhost:3000/movies/upgrade-account/`,
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("access_token")}`,
+        },
+      });
+
+      let userId = localStorage.getItem("id")
+
+      window.snap.pay(data.token, {
+        onSuccess: function (result) {
+          changeStatusUsertoPremium(userId);
+        },
+      });
+    } catch (error) {
+      console.log(error);
+
+      // alert(error.response.data.message);
+    }
+  };
+  // fungsi handlepremium => taro di onclick
+  //changestatususer (ini buat ubah free ke premium)
+  // di changestatus user localStorage.setItem("status" )
+  // id changestatususer  // let userid=localStorage.getItem("id")
+
+
+
   useEffect(() => {
     fetchDetailReview();
+
   }, [id]);
 
   return (
@@ -47,20 +97,54 @@ function CardReview() {
               <strong>Cast </strong> : {detailReview?.Stars}
             </p>
             <p>{detailReview?.description}</p>
-            <div className="card-actions justify-end">
+            {/* {localStorage.getItem("status") == "premium" && (
+              <div className="card-actions justify-end">
+                <button
+                  type="button"
+                  className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                >
+                  <Link to={`/movie/add/review/${id}`}>Add Review</Link>
+                </button>
+             
+              </div>
+            )} */}
+
+            {localStorage.getItem("status") == "premium" ? (
+               <div className="card-actions justify-end">
+               <button
+                 type="button"
+                 className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+               >
+                 <Link to={`/movie/add/review/${id}`}>Add Review</Link>
+               </button>
+               {/* <button
+               type="button"
+               className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+             >
+               <Link to={`/movie/detail/review/${id}`}>See Review</Link>
+             </button> */}
+             </div>
+            ):(
+              <div className="card-actions justify-end">
               <button
                 type="button"
+                // pake onlick handlepayment, jangan pake link to
+                onClick={() => {
+                  // console.log("logout navbar");
+                 handlePremium()
+                }}
                 className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
               >
-                <Link to={`/movie/add/review/${id}`}>Add Review</Link>
+                <>Buy Premium to add review</>
               </button>
               {/* <button
-                type="button"
-                className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
-              >
-                <Link to={`/movie/detail/review/${id}`}>See Review</Link>
-              </button> */}
+              type="button"
+              className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+            >
+              <Link to={`/movie/detail/review/${id}`}>See Review</Link>
+            </button> */}
             </div>
+            )}
           </div>
         </div>
       </div>

@@ -7,7 +7,7 @@ function DataReview() {
   const [reviewById, setReviewById] = useState([]);
 
   const fetchReviewById = async () => {
-    console.log("masuk");
+    console.log("masuk data review");
     try {
       console.log(id, "masuk user review");
 
@@ -41,6 +41,7 @@ function DataReview() {
 
   useEffect(() => {
     fetchReviewById();
+    console.log(localStorage.getItem("id"),">>id");
   }, [id]);
 
   return (
@@ -65,6 +66,7 @@ function DataReview() {
               </div>
               <div className="flex items-center justify-between mt-6">
                 <p style={{ fontStyle: "italic" }}>{item.name}</p>
+                {localStorage.getItem("id") == item.UserId &&(
                 <div className="flex space-x-2">
                   <button
                     type="button"
@@ -82,6 +84,7 @@ function DataReview() {
                     Delete
                   </button>
                 </div>
+                )}
               </div>
             </div>
           </div>
