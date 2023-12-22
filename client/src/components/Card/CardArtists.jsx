@@ -21,7 +21,7 @@ export default function CardArtists() {
         }
     }
 
-    console.log(artists);
+    // console.log(artists);
     useEffect(() => {
         fetchArtists()
     }, [])
@@ -29,10 +29,9 @@ export default function CardArtists() {
         <>
             {artists.map((artist) => (
                 <div key={artist.id} className="card col-span-1 p-4 rounded-lg">
-                    
                     <div className='relative'>
                         <a href={artist.artistUrl} target="_blank">
-                            <img className='h-52 w-56 object-cover ' src={artist.artistImg} alt="" />
+                            <img className=' object-cover' src={artist.artistImg} alt="" />
                         </a>
                     </div>
 

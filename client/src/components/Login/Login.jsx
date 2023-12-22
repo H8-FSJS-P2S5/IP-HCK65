@@ -26,56 +26,11 @@ export default function Login() {
             </header>
             <div className='py-10'>
                 <div className='bg-black text-center w-1/2 mx-auto'>
-                    <h1 className='text-5xl font-semibold my-12'>Log in to Pitch+</h1>
+                    <h1 className='text-3xl md:text-5xl font-semibold my-12'>Log in to Pitch+</h1>
 
                     <div className='border-b border-gray-400 w-3/4 my-4 mx-auto'>
                     </div>
                     <form className='text-center mx-auto w-1/2'>
-                        {/* email */}
-                        {/* <div className='w-full text-left py-4'>
-                            <label htmlFor="email" className='mb-2 inline-block'>Email or username</label>
-                            <input
-                                type="email"
-                                placeholder='Email or username'
-                                id='email'
-                                name='email'
-                                className='bg-[#121212]
-                                    focus:bg-[#121212]
-                                    block 
-                                    w-full 
-                                    rounded-md 
-                                    border-0 
-                                    text-gray-300 
-                                    shadow-sm 
-                                    ring-1 focus:ring-[3px]
-                                    ring-inset focus:ring-inset
-                                    ring-gray-300 focus:ring-gray-600 hover:ring-white
-                                    placeholder:text-gray-400 
-                                    p-3
-                                    outline-none' />
-                        </div> */}
-                        {/* password */}
-                        {/* <div className='w-full text-left py-4'>
-                            <label htmlFor="password" className='mb-2 inline-block'>Password</label>
-                            <input
-                                type="password"
-                                placeholder='Password'
-                                id='password'
-                                name='password'
-                                className='bg-[#121212] 
-                                    block 
-                                    w-full
-                                    rounded-md 
-                                    border-0 
-                                    text-gray-300 
-                                    shadow-sm 
-                                    ring-1 focus:ring-[3px]
-                                    ring-inset focus:ring-inset
-                                    ring-gray-300 focus:ring-gray-600 hover:ring-white
-                                    placeholder:text-gray-400 
-                                    p-3
-                                    outline-none' />
-                        </div> */}
                         {/* login btn */}
                         <div className='w-full flex flex-col justify-center items-center gap-4'>
                             <GoogleLogin className='w-full text-center'
@@ -88,10 +43,11 @@ export default function Login() {
                                     console.log('Login Failed');
                                 }}
                             />
-                            OR
+                            <h1 className='text-2xl md:text-5xl'>or</h1>
                             {/* <a href="https://api.rafizuaf.online/auth/spotify/sign-in"  */}
                             <a href="http://localhost:3000/auth/spotify/sign-in"
                                 className='bg-primary
+                                    text-xs sm:text-sm md:text-md lg:text-lg
                                     block 
                                     w-full
                                     p-3
@@ -104,12 +60,12 @@ export default function Login() {
                                     outline-none'>Login with Spotify</a>
                         </div>
                         {/* forgot */}
-                        <div className='w-full text-center py-4'>
+                        <div className='w-full text-center py-4 text-xs sm:text-sm md:text-md lg:text-lg'>
                             <Link to='/password/forget' className='text-white font-semibold underline mx-auto'>Forgot your password?</Link>
                         </div>
                     </form>
 
-                    <div className='border-t border-gray-400 w-3/4 my-4 mx-auto'>
+                    <div className='border-t border-gray-400 w-3/4 my-4 mx-auto text-xs sm:text-sm md:text-md lg:text-lg'>
                         <p className=' pt-8'>
                             <span className='text-gray-400'>
                                 Don't have an account?

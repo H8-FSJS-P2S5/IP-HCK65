@@ -40,7 +40,7 @@ export default function Home() {
                     <span className="text-xl font-bold hover:underline duration-300 cursor-pointer">Top Tracks</span>
                     <span>Show all</span>
                 </div>
-                <div className="grid grid-cols-5 gap-6">
+                <div className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-6">
                     <CardTracks />
                 </div>
                 <div>
@@ -53,7 +53,7 @@ export default function Home() {
                     <span className="text-xl font-bold hover:underline duration-300 cursor-pointer">Top Artist</span>
                     <span>Show all</span>
                 </div>
-                <div className="grid grid-cols-5 gap-6">
+                <div className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-6">
                     <CardArtists />
                 </div>
                 <div>

@@ -10,7 +10,7 @@ import Footer from "./Footer";
 export default function Sidebar() {
     return (
         <>
-            <div className="w-1/4 fixed left-0 top-0 sidebar">
+            <div className="w-1/4 hidden xl:block sm:fixed left-0 top-0 sidebar">
                 {/* Nav Home & Search */}
                 <div id="home" className="secondaryBg rounded-lg p-6">
                     <div className="flex items-center gap-4 hover:text-white text-white/50 duration-300">
@@ -26,7 +26,7 @@ export default function Sidebar() {
                     </Link>
                 </div>
                 {/* Nav Your Lib */}
-                <div id="your-library" className="mt-4 secondaryBg rounded-lg px-6 py-2">
+                <div id="your-library" className="mt-4 secondaryBg rounded-lg px-6 py-2 h-screen">
                     <div className="flex justify-between mb-4 items-center gap-4">
                         <div className="flex gap-4 items-center">
                             <LuLibrary className="font-bold text-xl" />
@@ -37,7 +37,7 @@ export default function Sidebar() {
                         </button>
                     </div>
                     {/* Playlists bar */}
-                    <div id="sidebar-overflow" className="overflow-y-scroll h-72">
+                    <div id="sidebar-overflow" className="h-96">
                         <div className="leading-7 tertiaryBg rounded-lg p-6">
                             <p className="font-bold">Create your first playlist</p>
                             <p className="font-semibold">It's easy, we'll help you</p>
@@ -46,6 +46,7 @@ export default function Sidebar() {
                             </button>
                         </div>
                         {/* Podcasts bar */}
+                        
                         <div className="leading-7 tertiaryBg rounded-lg p-6 mt-4">
                             <p className="font-bold">Let's find some podcast to follow</p>
                             <p className="font-semibold">We'll keep you updated on new episode</p>
@@ -54,6 +55,8 @@ export default function Sidebar() {
                             </button>
                         </div>
                     </div>
+                    <div className="absolute bottom-40 left-5">
+
                     <div className="mt-4 -mx-3 flex flex-wrap">
                         <a className='text-xs text-gray-300 mx-4' href="#">Legal</a>
                         <a className='text-xs text-gray-300 mx-4' href="#">Blabla</a>
@@ -64,6 +67,7 @@ export default function Sidebar() {
                         <TfiWorld />
                         <span className="font-bold">Language</span>
                     </button>
+                        </div>
                 </div>
                 {localStorage.access_token ? '' : <Footer />}
 
