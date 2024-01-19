@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "name": "Ayam"
+    },
+    {
+        "id": 2,
+        "name": "Minuman"
+    },
+    {
+        "id": 3,
+        "name": "Pencuci Mulut"
+    },
+    {
+        "id": 4,
+        "name": "Camilan"
+    },
+    {
+        "id": 5,
+        "name": "Nasi"
+    },
+    {
+        "id": 6,
+        "name": "Menu Sarapan"
+    },
+    {
+        "id": 7,
+        "name": "Pizza"
+    }
+]
