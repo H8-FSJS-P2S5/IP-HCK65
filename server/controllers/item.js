@@ -5,7 +5,7 @@ class ItemController {
     static async fetchData(req, res, next) {
         try {
             let item = await Item.findAll();
-            console.log(item);
+            // console.log(item);
 
             res.status(200).json(item)
         } catch (error) {
@@ -24,7 +24,7 @@ class ItemController {
             let found = findData.dataValues
             // console.log(found, "FOUUUNNNDD");
             
-            let newCart = await Cart.create({name: found.name, price: found.price})
+            let newCart = await Cart.create({name: found.name, price: found.price, img: found.img})
 
             res.status(201).json(newCart)
         } catch (error) {

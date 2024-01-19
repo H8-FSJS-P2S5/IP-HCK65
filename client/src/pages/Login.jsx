@@ -1,19 +1,11 @@
-// import {
-//   MDBBtn,
-//   MDBContainer,
-//   MDBRow,
-//   MDBCol,
-//   MDBCard,
-//   MDBCardBody,
-//   MDBInput,
-//   MDBIcon,
-//   MDBCheckbox,
-// } from "mdb-react-ui-kit";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { validation } from "../utils/validation";
+import { ToastContainer } from "react-toastify";
+import { errorAlert, successLogin } from "../utils/sweetAlert";
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -33,25 +25,61 @@ export default function LoginPage() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
     try {
       const { data } = await axios.post(
         "http://localhost:3000/login",
         userInput
       );
-      console.log(data, ">>>>>>>>>");
+      // console.log(data, ">>>>>>>>>");
       localStorage.setItem("access_token", data.access_token);
+      successLogin("Login success");
       navigate("/");
     } catch (error) {
-      console.log(error);
+      // validation(error)
+      errorAlert("Invalid email/password");
     }
   };
+
+  const handleCredentialResponse = async (response) => {
+    // console.log("ini respon dr google", response);
+    try {
+      const {data} = await axios.post('http://localhost:3000/googleLogin', null, {
+        headers: {
+          google_token: response.credential
+        }
+      });
+      // console.log(data, "<<<<<<<<<<<<<<<<<<<<<")
+      localStorage.setItem("access_token", data.access_token);
+      successLogin("Login success");
+      navigate("/");
+    } catch (error) {
+      console.log(error, "{}{}{}{}");
+    }
+  };
+
+  useEffect(() => {
+      // init google sign in
+      // window.onload = function () {
+      google.accounts.id.initialize({
+        // baiknya ditaruh di .env
+        client_id:
+          "205724776903-1dves8h84q74td4jthh1ra28f0rjpkvt.apps.googleusercontent.com",
+        callback: handleCredentialResponse
+      });
+      google.accounts.id.renderButton(
+        document.getElementById("button-google"),
+        { theme: "outline", size: "large" } // customization attributes
+      );
+      google.accounts.id.prompt(); // also display the One Tap dialog
+      // }
+  }, []);
 
   return (
     <>
       <div className="bg-white lg:w-4/12 md:6/12 w-10/12 m-auto my-10 shadow-md">
         <div className="py-8 px-8 rounded-xl">
           <h1 className="font-medium text-2xl mt-3 text-center">Login</h1>
+          <ToastContainer />
           <form onSubmit={handleLogin} className="mt-6">
             <div className="my-5 text-sm">
               <label className="block text-black">Email</label>
@@ -99,10 +127,10 @@ export default function LoginPage() {
           <div className="grid md:grid-cols-2 gap-2 mt-7">
             <div>
               <button className="text-center w-full text-white bg-blue-900 p-3 duration-300 rounded-sm hover:bg-blue-700">
-              Facebook  
+                Facebook
               </button>
             </div>
-            <div>
+            <div id="button-google">
               <button className="text-center w-full text-white bg-red-400 p-3 duration-300 rounded-sm hover:bg-red-500">
                 GOOGLE
               </button>
@@ -112,9 +140,9 @@ export default function LoginPage() {
           <p className="mt-12 text-xs text-center font-light text-gray-400">
             {" "}
             Don't have an account?{" "}
-            
-            <Link className="text-black font-medium" to='/register'>Register</Link>
-           
+            <Link className="text-black font-medium" to="/register">
+              Register
+            </Link>
           </p>
         </div>
       </div>

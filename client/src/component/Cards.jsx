@@ -3,16 +3,18 @@ import {
   CardHeader,
   CardBody,
   CardFooter,
-  Typography,
-  Avatar,
-  Tooltip,
+  Typography
 } from "@material-tailwind/react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { MdOutlineAddCircle } from "react-icons/md";
+import { MdOutlineNavigateNext } from "react-icons/md";
+import { GrFormPrevious } from "react-icons/gr";
 
 export default function CardPage() {
   const [fetch, setFetch] = useState([]);
+  const [page, setPage] = useState(1)
+  const [totalPage, setTotalPage] = useState(0)
 
   useEffect(() => {
     fetchData()
@@ -28,18 +30,27 @@ export default function CardPage() {
     })
     .then((response) => {
       setFetch(response.data)
+      setTotalPage(response.data.total)
+
     })
     .catch((error) => {
       console.log(error);
     })
+  };
+
+  const selectPageHandler = (selectedPage) => {
+    if (
+      selectedPage >= 1 &&
+      selectedPage <= fetch.length / 10 &&
+      selectedPage !== page
+    )
+    setPage(selectedPage)
   }
 
-  const [addItem, setAddItem] = useState([]);
-
-  const addData = (itemId) => {
-    axios({
+  const addData = async (id) => {
+    await axios({
         method: "POST",
-        url: `http://localhost:3000/foods/` + itemId,
+        url: `http://localhost:3000/foods/` + id,
         headers: {
             Authorization: `Bearer ${localStorage.getItem("access_token")}`
         }
@@ -47,12 +58,17 @@ export default function CardPage() {
     .then((response) => {
         console.log(response.data);
     })
-  }
+    .catch((error) => {
+      console.log(error);
+    })
+  };
+
 
   return (
     <> 
+      {fetch.length > 0 && (
     <div className="flex w-full flex-wrap overflow-auto h-screen">
-       {fetch.map((e, i) => {
+       {fetch.slice(page * 13 - 13, page * 13).map((e, i) => {
         return  <Card
         key={i}
             className="max-w-[20rem] h-[26rem] overflow-hidden ml-4 mt-4"
@@ -87,22 +103,27 @@ export default function CardPage() {
             <CardFooter className="flex items-center justify-between">
               <div className="flex items-center -space-x-3">
                 
-                <Tooltip content="Tania Andrew">
-                  <Avatar
-                    size="sm"
-                    variant="circular"
-                    alt="tania andrew"
-                    src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
-                    className="border-2 border-white hover:z-10"
-                  />
-                </Tooltip>
               </div>
-              <Typography className="text-xl"><MdOutlineAddCircle /></Typography>
+              <button id={e.id} onClick={() => addData(e.id)} ><MdOutlineAddCircle size={28}/></button>
+              <Typography className="text-xl"></Typography>
             </CardFooter>
           </Card>
         
        })} 
        </div>
+       )}
+       {
+         fetch.length > 0 && <div className="pagination flex justify-center mt-5 mb-5 join-item btn">
+          <span className={page > 1 ? "" : "pagination_disable"} onClick={() => selectPageHandler(page - 1)}><GrFormPrevious size={30} /></span>
+          {
+            
+            [...Array(Math.floor(fetch.length / 10))].map((_, i) => {
+                return <span className={page === i+1 ? "pagination_selected" : ""} onClick={() => selectPageHandler(page + 1)} key={i}></span>
+            })
+          }
+          <span onClick={() => selectPageHandler(page + 1)} className={page < fetch.length / 10 ? "" : "pagination_disable"}><MdOutlineNavigateNext size={30} /></span>
+         </div>
+       }
     </>
   );
 }

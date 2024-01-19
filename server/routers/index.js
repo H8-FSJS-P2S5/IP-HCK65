@@ -5,6 +5,7 @@ const router = require('express').Router()
 
 router.use(userRouter)
 router.use(authentication)
+
 router.use(itemRouter)
 
 module.exports = router;

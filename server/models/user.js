@@ -15,6 +15,18 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   User.init({
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: "Name is required"
+        },
+        notNull: {
+          msg: "Name is required"
+        }
+      }
+    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -36,10 +48,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       validate: {
         notEmpty: {
-          msg: "Email is required"
+          msg: "Password is required"
         },
         notNull: {
-          msg: "Email is required"
+          msg: "Password is required"
         },
         len: {
           args: 6,

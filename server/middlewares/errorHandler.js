@@ -1,4 +1,4 @@
-const errorHandler = (res, error, next) => {
+module.exports = (error, request, response, next) => {
     let status = error.status || 500;
     let message = error.message || "Internal server error";
 
@@ -15,9 +15,12 @@ const errorHandler = (res, error, next) => {
         case "Unauthorized":
             status = 401;
             message = "Invalid email or password"
-        default:
+            break;
+
+        case "SequelizeValidationError":
+            status = 400;
+            message = error.errors[0].message;
             break;
     }
+    response.status(status).json({message})
 }
-
-module.exports = {errorHandler};
