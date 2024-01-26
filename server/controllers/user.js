@@ -134,6 +134,7 @@ class UserController {
       // kemuudian disini kita akan cek ke midtrans apa status orderid tersebut
       // kalo capture/setlement => berarti pembayarannya success
       // kita akan update order statusnya jd paid
+      // lalu eksekusi
       res.json({ message: "Upgrade success" });
     } catch (error) {
       next(error);
