@@ -17,3 +17,43 @@ react redux
 npm i redux
 
 redux toolkit
+
+
+- skeleton code
+- default branch ke dev
+- clone
+
+//? mau ngoding
+- git checkout -b 'nama feature baru'
+- ngoding
+- git add . ,git commit, git push origin nama feature tsb
+
+//? github gui
+- new pull request
+- compare dev <- feature tsb
+- pr, merge
+
+//? lanjut ngoding
+- git checkout dev
+- git pull origin dev
+- git checkout -b 'nama feature baru'
+- ngoding
+- git add . ,git commit, git push origin nama feature tsb
+
+//? github gui
+- new pull request
+- compare dev <- feature tsb
+- pr, merge
+
+//? lanjut ngoding
+- git checkout dev
+- git pull origin dev
+- git checkout -b 'nama feature baru'
+- ngoding
+- git add . ,git commit, git push origin nama feature tsb
+
+//? dst
+
+//? akhir ketika mau deploy
+- pr, compare main <- dev
+- merge ke main

@@ -132,7 +132,7 @@ export default function SidebarPage() {
             </ListItemPrefix>
               <NavLink to="/cart" className="navbar-link cart-trolley--link">
               <FaCartShopping className="h-9 w-9" />
-              <span className="cart-total--item">10</span>
+              {/* <span className="cart-total--item">10</span> */}
               </NavLink>
             {/* <Link to="/cart">Cart</Link> */}
           </ListItem>
